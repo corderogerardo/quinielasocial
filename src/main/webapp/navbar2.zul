@@ -1,0 +1,11 @@
+<div sclass="navbar" apply="applications2.NavbarComposer">
+	<!-- Brand Logo -->
+	<a label="Quiniela Social " sclass="pull-left navbar-brand" iconSclass="z-icon-leaf"/>
+	<!-- Navbar -->
+	<hlayout sclass="nav-user pull-right" spacing="0">
+		<ul sclass="navbar-ul">
+			<li><a href="" title="">Iniciar Sesion</a></li>
+			<li><a href="" title="">Registrarse</a></li>
+		</ul>
+	</hlayout>
+</div>
