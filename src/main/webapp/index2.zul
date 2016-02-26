@@ -11,14 +11,15 @@
 -->
 
 <?link href="less/index.css.dsp" rel="stylesheet" type="text/css"?>
+<?link href="less/index2.css" rel="stylesheet" type="text/css"?>
 
 <zk xmlns:n="native">
 	<include src="navbar2.zul"/>             
 	<hlayout id="main" spacing="0">
-		<include src="sidebar.zul"/>    
+		  
 		<vlayout spacing="0" hflex="1">
 			<include src="breadcrumbs.zul"/>
-			<include src="page.zul"/>
+			<include src="page2.zul"/>
 		</vlayout>
 	</hlayout>
 
