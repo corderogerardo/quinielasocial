@@ -1,15 +1,5 @@
 <vlayout sclass="page-content" xmlns:n="native" spacing="0">
-  <div sclass="jumbotron">
-	<div class="container">
-		<html>
-		<h1>Hello, world!</h1>
-		<p>Contents ...</p>
-		<p>
-			<a href="index.zul" class="btn btn-primary btn-lg">Learn more</a>
-		</p>
-		</html>
-	</div>
-</div>
+  
   <separator height="12px"/>
   <hlayout spacing="24px">
     <include src="content/infobox.zul" hflex="7"/>

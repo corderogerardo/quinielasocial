@@ -1,12 +1,22 @@
-<div sclass="navbar" apply="applications2.NavbarComposer">
-	<!-- Brand Logo -->
-	<a label="Quiniela Social " sclass="pull-left navbar-brand"/>
-	<!-- Navbar -->
-	<hlayout sclass="pull-right" spacing="0">
-		<div sclass="menuper">
-			<a label="Registrarse" sclass="pull-left enlaces"/>
-			<a label="Iniciar Sesion" sclass="pull-left enlaces"/>
+<div sclass="contenedormenu">
+	<div sclass="espacios"></div>
+	<div sclass="menuquiniela">
+		<div>
+			<a label="INICIO" />
+			<a label="REGLAS DEL JUEGO " />
+			<a label="DEPORTES"  />
+			<a label="ARTICULOS"  />
+			<a label="MI QUINIELA"  />
+			<a href="#conversation" label="CONTACTO"  />
 		</div>
-		
-	</hlayout>
+	</div>
+	<div sclass="marcamenu">
+		<a label="Quiniela Social " sclass="" />
+	</div>
+	<div sclass="botonesmenu">
+		<div>
+			<a href="index.zul" label="Registrate" sclass="registratemenu"  />
+			<a label="Inicia Sesion" sclass="iniciasesionmenu" />
+		</div>
+	</div>
 </div>

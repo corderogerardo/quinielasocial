@@ -1,0 +1,160 @@
+.contenedormenu {
+  background-image: url("../assets/home/partido.jpg");
+  color: #fff;
+  display: inline-flex;
+  flex-direction: column;
+  height: 700px;
+  width: 100%;
+}
+.menuquiniela {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+}
+.menuquiniela div {
+  align-items: space-between;
+  border: 1px solid #26a65b;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 50px;
+  width: 50%;
+}
+.menuquiniela div a {
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: bold;
+  justify-content: center;
+  text-decoration: none;
+}
+.menuquiniela div a:hover {
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  color: #26a65b;
+  display: inline-flex;
+  text-decoration: nones;
+}
+.marcamenu {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: 'Lobster';
+  font-size: 12px;
+  font-weight: light;
+  height: 400px;
+  justify-content: center;
+  width: 100%;
+}
+.marcamenu a {
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  color: #fff;
+  display: inline-flex;
+  font-size: 64px;
+  font-weight: bold;
+  justify-content: center;
+  text-decoration: none;
+}
+.marcamenu a:hover {
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  color: #26a65b;
+  display: inline-flex;
+  text-decoration: nones;
+}
+.botonesmenu {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+font-size
+  height: 50px;
+  text-decoration: none;
+  width: 100%;
+}
+.botonesmenu div {
+  align-items: space-between;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+}
+.botonesmenu div .registratemenu {
+  background-color: rgba(0,95,71,0.6);
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  border: 1px solid #000;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 26px;
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  height: 80px;
+  text-decoration: none;
+  width: 300px;
+}
+.botonesmenu div .registratemenu:hover {
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  background-color: #26a65b;
+  color: #fff;
+  display: inline-flex;
+  text-decoration: none;
+  text-shadow: 0px 1px 1px #005f47;
+  opacity: 1;
+}
+.botonesmenu div .iniciasesionmenu {
+  background-color: rgba(217,30,24,0.6);
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  border: 1px solid #000;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 26px;
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  height: 80px;
+  text-decoration: none;
+  width: 300px;
+}
+.botonesmenu div .iniciasesionmenu:hover {
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  align-items: center;
+  background-color: #d91e18;
+  color: #fff;
+  display: inline-flex;
+  text-decoration: none;
+  text-shadow: 0px 1px 1px #005f47;
+  opacity: 1;
+}
+.espacios {
+  height: 50px;
+  width: 100%;
+}

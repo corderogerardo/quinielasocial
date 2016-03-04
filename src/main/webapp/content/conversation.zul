@@ -1,4 +1,5 @@
-<panel border="normal" sclass="conversation">
+
+<panel  border="normal" sclass="conversation">
   <caption iconSclass="z-icon-comment" label="Conversation"/>
   <panelchildren>
     <vlayout>
@@ -9,7 +10,7 @@
         </columns>
         <rows>
           <row>
-            <div sclass="user">
+            <div sclass="user" >
               <image tooltiptext="Alexa's Avatar" src="assets/avatars/avatar1.png"/>
             </div>
             <div sclass="body">
