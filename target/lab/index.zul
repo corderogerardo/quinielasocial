@@ -11,6 +11,8 @@
 -->
 
 <?link href="less/index.css.dsp" rel="stylesheet" type="text/css"?>
+<?link href="less/index2.css" rel="stylesheet" type="text/css"?>
+
 
 <zk xmlns:n="native">
 	<include src="navbar.zul"/>             

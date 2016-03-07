@@ -1,0 +1,22 @@
+<div sclass="contenedormenu">
+	<div sclass="espacios"></div>
+	<div sclass="menuquiniela">
+		<div>
+			<a label="INICIO" />
+			<a label="REGLAS DEL JUEGO " />
+			<a label="DEPORTES"  />
+			<a label="ARTICULOS"  />
+			<a label="MI QUINIELA"  />
+			<a href="#conversation" label="CONTACTO"  />
+		</div>
+	</div>
+	<div sclass="marcamenu">
+		<a label="Quiniela Social " sclass="" />
+	</div>
+	<div sclass="botonesmenu">
+		<div>
+			<a href="index.zul" label="Registrate" sclass="registratemenu"  />
+			<a label="Inicia Sesion" sclass="iniciasesionmenu" />
+		</div>
+	</div>
+</div>

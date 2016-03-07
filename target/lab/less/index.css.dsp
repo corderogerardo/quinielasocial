@@ -170,7 +170,7 @@ a:focus {
   border-radius: 0;
   min-height: 45px;
   position: relative;
-  background: #438eb9;
+  background: red;
 }
 .navbar .navbar-brand {
   color: #ffffff;

@@ -1,6 +1,6 @@
 <vlayout sclass="infobox-container" xmlns:n="native">
   <hlayout spacing="0" style="padding-top:1px">
-  <div sclass="infobox infobox-green">
+  <div id="infobox" sclass="infobox infobox-green">
     <span sclass="infobox-icon">
       <span zclass="z-icon-comments"/>
     </span>
