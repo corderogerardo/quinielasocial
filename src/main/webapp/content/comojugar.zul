@@ -1,12 +1,13 @@
 <div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12 comojugar">
-	¿Como Jugar?
+	
+	<span>¿Como Jugar?</span>	
 
 	</div> 	
 	<div sclass="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 		
 		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<span class="glyphicon glyphicon-user"></span>
+		<span sclass="glyphicon glyphicon-user"></span>
 		
 		Registrate
 		</div>  
@@ -16,7 +17,7 @@
 	<div sclass="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 		
 		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<span class="glyphicon glyphicon-calendar"></span>
+		<span sclass="glyphicon glyphicon-calendar"></span>
 		Crea Tu Quiniela
 		</div> 	
 		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -26,7 +27,7 @@
 	</div>
 	<div sclass="col-xs-4 col-sm-4 col-md-4 col-lg-4">	
 		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<span class="glyphicon glyphicon-share"></span>
+		<span sclass="glyphicon glyphicon-share"></span>
 		Comparte
 		</div> 	
 		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">

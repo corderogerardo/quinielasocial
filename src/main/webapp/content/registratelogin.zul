@@ -1,0 +1,137 @@
+<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<span sclass="login-title">Inicia Sesión</span>
+		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-login" 
+			apply="quinielasocial.lab.controller.ControladorLogin" 
+			id="loginWin">
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Correo (ej): player@gmail.com </span>
+			</div>
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="usuario" width="260px" 
+						sclass="input" 
+						constraint="no empty /.+@.+\.[a-z]+/: Por favor escribe tu correo"
+						/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div>  
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Password : 1234</span>
+				
+			</div>
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="password" type="password" sclass="input"
+									width="260px" constraint="no empty: Por favor escribe tu Contraseña" 
+									/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div>  
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<label id="message" sclass="warn" value="&#160;" />
+				<button id="login" label="Entrar"/>	
+				<span></span>
+			</div>  
+	       
+		</div> 		
+
+	</div> 	<!-- Fin iniciar sesion -->
+	
+	<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<span sclass="registrar-title">Registrarse</span>
+		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-registrar"
+			apply="quinielasocial.lab.controller.ControladorUsuario" 
+			id="registerWin">
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Cedula:</span>
+			</div>
+			
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Nombre:</span>
+			</div>
+			
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Apellido:</span>
+			</div>
+			
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Correo :</span>
+			</div>
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Fecha de Nacimiento :</span>
+			</div>	
+			
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Contraseña :</span>
+			</div>
+			
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Confirmar Contraseña :</span>
+			</div>
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span>Foto:</span>
+			</div>
+		</div> 	<!-- End labels -->
+		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-registrar">
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="cedula" sclass="input"
+				constraint="no empty: Por favor escribe tu cedula" 
+				width="260px"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div> 
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="nombre" sclass="input"
+				constraint="no empty: Por favor escribe tu nombre" width="260px"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div>
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="apellido" sclass="input" 
+				constraint="no empty: Por favor escribe tu apellido" 
+				width="260px"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div> 
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="correo" sclass="input"
+				constraint="/.+@.+\.[a-z]+/: Por favor escribe tu correo" 
+				width="260px"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div> 
+			 <div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<datebox id="fechaNacimiento" sclass="input" width="260px" height="40px" constraint="no future"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div> 
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="contrasena" sclass="input" 
+				constraint="no empty: Por favor escribe tu contraseña " 
+				type="password" width="260px"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div>  
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<textbox id="confcontrasena" sclass="input" 
+						constraint="no empty: Por favor repite tu contraseña " 
+						type="password" width="260px"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div>  
+			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<button id="btnFoto" upload="true" sclass="input" label="Seleccionar Foto" width="260px"/>
+				<div sclass="borders"></div>
+				<span></span>
+			</div>  
+		</div>	<!-- end inputs -->
+		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 botones-registrar">
+				<button id="guardarRegistrar" label="Guardar"/>
+				<span></span>
+		</div>  <!-- end botones -->
+		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 botones-registrar">
+				<button id="cancelarRegistrar" label="Cancelar"/>
+				<span></span>
+		</div>  <!-- end botones -->
+	</div> 	
+	
+</div>

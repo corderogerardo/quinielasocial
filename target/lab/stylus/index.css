@@ -154,6 +154,10 @@ font-size
   text-shadow: 0px 1px 1px #005f47;
   opacity: 1;
 }
+.comojugar {
+  align-items: center;
+  font-size: 50px;
+}
 .espacios {
   height: 50px;
   width: 100%;

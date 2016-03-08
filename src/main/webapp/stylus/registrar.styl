@@ -1,0 +1,101 @@
+.form-registrar
+	flexalign(center, inline-flex, column, space-around)
+	div
+		height 40px
+		font-size 12px
+		color black
+		width 300px
+		span
+			color Black
+			flexalign(center, inline-flex, column, space-around)
+			float left
+			font-weight bold
+			font-size 12px
+			height 40px
+			margin-left 7px
+			position relative
+			text-align center
+			transition .3s linear
+			width auto
+		.input
+			border none
+			height 25px
+			width 300px
+			position relative
+			outline none
+			z-index 2
+			float right
+			margin-top 7px
+			&:focus + borders
+				border 1px solid monzaOpacity
+			&:focus ~ span
+				color greenEucalyp
+		.borders
+			position absolute
+			width 100%
+			height 100%
+			left 0px
+			top 0px
+			z-index 0
+			border 1px solid turquesaSombra
+			margin 0px
+			transition .3s linear
+		button
+			border none
+			flexalign(center, inline-flex, row, space-around)
+			background-color greenEucalyp
+			color white
+			height 35px
+			width 250px
+			cursor pointer
+			span
+				color white
+				margin 0px
+				line-height 35px
+				height auto
+		button:hover
+			border none
+			flexalign(center, inline-flex, row, space-around)
+			background-color emerald
+			color white
+			height 35px
+			width 250px
+			cursor pointer
+			span
+				color white
+				margin 0px
+				line-height 35px
+				height auto
+.registrar-title
+	flexalign(center, inline-flex, column, space-around)
+	width 100%
+	span
+		font-size 24px
+		color verdeMaterial2
+.botones-registrar
+	button
+			border none
+			flexalign(center, inline-flex, row, space-around)
+			background-color greenEucalyp
+			color white
+			height 35px
+			width 250px
+			cursor pointer
+			span
+				color white
+				margin 0px
+				line-height 35px
+				height auto
+		button:hover
+			border none
+			flexalign(center, inline-flex, row, space-around)
+			background-color emerald
+			color white
+			height 35px
+			width 250px
+			cursor pointer
+			span
+				color white
+				margin 0px
+				line-height 35px
+				height auto
