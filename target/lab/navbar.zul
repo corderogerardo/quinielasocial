@@ -2,7 +2,7 @@
 	<div sclass="espacios"></div>
 	<div sclass="menuquiniela">
 		<div>
-			<a label="INICIO" />
+			<a href="/" label="INICIO" />
 			<a label="REGLAS DEL JUEGO " />
 			<a label="DEPORTES"  />
 			<a label="ARTICULOS"  />
@@ -11,12 +11,14 @@
 		</div>
 	</div>
 	<div sclass="marcamenu">
-		<a label="Quiniela Social " sclass="" />
+	<span>Bienvenido a </span>
+		<a label="Quiniela.com " sclass="" />
+		<span>Crea, Juega, Comparte Quinielas Online. </span>
 	</div>
 	<div sclass="botonesmenu">
 		<div>
-			<a href="index.zul" label="Registrate" sclass="registratemenu"  />
-			<a label="Inicia Sesion" sclass="iniciasesionmenu" />
+			<a href="/" label="Registrate" sclass="registratemenu"  />
+			<a href="/" label="Inicia Sesion" sclass="iniciasesionmenu" />
 		</div>
 	</div>
 </div>

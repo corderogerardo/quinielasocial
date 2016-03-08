@@ -6,7 +6,7 @@
   </hlayout>
   <separator bar="true"/>
   <hlayout spacing="24px">
-    <!-- <include src="content/domain.zul" hflex="12"/> -->
+    <include src="content/registratelogin.zul" hflex="12"/>
   </hlayout>
   <separator bar="true"/>
   <hlayout spacing="24px">

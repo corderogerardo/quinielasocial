@@ -22,5 +22,9 @@
 			
 		</vlayout>
 	</hlayout>
+	<include src="content/slider.zul"/>
+	<include src="content/info.zul"/>
+	<include src="content/footer.zul"/>
+	
 	
 </zk>
