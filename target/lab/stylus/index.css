@@ -401,7 +401,177 @@ font-size
   line-height: 35px;
   height: auto;
 }
+.infooter {
+  background-color: #26a65b;
+  color: #e0f2f1;
+  display: flex;
+  height: 300px;
+  padding-top: 5px;
+  width: 100%;
+}
+.infooter div {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 300px;
+}
+.qfooter {
+  background-color: #004d40;
+  color: #e0f2f1;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30px;
+  width: 100%;
+}
+.qfooter span {
+  color: #e0f2f1;
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30px;
+  width: 100%;
+}
 .espacios {
   height: 50px;
   width: 100%;
+}
+div#slider {
+  overflow: hidden;
+  height: 650px;
+  width: 100%;
+}
+div#slider figure img {
+  width: 20%;
+  float: left;
+  height: 650px;
+}
+div#slider figure {
+  position: relative;
+  width: 500%;
+  height: 650px;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 25s slidy infinite;
+}
+@-moz-keyframes slidy {
+  0% {
+    left: 0%;
+  }
+  20% {
+    left: 0%;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}
+@-webkit-keyframes slidy {
+  0% {
+    left: 0%;
+  }
+  20% {
+    left: 0%;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}
+@-o-keyframes slidy {
+  0% {
+    left: 0%;
+  }
+  20% {
+    left: 0%;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
+}
+@keyframes slidy {
+  0% {
+    left: 0%;
+  }
+  20% {
+    left: 0%;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -300%;
+  }
+  95% {
+    left: -300%;
+  }
+  100% {
+    left: -400%;
+  }
 }
