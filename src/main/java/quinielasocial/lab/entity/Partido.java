@@ -5,91 +5,88 @@ import java.util.Date;
 
 public class Partido {
 
-	private int idpartido;
-	private String fechaP;
-	private String hora;
-	private String lugar;
-	private String idEquipLocal;
-	private String idEquipVisitante;
-	private String idfase;
+	//idpar en el archivo de mapeo de hibernate, en la tabla, cuando es autoincrement no es necesario colocarlo aca, ya que no es un dato que se escribe.
+	// en el dao cuando insertas de hecho no es necesario especificarlo, tener en mente que el DAO y el atributo a guardar en la tabla.
+	//idtor, idequloc, idequvis son claves foraneas aqui, claves primarias en sus respectivas tablas.
+	private int idtor;
+	private int idequloc;
+	private int idequvis;
+	private String lugpar;
+	private Date fecpar;
+	private int resequloc;
+	private int resequvis;
+	private String estadopar;
+		
 	
-	
-	public Partido(int idpartido, String fechaP, String hora, String lugar, String idequilocal, String idequivisitante, String idfase ) {
+	public Partido(int idtor, int idequloc, int idequvis, String lugpar, Date fecpar, int resequloc, int resequvis,
+			String estadopar) {
 		super();
-		this.idpartido = idpartido;
-		this.fechaP = fechaP;
-		this.hora = hora;
-		this.lugar = lugar;
-		this.idEquipLocal = idequilocal;
-		this.idEquipVisitante = idequivisitante;
-		this.idfase = idfase;
-	
+		this.idtor = idtor;
+		this.idequloc = idequloc;
+		this.idequvis = idequvis;
+		this.lugpar = lugpar;
+		this.fecpar = fecpar;
+		this.resequloc = resequloc;
+		this.resequvis = resequvis;
+		this.estadopar = estadopar;
 	}
-	
+
 	public Partido() {
 		super();
-  }
-	public int getIdpartido() {
-		return idpartido;
+		// TODO Auto-generated constructor stub
 	}
 	
-	public String getFechaP() {
-		return fechaP;
+	public int getIdtor() {
+		return idtor;
 	}
-
-
-	public String getHora() {
-		return hora;
+	public void setIdtor(int idtor) {
+		this.idtor = idtor;
 	}
-
-
-	public String getLugar() {
-		return lugar;
+	public int getIdequloc() {
+		return idequloc;
 	}
-
-
-
-	public String getIdfase() {
-		return idfase;
+	public void setIdequloc(int idequloc) {
+		this.idequloc = idequloc;
 	}
-	
-	public String getIdEquipLocal() {
-		return idEquipLocal;
+	public int getIdequvis() {
+		return idequvis;
 	}
-
-	public void setIdEquipLocal(String idEquipLocal) {
-		this.idEquipLocal = idEquipLocal;
+	public void setIdequvis(int idequvis) {
+		this.idequvis = idequvis;
 	}
-
-	public String getIdEquipVisitante() {
-		return idEquipVisitante;
+	public String getLupar() {
+		return lugpar;
 	}
-
-	public void setIdEquipVisitante(String idEquipVisitante) {
-		this.idEquipVisitante = idEquipVisitante;
+	public void setLupar(String lugpar) {
+		this.lugpar = lugpar;
 	}
-	
-	
-	public void setIdpartido(int idpartido) {
-		this.idpartido = idpartido;
+	public Date getFecpar() {
+		return fecpar;
 	}
-
-	public void setFechaP(String fechaP) {
-		this.fechaP = fechaP;
+	public void setFecpar(Date fecpar) {
+		this.fecpar = fecpar;
 	}
-
-	public void setHora(String hora) {
-		this.hora = hora;
+	public int getResequloc() {
+		return resequloc;
 	}
-
-	public void setLugar(String lugar) {
-		this.lugar = lugar;
+	public void setResequloc(int resequloc) {
+		this.resequloc = resequloc;
+	}
+	public int getResequvis() {
+		return resequvis;
+	}
+	public void setResequvis(int resequvis) {
+		this.resequvis = resequvis;
+	}
+	public String getEstadopar() {
+		return estadopar;
+	}
+	public void setEstadopar(String estadopar) {
+		this.estadopar = estadopar;
 	}
 	
-
-	public void setIdfase(String idfase) {
-		this.idfase = idfase;
-	}
+	
+	
 	
 	
 }	
