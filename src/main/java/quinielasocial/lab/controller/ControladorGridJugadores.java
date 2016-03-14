@@ -2,11 +2,11 @@ package quinielasocial.lab.controller;
 import java.util.List;
 
 import quinielasocial.lab.entity.Jugador;
-import quinielasocial.lab.services.jugadorServicio;
+import quinielasocial.lab.services.JugadorServicio;
 
 
 public class ControladorGridJugadores {
-	private jugadorServicio jugadorData = new jugadorServicio();
+	private JugadorServicio jugadorData = new JugadorServicio();
 
 	public ControladorGridJugadores() {
 		super();

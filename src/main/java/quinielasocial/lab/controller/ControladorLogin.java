@@ -15,11 +15,11 @@ import org.zkoss.zul.Textbox;
 
 import quinielasocial.lab.entity.Jugador;
 import quinielasocial.lab.entity.*;
-import quinielasocial.lab.services.jugadorServicio;
+import quinielasocial.lab.services.JugadorServicio;
 import quinielasocial.lab.services.*;
 public class ControladorLogin extends SelectorComposer<Component> {
 	private static final long serialVersionUID = 1L;
-	private jugadorServicio serv = new jugadorServicio();
+	private JugadorServicio serv = new JugadorServicio();
 	private List<Jugador> todosUsuarios;
 	//wire components
 	@Wire

@@ -1,19 +1,19 @@
 package quinielasocial.lab.dao;
 
-
 import quinielasocial.lab.conf.Sesion;
-import quinielasocial.lab.entity.Persona;
+import quinielasocial.lab.entity.Jugador;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-public class DaoPersona {
+
+public class DaoJugador {
 	
 	private Sesion sesionPostgres;
 	
-	public void agregarPersona(Persona dato) throws Exception{
+	public void agregarJugador(Jugador dato) throws Exception{
 		@SuppressWarnings("static-access")
 		Session em = sesionPostgres.openSession();
 		Transaction tx = null;
@@ -29,12 +29,12 @@ public class DaoPersona {
 			em.close();
 		}
 	}
-	public Persona obtenerPersona(String cedula) throws Exception{
+	public Jugador obtenerJugador(String cedula) throws Exception{
 		@SuppressWarnings("static-access")
 		Session sesion = sesionPostgres.openSession();
-		Persona dato = null;
+		Jugador dato = null;
 		try{
-			dato = (Persona) sesion.get(Persona.class, cedula);
+			dato = (Jugador) sesion.get(Jugador.class, cedula);
 		}catch(Exception e){
 			e.printStackTrace();
 			
@@ -45,7 +45,7 @@ public class DaoPersona {
 		return dato;
 
 	}
-	public void actualizarPersona(Persona dato) throws Exception{
+	public void actualizarJugador(Jugador dato) throws Exception{
 		@SuppressWarnings("static-access")
 		Session em = sesionPostgres.openSession();
 		Transaction tx = null;
@@ -61,11 +61,11 @@ public class DaoPersona {
 			em.close();
 		}
 	}
-	public List<Persona> obtenerTodos() throws Exception{
-		List<Persona> datos = new ArrayList<Persona>();
+	public List<Jugador> obtenerTodos() throws Exception{
+		List<Jugador> datos = new ArrayList<Jugador>();
 		Session em = sesionPostgres.openSession();
 		try{
-			datos = (List<Persona>) em.createCriteria(Persona.class).list();
+			datos = (List<Jugador>) em.createCriteria(Jugador.class).list();
 		}catch (Exception e){
 			throw new Exception(e.getMessage(), e.getCause());
 		}finally{
@@ -73,4 +73,5 @@ public class DaoPersona {
 		}
 		return datos;
 	}
+
 }

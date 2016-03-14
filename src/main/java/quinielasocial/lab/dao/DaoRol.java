@@ -1,19 +1,19 @@
 package quinielasocial.lab.dao;
 
-
 import quinielasocial.lab.conf.Sesion;
-import quinielasocial.lab.entity.Persona;
+import quinielasocial.lab.entity.Rol;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-public class DaoPersona {
+
+public class DaoRol {
 	
-	private Sesion sesionPostgres;
+private Sesion sesionPostgres;
 	
-	public void agregarPersona(Persona dato) throws Exception{
+	public void agregarUsuario(Rol dato) throws Exception{
 		@SuppressWarnings("static-access")
 		Session em = sesionPostgres.openSession();
 		Transaction tx = null;
@@ -29,12 +29,12 @@ public class DaoPersona {
 			em.close();
 		}
 	}
-	public Persona obtenerPersona(String cedula) throws Exception{
+	public Rol obtenerUsuario(String id) throws Exception{
 		@SuppressWarnings("static-access")
 		Session sesion = sesionPostgres.openSession();
-		Persona dato = null;
+		Rol dato = null;
 		try{
-			dato = (Persona) sesion.get(Persona.class, cedula);
+			dato = (Rol) sesion.get(Rol.class, id);
 		}catch(Exception e){
 			e.printStackTrace();
 			
@@ -45,7 +45,7 @@ public class DaoPersona {
 		return dato;
 
 	}
-	public void actualizarPersona(Persona dato) throws Exception{
+	public void actualizarUsuario(Rol dato) throws Exception{
 		@SuppressWarnings("static-access")
 		Session em = sesionPostgres.openSession();
 		Transaction tx = null;
@@ -61,11 +61,11 @@ public class DaoPersona {
 			em.close();
 		}
 	}
-	public List<Persona> obtenerTodos() throws Exception{
-		List<Persona> datos = new ArrayList<Persona>();
+	public List<Rol> obtenerTodos() throws Exception{
+		List<Rol> datos = new ArrayList<Rol>();
 		Session em = sesionPostgres.openSession();
 		try{
-			datos = (List<Persona>) em.createCriteria(Persona.class).list();
+			datos = (List<Rol>) em.createCriteria(Rol.class).list();
 		}catch (Exception e){
 			throw new Exception(e.getMessage(), e.getCause());
 		}finally{
@@ -73,4 +73,5 @@ public class DaoPersona {
 		}
 		return datos;
 	}
+
 }
