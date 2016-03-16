@@ -1,10 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-
-    <session-factory> 
+    <session-factory>
     <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
 		<property name="connection.url">jdbc:postgresql://localhost:5432/quiniela</property>
@@ -20,5 +19,4 @@
       <mapping class="com.modelo.entidad.Profesor" /> 
       <mapping class="com.modelo.entidad.Alumno" />       
     </session-factory>
-
 </hibernate-configuration>
