@@ -15,8 +15,8 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">create</property>
-      <mapping class="com.modelo.entidad.Persona" />
-      <mapping class="com.modelo.entidad.Profesor" /> 
-      <mapping class="com.modelo.entidad.Alumno" />       
+      <mapping resource="lab/quinielasocial/lab/entity/Persona.hbm.xml" />
+      <mapping resource="lab/quinielasocial/lab/entity/Usuario.hbm.xml" />
+      <mapping />
     </session-factory>
 </hibernate-configuration>

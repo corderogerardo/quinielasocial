@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/03/2016 11:00:47 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="quinielasocial.lab.entity.Usuario" table="USUARIO">
+        <id name="correo" type="java.lang.String">
+            <column name="CORREO" />
+            <generator class="assigned" />
+        </id>
+        <property name="idrol"  type="int">
+            <column name="IDROL" />
+        </property>
+        <property name="clave" type="java.lang.String">
+            <column name="CLAVE" />
+        </property>
+        <property name="fechaingreso" type="java.util.Date">
+            <column name="FECHAINGRESO" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="ESTADO" />
+        </property>
+    </class>
+</hibernate-mapping>
