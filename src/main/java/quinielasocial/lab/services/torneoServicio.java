@@ -11,9 +11,7 @@ public class torneoServicio {
 	private List<Torneo> torneos = new ArrayList<Torneo>();
 	
 	public torneoServicio(){
-		torneos.add(new Torneo("Futbol","Copa America",ConvertirStringFecha("30/06/2016"),ConvertirStringFecha("30/07/2016"),12));
-		torneos.add(new Torneo("Baloncesto","Torneo de las Americas",ConvertirStringFecha("01/07/2016"),ConvertirStringFecha("01/08/2016"),18));
-
+		
 	}
 	
 	
@@ -22,7 +20,7 @@ public class torneoServicio {
 	}
 	
 	public void agregarJugador(String deporte, String nombre, Date fechaInicio, Date fechaFin, int cantParticipantes){
-		torneos.add(new Torneo(deporte,nombre,fechaInicio,fechaFin,cantParticipantes));
+	
 	}
 	
 
@@ -66,9 +64,9 @@ public class torneoServicio {
 	public Torneo buscar(String palabraClave){
 		if (palabraClave!=null ||  palabraClave!=""){
 			for (Torneo e: torneos){
-				if (e.getNombre().toLowerCase().contains(palabraClave.toLowerCase())){
-					return e;
-				}
+//				if (e.getNombre().toLowerCase().contains(palabraClave.toLowerCase())){
+//					return e;
+//				}
 			}
 		}
 		return torneos.get(0);
@@ -81,10 +79,10 @@ public class torneoServicio {
 			result = torneos;
 		}else{
 			for (Torneo c: torneos){
-				if (c.getNombre().toLowerCase().contains(palabraClave.toLowerCase())
-					||c.getDeporte().toLowerCase().contains(palabraClave.toLowerCase())){
-					result.add(c);
-				}
+//				if (c.getNombre().toLowerCase().contains(palabraClave.toLowerCase())
+//					||c.getDeporte().toLowerCase().contains(palabraClave.toLowerCase())){
+//					result.add(c);
+//				}
 			}
 		}
 		return result;

@@ -53,18 +53,18 @@ public class ControladorLogin extends SelectorComposer<Component> {
 		
 		for (int i=0;i<todosUsuarios.size();i++){
 			if(todosUsuarios.get(i).getCorreo().equals(nm)) {
-				if (todosUsuarios.get(i).getTipo().equals("admin") && todosUsuarios.get(i).getClave().equals(pd)){
-					miSession.setAttribute("usuario", "Administrador");	
-					Executions.sendRedirect("/administradorPagina/indexSesionAdmin.zul");					
-					s=true;
-				}
-				else
-				if (todosUsuarios.get(i).getTipo().equals("player") && todosUsuarios.get(i).getClave().equals(pd)){
-
-					miSession.setAttribute("usuario", nm);					
-					Executions.sendRedirect("/indexSesion.zul");		
-					s=true;
-				}
+//				if (todosUsuarios.get(i).getTipo().equals("admin") && todosUsuarios.get(i).getClave().equals(pd)){
+//					miSession.setAttribute("usuario", "Administrador");	
+//					Executions.sendRedirect("/administradorPagina/indexSesionAdmin.zul");					
+//					s=true;
+//				}
+//				else
+//				if (todosUsuarios.get(i).getTipo().equals("player") && todosUsuarios.get(i).getClave().equals(pd)){
+//
+//					miSession.setAttribute("usuario", nm);					
+//					Executions.sendRedirect("/indexSesion.zul");		
+//					s=true;
+//				}
 					
 			}
 							
