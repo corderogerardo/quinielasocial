@@ -27,7 +27,7 @@
 		separated -->
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.example.business" />
+	<context:component-scan base-package="quinielasocial.lab.business" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	<!-- <tx:annotation-driven transaction-manager="transactionManager2" /> -->
@@ -38,6 +38,6 @@
 
 	<bean
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-
-	<bean id="CRUDService" class="com.example.business.service.CRUDServiceImpl" />
+<!--     Aqui enlazas servicios -->
+	<bean id="JugadorServicio" class="quinielasocial.lab.services.JugadorServicioImpl" />
 </beans>

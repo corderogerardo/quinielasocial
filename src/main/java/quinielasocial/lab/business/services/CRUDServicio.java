@@ -1,0 +1,22 @@
+package quinielasocial.lab.business.services;
+
+import java.io.Serializable;
+import java.util.List;
+
+public interface CRUDServicio {
+
+<T> List<T> getTodos(Class<T> klass);
+	
+	<T> void Save(T klass);
+	
+	<T> T encontrarPorId(Class<T> klass, Serializable id);
+	
+	public <T> T GetUniqueEntityByNamedQuery(String query, Object... params);
+	
+	<T> List<T> ObtenerNombrePorNombreQuery(String query, Object... params);
+	
+	<T> void eliminar(T klass);
+	
+	<T> Long getQueryCount(String query, Object... params);
+	
+}

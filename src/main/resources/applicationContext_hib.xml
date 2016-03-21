@@ -20,7 +20,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.example.domain" />
+		<property name="packagesToScan" value="quinielasocial.lab.domain" />
 
 		<property name="hibernateProperties">
 			<props>
@@ -30,7 +30,7 @@
 				<prop key="hibernate.use_sql_comments">true</prop>
 				<prop key="hibernate.zeroDateTimeBehavior">convertToNull</prop>
 				<prop key="hibernate.connection.zeroDateTimeBehavior">convertToNull</prop>
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 			</props>
 		</property>
 	</bean>

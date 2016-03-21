@@ -13,10 +13,8 @@ import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
-import quinielasocial.lab.entity.Jugador;
-import quinielasocial.lab.entity.*;
-import quinielasocial.lab.services.JugadorServicio;
-import quinielasocial.lab.services.*;
+import quinielasocial.lab.business.services.*;
+import quinielasocial.lab.domain.entity.*;
 public class ControladorLogin extends SelectorComposer<Component> {
 	private static final long serialVersionUID = 1L;
 	private JugadorServicio serv = new JugadorServicio();
