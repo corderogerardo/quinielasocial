@@ -26,13 +26,14 @@ public class CRUDDaoImpl implements CRUDDao {
 	}
 
 	public <T> void Save(T klass) throws DataAccessException {
-		// TODO Auto-generated method stub
 		getCurrentSession().saveOrUpdate(klass);
 		
 	}
+	public <T> void eliminar(T klass) throws DataAccessException {
+		getCurrentSession().delete(klass);
+	}
 	@SuppressWarnings("unchecked")
 	public <T> T encontrarPorId(Class<T> klass, Serializable id) {
-		// TODO Auto-generated method stub
 		return (T) getCurrentSession().get(klass, id);
 	}
 	
@@ -78,10 +79,7 @@ public class CRUDDaoImpl implements CRUDDao {
 		return list;
 	}
 
-	public <T> void eliminar(T klass) {
-		// TODO Auto-generated method stub
-		getCurrentSession().delete(klass);
-	}
+
 
 	public <T> Long getQueryCount(String query, Object... params) {
 		// TODO Auto-generated method stub

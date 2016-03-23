@@ -20,7 +20,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="quinielasocial.lab.domain" />
+		<property name="packagesToScan" value="quinielasocial.lab.domain.entity" />
 
 		<property name="hibernateProperties">
 			<props>

@@ -7,15 +7,19 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
 import org.zkoss.zk.ui.util.Clients;
+import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.*;
 
-import quinielasocial.lab.business.services.torneoServicio;
-import quinielasocial.lab.domain.entity.Torneo;
+import quinielasocial.lab.business.services.CRUDService;
+
+
 
 public class ControladorListaQuinielas extends SelectorComposer<Component> {
 
 	private static final long serialVersionUID = 1L;
-	private torneoServicio torneoData = new torneoServicio();
+	@WireVariable
+	protected CRUDService serviciocrud = (CRUDService) SpringUtil.getBean("CRUDService");
+
 
 	public ControladorListaQuinielas() {
 		super();
@@ -37,8 +41,7 @@ public class ControladorListaQuinielas extends SelectorComposer<Component> {
 	@Wire
 	private Image imgImagenPrevia;
 	
-	public torneoServicio torneos = new torneoServicio();
-
+	
 //	private IServicio servicioCarro = new Servicio();
 	
 

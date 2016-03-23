@@ -39,5 +39,5 @@
 	<bean
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 <!--     Aqui enlazas servicios -->
-	<bean id="JugadorServicio" class="quinielasocial.lab.services.JugadorServicioImpl" />
+	<bean id="CRUDServicio" class="quinielasocial.lab.business.services.CRUDServicioImpl" />
 </beans>

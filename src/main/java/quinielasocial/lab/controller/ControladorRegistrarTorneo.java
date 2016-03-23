@@ -9,7 +9,6 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
 
-import quinielasocial.lab.controller.*;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
