@@ -1,4 +1,6 @@
 package quinielasocial.lab.controller;
+import controlador.ControladorCamposRegistrarTorneo;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,8 +14,6 @@ import org.zkoss.zul.Grid;
 import org.zkoss.zul.Hbox;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Window;
-import quinielasocial.lab.controller.ControladorCamposRegistrarTorneo;
-
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;

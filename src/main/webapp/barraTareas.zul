@@ -1,0 +1,43 @@
+<zk xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+<zscript><![CDATA[
+	public void redireccionarRegistrarQuiniela() {
+		Executions.sendRedirect("sesionRegistrarTorneo.zul");
+	}
+	public void redireccionarSolicitudes() {
+		Executions.sendRedirect("sesionSolicitudes.zul");
+	}
+	public void redireccionarMisQuinielas() {
+		Executions.sendRedirect("sesionMisQuinielas.zul");
+	}
+	public void redireccionarParticipando() {
+		Executions.sendRedirect("sesionParticipando.zul");
+	}
+	public void redireccionarMensajes() {
+		Executions.sendRedirect("sesionMensajes.zul");
+	}
+
+
+]]></zscript>
+<window>
+<div>
+<button id="nuevo" label="Nueva Quiniela" image="/img/nuevo.svg" sclass="btn btn-sm button-0" width="90%" onClick="redireccionarRegistrarQuiniela()">
+						</button>
+						
+<button id="creadas" label="Mis Quinielas" image="/img/misquinielas.svg" sclass="btn btn-sm button-0" width="90%" onClick="redireccionarMisQuinielas()">
+						</button>
+<button id="participando" label="Participando" image="/img/participando.svg" sclass="btn btn-sm button-0" width="90%" onClick="redireccionarParticipando()">
+						</button>		
+					
+				
+<button id="unirse" label="Unirse" image="/img/unirse.svg" sclass="btn btn-sm button-0" width="90%">
+						</button>						
+
+<button id="mensajes" label="Mensajes" image="/img/mensajes.svg" sclass="btn btn-sm button-0" width="90%" onClick="redireccionarMensajes()">
+						</button>
+						
+<button id="invitaciones" label="Solicitudes" image="/img/invitaciones.svg" sclass="btn btn-sm button-0" width="90%" onClick="redireccionarSolicitudes()"> 
+						</button>
+</div>
+
+</window>
+</zk>

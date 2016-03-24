@@ -1,0 +1,53 @@
+
+<zk>
+<window title="Peticiones de Unirse a una Quinela" border="normal" sclass="margintabletittle borde sombra">
+<borderlayout height="300px">
+	<center autoscroll="true">
+		<div>
+		<listbox fixedLayout="true" id="lstmensajes" width="65%">
+			<listhead >
+							<listheader label="Descripción" width="15%"/>
+							<listheader label="Aprobar" width="10%"/>
+							<listheader label="Rechazar" width="10%"/>
+
+						</listhead>
+			<listitem>
+				<listcell label="Julian Jose Ollarvez Abreu a solicitado unirse a la Quinela Copa_Libertadores"/>
+           		<listcell><button label="Aceptar"  onClick="removeRow(self.getParent().getParent())" sclass="btn btn-sm button-0" /></listcell>
+				<listcell><button label="Rechazar" onClick="removeRow(self.getParent().getParent())" sclass="btn btn-sm button-0" /></listcell>
+			</listitem>
+				
+			<listitem visible="true">
+				<listcell label="Maria Alejandra Ortiz Delgado a solicitado unirse a la Quinela Copa_Libertadores"/>
+           		<listcell><button label="Aceptar"  onClick="removeRow(self.getParent().getParent())" sclass="btn btn-sm button-0" /></listcell>
+				<listcell><button label="Rechazar" onClick="removeRow(self.getParent().getParent())" sclass="btn btn-sm button-0" /></listcell>
+			</listitem>
+			
+			<listitem visible="true">
+				<listcell label="Juan Jose Ruiz Caicedo a solicitado unirse a la Quinela Euro_Copa_2016"/>
+           		<listcell><button label="Aceptar"  onClick="removeRow(self.getParent().getParent())" sclass="btn btn-sm button-0"/></listcell>
+				<listcell><button label="Rechazar" onClick="removeRow(self.getParent().getParent())" sclass="btn btn-sm button-0"/></listcell>
+			</listitem>		
+		</listbox>
+		
+		</div>
+		<zscript><![CDATA[
+			  
+				Listitem baseItem = lstmensajes.getItemAtIndex(lstmensajes.getItemCount()-1);
+				void addRow() {
+					Listitem listitem = (Listitem)baseItem.clone();
+					listitem.setVisible(true);
+					lstmensajes.insertBefore(listitem, baseItem);
+				}
+				
+				void removeRow(Object object) {
+					if(lstmensajes.getItemCount() > 0 ) {
+						lstmensajes.removeChild((Listitem)object);
+					}
+				}
+				
+			]]></zscript>
+	</center>
+</borderlayout>
+</window>
+</zk>

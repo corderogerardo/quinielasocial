@@ -1,0 +1,24 @@
+
+<window title="A continuacion las Quinielas Que Administras" sclass="margintabletittle borde sombra">
+<div  apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('modelo') @init('quinielasocial.lab.controller.ControladorGridTorneos')">
+		<grid visible="true" id="datosTorneos" mold="paging" pageSize="5"  pagingPosition="top"
+			model="@load(modelo.obtenerTorneos)" >
+			<columns menupopup="auto">
+				<column width="180px" label="Nombre" />
+				<column width="180px" label="Deporte" />
+				<column width="180px" label="Fecha De Inicio" />
+			    <column width="180px" label="Fecha de Final" />
+				
+			</columns>	
+			<template name="model">
+				<row>
+					<label value="@load(each.nombre)" />
+					<label value="@load(each.deporte)" />
+					<label value="@load(each.fechaInicio)" />	
+					<label value="@load(each.fechaFin)" />					
+				</row>	
+			</template>
+		</grid>
+	</div>
+</window>

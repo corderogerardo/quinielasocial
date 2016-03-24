@@ -1,0 +1,54 @@
+<zk>
+<window>
+<div sclass="margintabletittle borde sombra">
+    <grid id="grid" mold="paging" pageSize="3" >
+            <auxhead >
+            <auxheader colspan="4" label="Tus puntuación en las quinielas que estás participando" />
+        </auxhead>
+        <columns>
+            <column label="De:" width="150px"/>
+            <column label="Mensaje" width="330px"/>
+            <column label="Ver" width="150px"/>
+            <column label="Responder" width="170px"/>
+        </columns>
+		<rows>
+            <row>
+                <label value="Juan Carlos Quintero" />
+				<label value="Ganeeee jajaajaj" />
+                <button label="Leer" sclass="btn btn-sm button-0"/>
+				<button label="Responder" sclass="btn btn-sm button-0"/>
+            </row>
+            
+            <row>
+                <label value="Valentina Delgado" />
+				<label value="Perdi :( no te voy a pagar" />
+                <button label="Leer" sclass="btn btn-sm button-0"/>
+				<button label="Responder" sclass="btn btn-sm button-0"/>
+            </row>
+            
+            <row>
+                <label value="Francisco Reyes" />
+				<label value="La chama me respondioooo :D" />
+                <button label="Leer" sclass="btn btn-sm button-0"/>
+				<button label="Responder" sclass="btn btn-sm button-0"/>
+            </row>
+                        <row>
+                <label value="Carlos Martinez" />
+				<label value="Quien crees que gane el juego de hoy?" />
+                <button label="Leer" sclass="btn btn-sm button-0"/>
+				<button label="Responder" sclass="btn btn-sm button-0"/>
+            </row>
+            
+            <row>
+                <label value="Andreina Torres" />
+				<label value="Cuando será el proximo juego?" />
+                <button label="Leer" sclass="btn btn-sm button-0"/>
+				<button label="Responder" sclass="btn btn-sm button-0"/>
+            </row>
+            
+            
+		 </rows>
+    </grid>
+</div>
+</window>
+</zk>

@@ -1,0 +1,24 @@
+<zk>
+<div sclass="menu" align="right" height="100%" width="100%">
+				<separator></separator>
+    			<separator></separator>
+    			<separator></separator>
+    			<separator></separator>
+    			<separator></separator>
+    			<image sclass="navbar-left" src="img/logonegro1.svg"/>
+    			
+    			<space spacing="40px"></space>
+    			<div>
+
+						<button id="inicio" label="Inicio" sclass="btn btn-primary btn-lg boton" width="180px">
+						</button>
+						<button id="ingresar" label="Ingresar" sclass="btn btn-primary btn-lg boton" width="180px">
+						</button>
+						<button id="registrarse" label="Registrarse" sclass="btn btn-primary btn-lg boton" width="180px">
+						</button>
+						<space spacing="20px"></space>
+						</div>
+						
+						
+</div>
+</zk>

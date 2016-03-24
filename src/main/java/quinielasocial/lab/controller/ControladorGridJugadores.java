@@ -1,26 +1,18 @@
 package quinielasocial.lab.controller;
+import servicio.jugadorServicio;
 import java.util.List;
 
-import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zkplus.spring.SpringUtil;
-
-import quinielasocial.lab.business.services.CRUDService;
-import quinielasocial.lab.domain.entity.Jugador;
-
+import modelo.Jugador;
 
 
 public class ControladorGridJugadores {
-	@WireVariable
-	protected CRUDService serviciocrud = (CRUDService) SpringUtil.getBean("CRUDService");
-	
-	private Jugador jugador;
-	private List<Jugador> jugadores;
+	private jugadorServicio jugadorData = new jugadorServicio();
 
 	public ControladorGridJugadores() {
 		super();
 	}
 
 	public List<Jugador> getObtenerJugadores() {
-		return jugadores=serviciocrud.getAll(Jugador.class);
+		return jugadorData.getAllJugadores();
 	}
 }

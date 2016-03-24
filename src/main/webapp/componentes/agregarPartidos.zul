@@ -1,0 +1,65 @@
+<zk>
+	<window title="Agregar Partidos Al Torneo" border="normal" id="agregarPartidosWin" sclass="margintabletittle borde sombra" apply="quinielasocial.lab.controller.ControladorAgregarEquipos">
+		<div >
+			<panel collapsible="false" title="Detalles De Los partidos">
+				<panelchildren>
+					<listbox fixedLayout="true" id="lstpartidos">
+						<listhead>
+							<listheader label="Equipo Local" width="150px"/>
+							<listheader label="Vs" width="100px"/>
+							<listheader label="Equipo Visitante" width="150px"/>
+						    <listheader label="Lugar" width="140px"/>
+						    <listheader label="Fecha" width="180px"/>
+						    <listheader label="Hora" width="100px"/>
+							<listheader width="100px">
+								<button label="Agregar" id="addRecord" onClick="addRow()"/>
+							</listheader>
+						</listhead>
+						<listitem>
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell>VS.</listcell>
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell><datebox width="150px" format="dd/MM/yyyy"/></listcell>
+							<listcell><hlayout><datebox width="150px" format="dd/MM/yyyy"/></hlayout></listcell>							
+							<listcell><button label="Remover" onClick="removeRow(self.getParent().getParent())"/></listcell>
+						</listitem>
+						<listitem visible="false">
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell>VS.</listcell>
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell><hlayout><datebox width="150px" format="dd/MM/yyyy"/></hlayout></listcell>							
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							
+							<listcell><button label="Remover" onClick="removeRow(self.getParent().getParent())"/></listcell>
+						</listitem>
+					</listbox>
+				</panelchildren>
+			</panel>
+			<separator/><separator/>
+			<hbox align="center" width="100%">
+				<div align="center">
+					<button label="Guardar" id="saveTimesheetDetails"/>
+				</div>
+			</hbox>
+			<zscript><![CDATA[
+			  import java.text.SimpleDateFormat;
+			  
+				Listitem baseItem = lstpartidos.getItemAtIndex(lstpartidos.getItemCount()-1);
+				void addRow() {
+					Listitem listitem = (Listitem)baseItem.clone();
+					listitem.setVisible(true);
+					lstpartidos.insertBefore(listitem, baseItem);
+				}
+				
+				void removeRow(Object object) {
+					if(lstpartidos.getItemCount() > 2 ) {
+						lstpartidos.removeChild((Listitem)object);
+					}
+				}
+				
+			]]></zscript>
+		</div>
+	</window>
+</zk>

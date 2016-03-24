@@ -1,0 +1,107 @@
+<window border="normal" sizable="false" width="500px" position="center" sclass="login">
+
+<tabbox>
+	<tabs>
+		<tab label="Iniciar Sesion" sclass="encabezadologin" />
+		<tab label="Registro de Usuario" sclass="encabezadologin"/>
+	</tabs>
+	<tabpanels>
+		<tabpanel>
+			<window apply="quinielasocial.lab.controller.ControladorLogin" border="normal" id="loginWin"
+				position="center" sclass="login"
+				hflex="min">
+				<grid hflex="min">
+						<columns>
+							<column hflex="min" align="right" />
+							<column />
+						</columns>
+						<rows>
+							<row>
+								Correo (ej): usuario@correo.com 
+								<textbox id="txtUsuario" width="200px" sclass="input" constraint="no empty /.+@.+\.[a-z]+/: Por favor escribe tu correo" />
+							</row>
+							<row>
+								Password : 1234
+								<textbox id="txtPassword" type="password" sclass="input"
+									width="200px" constraint="no empty: Por favor escribe tu Contraseña" />
+							</row>
+						</rows>
+				</grid> <!-- End grid -->
+					<label id="lblMessage" sclass="warn" value="&#160;" />
+					<button id="btnLogin" label="Entrar" sclass="blogin"/>		
+			</window>	<!-- end window -->
+		</tabpanel>
+		<tabpanel>
+		<!--  -->
+		<window apply="quinielasocial.lab.controller.ControladorRegistrarUsuario" id="registrarWin"
+				border="normal" 
+				hflex="1" 
+				vflex="1" 
+				contentStyle="overflow:auto" sclass="login">
+	
+	<vlayout>
+		<grid width="500px">
+			<columns>
+				<column align="right" hflex="min"/>
+				<column align="left"/>
+			</columns>
+			<rows>
+				<row>
+					<cell sclass="row-title">Cedula:</cell>
+					<cell><textbox id="txtCedula" value="" constraint="no empty: Por favor escribe tu cedula" width="200px"/></cell>
+				</row>
+				<row>
+					<cell sclass="row-title">Nombre:</cell>
+					<cell><textbox id="txtNombre" constraint="no empty: Por favor escribe tu nombre" width="200px"/></cell>
+				</row>
+				<row>
+					<cell sclass="row-title">Apellido:</cell>
+					<cell><textbox id="txtApellido" constraint="no empty: Por favor escribe tu apellido" width="200px"/></cell>
+				</row>
+				<row>
+					<cell sclass="row-title">Correo :</cell>
+					<cell><textbox id="txtCorreo" constraint="/.+@.+\.[a-z]+/: Por favor escribe tu correo" width="200px"/></cell>
+				</row>
+				<row>
+					<cell sclass="row-title">Fecha de Nacimiento :</cell>
+					<cell><datebox id="dtFechaNacimiento" constraint="no today, no future" width="200px"/></cell>
+				</row>
+				<row>
+					<cell sclass="row-title">Contraseña :</cell>
+					<cell>
+						<textbox id="txtContrasena" constraint="no empty: Por favor escribe tu contraseña " type="password" width="200px"/>
+					</cell>
+				</row>
+				<row>
+					<cell sclass="row-title">Confirmar Contraseña :</cell>
+					<cell>
+						<textbox id="txtConfiContrasena" constraint="no empty: Por favor repite tu contraseña " type="password" width="200px"/>
+					</cell>
+				</row>
+				<row>
+					<cell sclass="row-title">Foto:</cell>
+					<cell>
+					<button id="btnFoto" upload="true"  label="Seleccionar Foto" width="200px"/>
+					</cell>
+				</row>
+				<row spans="1" align="center">
+					<hlayout>
+					
+					</hlayout>
+					<hlayout>
+					<checkbox id="checkTermBox"/>Acepta los terminos de uso.
+					</hlayout>
+				</row>
+			</rows>
+		</grid>
+		<!-- Botones -->		
+		<hlayout>
+			<button id="btnRegistrar" label="Guardar" sclass="blogin" disabled="true"/>
+			<button id="btnCancelar" label="Cancelar" sclass="blogin" />
+		</hlayout>
+	</vlayout>
+</window>
+		</tabpanel>
+	</tabpanels>
+</tabbox>
+</window>

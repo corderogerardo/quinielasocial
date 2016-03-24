@@ -2,9 +2,6 @@ package quinielasocial.lab.controller;
 
 
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.Session;
-import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -14,21 +11,10 @@ import org.zkoss.zul.Include;
 
 public class ControladorIndexSesion extends SelectorComposer<Component>{
 	
-	public ControladorIndexSesion() {
-		super();
-		try{
-
-			Session session = Sessions.getCurrent();
-			String nombre = (String)session.getAttribute("usuario");
-			if(nombre.equals(null)){}
-			
-		}catch(Exception e){
-			if(Executions.getCurrent().getDesktop().getRequestPath().equals("/administradorPagina/indexSesionAdmin.zul")){
-				Executions.sendRedirect("/index.zul");}
-			if(Executions.getCurrent().getDesktop().getRequestPath().equals("/indexSesion.zul")){
-				Executions.sendRedirect("/index.zul");}
-		}
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Wire 
 	private Include middle;
@@ -38,7 +24,7 @@ public class ControladorIndexSesion extends SelectorComposer<Component>{
 		
 @Listen("onClick=#nuevo; onOk=#indexSesion")
 public void ggg(){
-	middle.setSrc("registrarTorneo.zul");
+	middle.setSrc("../registrarTorneo.zul");
 	
 }
 }

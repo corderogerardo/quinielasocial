@@ -1,0 +1,49 @@
+<zk>
+	<window title="Agregar Equipos Al Torneo" border="normal" id="agregarEquiposWin" sclass="margintabletittle borde sombra" apply="quinielasocial.lab.controller.ControladorAgregarEquipos" >
+		<div style="padding: 10px;">
+			<panel collapsible="false" title="Detalles De Los Equipos">
+				<panelchildren>
+					<listbox fixedLayout="true" id="lstequipos">
+						<listhead>
+							<listheader label="Nombre" width="150px"/>
+							<listheader width="100px">
+								<button label="Agregar" id="addRecord" onClick="addRow()"/>
+							</listheader>
+						</listhead>
+						<listitem>
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell><button label="Remover" onClick="removeRow(self.getParent().getParent())"/></listcell>
+						</listitem>
+						<listitem visible="false">
+							<listcell><textbox multiline="true" rows="1" cols="20"/></listcell>
+							<listcell><button label="Remover" onClick="removeRow(self.getParent().getParent())"/></listcell>
+						</listitem>
+					</listbox>
+				</panelchildren>
+			</panel>
+			<separator/><separator/>
+			<hbox align="center" width="100%">
+				<div align="center">
+					<button label="Guardar" id="saveTimesheetDetails"/>
+				</div>
+			</hbox>
+			<zscript><![CDATA[
+			  import java.text.SimpleDateFormat;
+			  
+				Listitem baseItem = lstequipos.getItemAtIndex(lstequipos.getItemCount()-1);
+				void addRow() {
+					Listitem listitem = (Listitem)baseItem.clone();
+					listitem.setVisible(true);
+					lstequipos.insertBefore(listitem, baseItem);
+				}
+				
+				void removeRow(Object object) {
+					if(lstequipos.getItemCount() > 2 ) {
+						lstequipos.removeChild((Listitem)object);
+					}
+				}
+				
+			]]></zscript>
+		</div>
+	</window>
+</zk>

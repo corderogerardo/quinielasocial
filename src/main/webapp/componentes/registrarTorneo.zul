@@ -1,0 +1,55 @@
+
+<zk>
+<window id="registrarTorneoWin" border="normal" sclass="margintabletittle borde sombra" contentStyle="overflow:auto;" apply="quinielasocial.lab.controller.ControladorRegistrarTorneo">
+	<caption label="Registro De Torneo"/>
+	<borderlayout height="250px" >
+		<center autoscroll="true">
+			<div>
+			<grid fixedLayout="true">
+		<rows>
+			<row>	
+			<label value="Ingrese el nombre del Torneo" width="150px" />
+            <textbox id="txtnombreTor"  width="100px" value="" constraint="no empty: El nombre del torneo no puede estar vacio" />		
+			</row>
+			<row>	
+			<label value="Ingrese la fecha de inicio del torneo" width="150px"/>
+           			<hlayout>
+				<datebox id="dtfecIni" width="100px" format="dd/MM/yyyy"/>
+				</hlayout>	
+			</row>
+				<row>	
+			<label value="Ingrese la fecha del fin del torneo" width="150px"/>
+           			<hlayout>
+				<datebox id="dtfecFin" width="100px" format="dd/MM/yyyy" />
+				</hlayout>	
+			</row>
+			<row>	<vlayout>
+		<button id="btnimagen" label="Logo del Torneo" upload="true">	
+		</button>
+		<image id="pics" />
+	</vlayout></row>
+
+	<row>
+	<div>
+		<separator/>	
+			<separator/>
+				
+	<space /><space /><space /><space /><space /><button id="btnguardarTorneo" label="Guardar Torneo" />	
+	<button id="btnlimpiar" label="Limpiar" />	
+</div>
+	
+	</row>
+
+		</rows>
+	</grid>
+			
+			</div>
+			
+			
+		</center>
+		
+		
+	</borderlayout>
+</window>
+
+</zk>

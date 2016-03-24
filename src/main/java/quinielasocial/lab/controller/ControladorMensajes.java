@@ -3,42 +3,31 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-
-import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.Executions;
-import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.select.SelectorComposer;
-import org.zkoss.zk.ui.select.annotation.Listen;
-import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zul.Button;
-import org.zkoss.zul.Window;
-public class ControladorMensajes extends SelectorComposer<Component> {
-	@Wire
-	public Button leer;
-	@Wire
-	public Button enviar;
-	@Wire
-	public Window leerMensaje;
-	@Wire
-	public Button cerrar;
+import modelo.*;
+public class ControladorMensajes {
+	private final List<String> listaMensajes = new ArrayList<String>();
+	private List<Mensajes> todosLosMensajes = new ArrayList<Mensajes>();
+	private int TOTAL_MENSAJES = 25;
+	private Random randomGenerator = new Random();
 	
-	@Listen("onClick = #leer,#leer1;#leer2;#leer3;#leer4; onOk=mensajes" )
-    public void showModal(Event e) {
-        //create a window programmatically and use it as a modal dialog.
-        Window window = (Window)Executions.createComponents("/componentes/leerMensaje.zul", null, null);
-        window.doModal();
-    }
-	
-	@Listen("onClick = #enviar; onOk=leerMensaje" )
-    public void salir(Event e) {
-        //create a window programmatically and use it as a modal dialog.
-		leerMensaje.setVisible(false);
-    }
-	
-	@Listen("onClick = #cerrar; onOk=leerMensaje" )
-    public void cerrar(Event e) {
+	public ControladorMensajes() {
 
-		    leerMensaje.detach() ;
-    }
+		}
+	
+	public List<Mensajes> getTodosLosMensajes() {
+		return this.todosLosMensajes;
+	}
+		
+	public List<String> getAvailableItems() {
+		return listaMensajes;
+	}
+	
+	private void generarMnesajes(){
+		todosLosMensajes.add(null);
 
+	}
+		
+		
+		
+	
 }

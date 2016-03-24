@@ -19,6 +19,7 @@ import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 import quinielasocial.lab.business.services.CRUDService;
 import quinielasocial.lab.domain.entity.Jugador;
+import quinielasocial.lab.domain.entity.Persona;
 import quinielasocial.lab.domain.entity.Rol;
 import quinielasocial.lab.domain.entity.Usuario;
 
@@ -27,13 +28,21 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 	private static final long serialVersionUID = 1L;
 	
 	@WireVariable
+	protected CRUDService serviciopersona = (CRUDService) SpringUtil.getBean("CRUDService");
+	@WireVariable
 	protected CRUDService serviciojugador = (CRUDService) SpringUtil.getBean("CRUDService");
+	@WireVariable
 	protected CRUDService serviciousuario = (CRUDService) SpringUtil.getBean("CRUDService");
+	@WireVariable
 	protected CRUDService serviciorol = (CRUDService) SpringUtil.getBean("CRUDService");
 	
+	private List<Persona> personas;
 	private List<Jugador> jugadores;
 	private List<Usuario> usuarios;
 	private List<Rol> roles;
+	private Usuario unusuario;
+	
+
 	
 	//wire components registrar
 	@Wire
@@ -60,24 +69,14 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 	//Mensajes
 	@Wire
 	Label message;
-	//Registrar
-	private String txtCedula = cedula.getValue().toString();
-	private String txtNombre= nombre.getValue().toString();
-	private String txtApellido = apellido.getValue().toString();
-	private String txtCorreo = correo.getValue().toString();
-	private Date txtFechanacimiento = fechanacimiento;
-	private String txtClave =clave.getValue().toString();
-	private String txtConfcontrasena = confcontrasena.getValue().toString();
-	private String txtUrlfoto = urlfoto.getValue().toString();
-	//Login
-	private String txtUser = usuario.getValue().toString();
-	private String txtPass = password.getValue().toString();
-	private Session miSession = Sessions.getCurrent();
 		
 		public ControladorUsuario(){
 			super();
 			try{
-				
+			personas = serviciopersona.getAll(Persona.class);
+			roles = serviciorol.getAll(Rol.class);
+			usuarios = serviciousuario.getAll(Usuario.class);
+			jugadores = serviciojugador.getAll(Jugador.class);
 
 			}catch(Exception e){
 				e.printStackTrace();
@@ -86,6 +85,14 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 		
 		@Listen("onClick=#login; onOK=#loginWin")
 		public void doLogin(){
+		
+			
+			
+			//Login
+			String txtUser = usuario.getValue().toString();
+			String txtPass = password.getValue().toString();
+			
+			Session miSession = Sessions.getCurrent();
 			
 			//Paso 1 Buscar usuario con ese correo
 			//Paso 2 si existe validad que la contraseña sea la correcta.
@@ -94,28 +101,33 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			
 			Boolean s=false;
 						
-			for (int i=0;i<usuarios.size();i++){
-				//Paso 1 Buscar usuario con ese correo
-				if(txtUser.equals(usuarios.get(i).getCorreo())) {
-					//Paso 2 si existe validad que la contraseña sea la correcta.
-					if (txtPass.equals(usuarios.get(i).getClave()) && usuarios.get(i).getRols().getId()== 1 ){ //si es jugador
-						//Paso 3 setear variable de sesion
-						miSession.setAttribute("usuario", usuarios.get(i));	
-						//Paso 4 si es valido redireccionar
-						Executions.sendRedirect("/administradorPagina/indexSesionAdmin.zul");					
-						s=true;
-					}
-					else
-					if (txtPass.equals(usuarios.get(i).getClave()) && usuarios.get(i).getRols().getId()== 2){ //si es admin
-	
-						miSession.setAttribute("usuario", usuarios.get(i));					
-						Executions.sendRedirect("/indexSesion.zul");		
-						s=true;
-					}
-						
-				}
-								
-			}
+//			for (int i=0;i<usuarios.size();i++){
+//				Messagebox.show("Usuario actual: "+usuarios.toString(), "Error", Messagebox.OK, Messagebox.ERROR);
+//				
+//				//Paso 1 Buscar usuario con ese correo
+//				if(txtUser.equals(usuarios.get(i).getPersona().getCorreo())) {
+//
+//					//Paso 2 si existe validad que la contraseña sea la correcta.
+//					if (txtPass.equals(usuarios.get(i).getContrasena()) && usuarios.get(i).getRol().getRolId()== 1 ){ //si es jugador
+//						//Paso 3 setear variable de sesion
+//						miSession.setAttribute("usuario", usuarios.get(i));	
+//						//Paso 4 si es valido redireccionar
+//						Executions.sendRedirect("/administradorPagina/indexSesionAdmin.zul");					
+//						s=true;
+//					}
+//					else
+//					if (txtPass.equals(usuarios.get(i).getContrasena()) && usuarios.get(i).getRol().getRolId()== 2){ //si es admin
+//	
+//						miSession.setAttribute("usuario", usuarios.get(i));					
+//						Executions.sendRedirect("/indexSesion.zul");		
+//						s=true;
+//					}
+//						
+//				}
+//								
+//			}
+			unusuario = serviciousuario.findByPrimaryKey(Usuario.class, (long)1);
+			Messagebox.show("Usuario actual: "+usuarios.toString(), "Error", Messagebox.OK, Messagebox.ERROR);
 			if (s==false){
 				 Messagebox.show("Clave o Usuario Incorrecto, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
 			}
@@ -125,20 +137,25 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 		
 		@Listen("onClick=#saved; onOK=#registrarWin")
 		public void saved(){
+			//Registrar
+			String txtCedula = cedula.getValue().toString();
+			String txtNombre= nombre.getValue().toString();
+			String txtApellido = apellido.getValue().toString();
+			String txtCorreo = correo.getValue().toString();
+			Date txtFechanacimiento = fechanacimiento;
+			String txtClave =clave.getValue().toString();
+			String txtConfcontrasena = confcontrasena.getValue().toString();
+			String txtUrlfoto = urlfoto.getValue().toString();
 			
 			//Paso 1 validad campos no vacios
 			//Paso 2 si todo el formulario esta completo guardar
 			
-			
-			Rol rolm;
-			rolm = new Rol("Jugador");
-			
-			
-			Usuario usuariom;
-			usuariom = new Usuario(txtCorreo, txtClave, txtFechanacimiento, true, rolm);
-			Jugador jugadorm;
-			jugadorm = new Jugador(txtCedula, txtNombre, txtApellido, txtFechanacimiento, txtUrlfoto, true, usuariom, 0, new Date());
-			serviciojugador.Save(jugadorm);
-						
+			Persona personac = new Persona(txtCedula, 2, txtNombre, txtApellido, txtFechanacimiento, txtCorreo);
+			Rol rolc = new Rol((long)2, "Jugador");
+			serviciopersona.Save(personac);
+			Usuario usuarioc = new Usuario((long)3, txtCorreo, txtClave, txtFechanacimiento, true);
+			serviciousuario.Save(usuarioc);
+			Jugador jugadorc = new Jugador((long)3, personac, (float) 0, new Date());
+			serviciojugador.Save(jugadorc);		
 		}
 }

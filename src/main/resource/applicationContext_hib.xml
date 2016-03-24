@@ -30,7 +30,7 @@
 				<prop key="hibernate.use_sql_comments">true</prop>
 				<prop key="hibernate.zeroDateTimeBehavior">convertToNull</prop>
 				<prop key="hibernate.connection.zeroDateTimeBehavior">convertToNull</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>

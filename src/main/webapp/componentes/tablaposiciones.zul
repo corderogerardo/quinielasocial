@@ -1,0 +1,67 @@
+
+<zk xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+
+<div sclass="margenTabla" width="90%">
+
+    <grid sclass="margintabletittle borde sombra">
+        <auxhead >
+            <auxheader colspan="4" label="Tus puntuación en las quinielas que estás participando" />
+        </auxhead>
+        <columns>
+            <column hflex="3">Torneo</column>
+            <column hflex="2">Puntaje</column>
+            <column hflex="2">Posición</column>
+
+        </columns>
+        <rows sclass="narrow">
+            <row>
+                <label value="Copa Polar" />
+                <label value="12 | 50" />
+                <label value="15" />
+                
+            </row>
+            <row>
+                <label value="Copa Sudamericana" />
+                <label value="7 | 35" />
+                <label value="8" />
+                
+            </row>
+            <row>
+                <label value="Liga Inglesa Futbol" />
+                <label value="1 | 12" />
+                <label value="65" />
+                
+            </row>
+            <row>
+                <label value="Copa Davis Tenis" />
+                <label value="7 | 28" />
+                <label value="21" />
+                
+            </row>
+                        <row>
+                <label value="Copa Polar" />
+                <label value="12 | 50" />
+                <label value="15" />
+                
+            </row>
+            <row>
+                <label value="Copa Sudamericana" />
+                <label value="7 | 35" />
+                <label value="8" />
+                
+            </row>
+            <row>
+                <label value="Liga Inglesa Futbol" />
+                <label value="1 | 12" />
+                <label value="65" />
+                
+            </row>
+            <row>
+                <label value="Copa Davis Tenis" />
+                <label value="7 | 28" />
+                <label value="21" />
+                
+            </row>
+        </rows>
+    </grid></div>
+</zk>
