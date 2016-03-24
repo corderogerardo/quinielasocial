@@ -9,6 +9,7 @@ public interface CRUDService {
 	<T> void Save(T klass);
 
 	<T> T findByPrimaryKey(Class<T> klass, Serializable id);
+	<T> T findByEmail(Class<T> klass, String email);
 
 	<T> void delete(T klass);
 

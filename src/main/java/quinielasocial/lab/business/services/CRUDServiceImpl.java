@@ -50,5 +50,9 @@ public class CRUDServiceImpl implements CRUDService {
 	public <T> T findByPrimaryKey(Class<T> klass, Serializable id) {
 		 return CRUDDao.encontrarPorId(klass, id);
 	}
-
+	@Transactional(readOnly = true)
+	public <T> T findByEmail(Class<T> klass, String correo) {
+		 return CRUDDao.encontrarPorId(klass, correo);
+	}
+	
 }

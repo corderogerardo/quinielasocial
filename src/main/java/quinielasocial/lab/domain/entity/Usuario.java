@@ -22,7 +22,6 @@ public class Usuario implements java.io.Serializable {
 	private long usuarioId;
 	private Persona persona;
 	private Rol rol;
-	private String correo;
 	private String contrasena;
 	private Date fechaIngreso;
 	private Boolean estado;
@@ -30,18 +29,13 @@ public class Usuario implements java.io.Serializable {
 	public Usuario() {
 	}
 
-	
-
-	public Usuario(long usuarioId, String correo, String contrasena, Date fechaIngreso, Boolean estado) {
-		super();
+	public Usuario(long usuarioId, Persona persona, Rol rol, String contrasena, Date fechaIngreso) {
 		this.usuarioId = usuarioId;
-		this.correo = correo;
+		this.persona = persona;
+		this.rol = rol;
 		this.contrasena = contrasena;
 		this.fechaIngreso = fechaIngreso;
-		this.estado = estado;
 	}
-
-
 
 	public Usuario(long usuarioId, Persona persona, Rol rol, String contrasena, Date fechaIngreso, Boolean estado) {
 		this.usuarioId = usuarioId;

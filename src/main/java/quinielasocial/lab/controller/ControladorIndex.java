@@ -1,5 +1,5 @@
 package quinielasocial.lab.controller;
-import controlador.ControladorCamposRegistrarTorneo;
+import quinielasocial.lab.controller.ControladorCamposRegistrarTorneo;
 
 import java.util.ArrayList;
 import java.util.Date;

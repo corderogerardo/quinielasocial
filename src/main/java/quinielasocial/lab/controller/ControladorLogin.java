@@ -1,5 +1,7 @@
 package quinielasocial.lab.controller;
 
+import java.util.List;
+
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
@@ -7,14 +9,30 @@ import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
-import servicio.ServicioAutenticacion;
+import quinielasocial.lab.business.services.CRUDService;
+import quinielasocial.lab.domain.entity.Jugador;
+import quinielasocial.lab.domain.entity.Persona;
+import quinielasocial.lab.domain.entity.Rol;
+import quinielasocial.lab.domain.entity.Usuario;
 
 public class ControladorLogin extends SelectorComposer<Component> {
 	private static final long serialVersionUID = 1L;
+	
+	
+	@WireVariable
+	protected CRUDService serviciousuario = (CRUDService) SpringUtil.getBean("CRUDService");
+	@WireVariable
+	protected CRUDService serviciorol = (CRUDService) SpringUtil.getBean("CRUDService");
+	
+	private List<Usuario> usuarios;
+	private List<Rol> roles;
+	private Usuario unusuario;
 	
 	//wire components
 	@Wire

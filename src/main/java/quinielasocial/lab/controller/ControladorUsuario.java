@@ -4,6 +4,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.criteria.Predicate;
+
+import org.springframework.util.CollectionUtils;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -17,6 +20,7 @@ import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
+
 import quinielasocial.lab.business.services.CRUDService;
 import quinielasocial.lab.domain.entity.Jugador;
 import quinielasocial.lab.domain.entity.Persona;
@@ -94,7 +98,12 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			
 			Session miSession = Sessions.getCurrent();
 			
-			//Paso 1 Buscar usuario con ese correo
+			//Paso 1 Buscar usuario con ese correo: Hay dos formas, 1. con una consulta SQL, 2. En los servicios.
+			
+			usuarios = serviciousuario.getAll(Usuario.class);
+			
+			
+			
 			//Paso 2 si existe validad que la contraseña sea la correcta.
 			//Paso 3 setear variable de sesion
 			//Paso 4 si es valido redireccionar
@@ -126,12 +135,14 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 //				}
 //								
 //			}
-			unusuario = serviciousuario.findByPrimaryKey(Usuario.class, (long)1);
-			Messagebox.show("Usuario actual: "+usuarios.toString(), "Error", Messagebox.OK, Messagebox.ERROR);
-			if (s==false){
-				 Messagebox.show("Clave o Usuario Incorrecto, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
-			}
-			Executions.sendRedirect("/indexSesion.zul");
+		
+			long cant = usuarios.size();
+			Messagebox.show("Usuario actual: "+cant);
+
+//			if (s==false){
+//				 Messagebox.show("Clave o Usuario Incorrecto, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
+//			}
+			//Executions.sendRedirect("/indexSesion.zul");
 			
 		}
 		
@@ -150,12 +161,11 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			//Paso 1 validad campos no vacios
 			//Paso 2 si todo el formulario esta completo guardar
 			
-			Persona personac = new Persona(txtCedula, 2, txtNombre, txtApellido, txtFechanacimiento, txtCorreo);
-			Rol rolc = new Rol((long)2, "Jugador");
+			Persona personac = new Persona(txtCedula, txtNombre, txtApellido, txtFechanacimiento, txtCorreo);
 			serviciopersona.Save(personac);
-			Usuario usuarioc = new Usuario((long)3, txtCorreo, txtClave, txtFechanacimiento, true);
+			Usuario usuarioc = new Usuario(txtCorreo, txtClave, txtFechanacimiento, true,2);
 			serviciousuario.Save(usuarioc);
-			Jugador jugadorc = new Jugador((long)3, personac, (float) 0, new Date());
+			Jugador jugadorc = new Jugador(personac, (float) 0, new Date());
 			serviciojugador.Save(jugadorc);		
 		}
 }

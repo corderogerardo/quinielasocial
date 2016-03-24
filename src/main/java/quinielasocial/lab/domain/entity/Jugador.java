@@ -32,17 +32,11 @@ public class Jugador implements java.io.Serializable {
 
 	public Jugador() {
 	}
-	
-	
 
-	public Jugador(long jugadorId, Persona persona, Float puntajetotal, Date fechaIngreso) {
-		super();
+	public Jugador(long jugadorId, Date fechaIngreso) {
 		this.jugadorId = jugadorId;
-		this.persona = persona;
-		this.puntajetotal = puntajetotal;
 		this.fechaIngreso = fechaIngreso;
 	}
-
 
 	public Jugador(long jugadorId, Persona persona, Float puntajetotal, Date fechaIngreso,
 			Set<Jugadortorneo> jugadortorneos, Set<Prediccion> prediccions) {

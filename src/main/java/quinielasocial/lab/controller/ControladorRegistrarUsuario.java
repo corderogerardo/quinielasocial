@@ -1,24 +1,43 @@
 package quinielasocial.lab.controller;
 
+import java.util.List;
+
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Textbox;
 
-import modelo.Jugador;
-import modelo.Usuario;
-import servicio.JugadorServicio;
+import quinielasocial.lab.business.services.CRUDService;
+import quinielasocial.lab.domain.entity.Jugador;
+import quinielasocial.lab.domain.entity.Persona;
+import quinielasocial.lab.domain.entity.Rol;
+import quinielasocial.lab.domain.entity.Usuario;
+
 public class ControladorRegistrarUsuario extends SelectorComposer<Component>{
 	private static final long serialVersionUID = 1L;
 	
+	@WireVariable
+	protected CRUDService serviciopersona = (CRUDService) SpringUtil.getBean("CRUDService");
+	@WireVariable
+	protected CRUDService serviciojugador = (CRUDService) SpringUtil.getBean("CRUDService");
+	@WireVariable
+	protected CRUDService serviciousuario = (CRUDService) SpringUtil.getBean("CRUDService");
+	@WireVariable
+	protected CRUDService serviciorol = (CRUDService) SpringUtil.getBean("CRUDService");
+	
+	private List<Persona> personas;
+	private List<Jugador> jugadores;
+	private List<Usuario> usuarios;
+	private List<Rol> roles;
 	private Jugador jugador;
-	private JugadorServicio servicioJugador = new JugadorServicio();
 	
 //	wire components
 	@Wire
@@ -70,10 +89,9 @@ public class ControladorRegistrarUsuario extends SelectorComposer<Component>{
 	@Listen("onClick=#btnRegistrar; onOk=#registrarWin")
 	public void botonRegistrar(){
 		if(txtContrasena.getValue().equals(txtConfiContrasena.getValue())){
-			jugador = new Jugador(txtCedula.getValue(), txtNombre.getValue(), 
-					txtApellido.getValue(), dtFechaNacimiento.getValue(), txtCorreo.getValue(), null, 0);
+			//jugador = new Jugador(jugadorId, persona, puntajetotal, fechaIngreso, jugadortorneos, prediccions);
 			
-			servicioJugador.agregarJugador(jugador);
+			serviciojugador.Save(jugador);
 			Messagebox.show("Usuario registrado correctamente");
 			Executions.sendRedirect("/indexSesion.zul");
 		}

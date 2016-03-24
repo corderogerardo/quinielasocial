@@ -36,6 +36,10 @@ public class CRUDDaoImpl implements CRUDDao {
 	public <T> T encontrarPorId(Class<T> klass, Serializable id) {
 		return (T) getCurrentSession().get(klass, id);
 	}
+	@SuppressWarnings("unchecked")
+	public <T> T encontrarPorCorreo(Class<T> klass, String correo) {
+		return (T) getCurrentSession().get(klass, correo);
+	}
 	
 	@SuppressWarnings("unchecked")
 	public <T> T GetUniqueEntityByNamedQuery(String query, Object... params) {

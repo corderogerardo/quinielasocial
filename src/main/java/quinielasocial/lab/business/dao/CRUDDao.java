@@ -10,6 +10,7 @@ public interface CRUDDao {
 	<T> void Save(T klass);
 	
 	<T> T encontrarPorId(Class<T> klass, Serializable id);
+	<T> T encontrarPorCorreo(Class<T> klass, String correo); 
 	
 	<T> T GetUniqueEntityByNamedQuery(String query, Object... params);
 	
