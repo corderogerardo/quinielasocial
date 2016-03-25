@@ -82,17 +82,17 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 		public ControladorUsuario(){
 			super();
 			try{
-			Persona personh = new Persona("19849215", (long)1, "Gerardo", "Cordero", new Date(), "/me.jpg", 
-					true, "administrador@gmail.com");
-			serviciopersona.Save(personh);
-			Rol rolh = new Rol((long)1, "administrador");
-			serviciorol.Save(rolh);
-			Rol rolh2 = new Rol((long)2, "jugador");
-			serviciorol.Save(rolh2);
-			Usuario usuarioh = new Usuario((long)1, "1234", new Date(), true, (long)1, "administrador@gmail.com");
-			serviciousuario.Save(usuarioh);
-			Jugador jugadorh = new Jugador((long)1, (float)0, new Date(), "19849215");
-			serviciojugador.Save(jugadorh);
+//			Persona personh = new Persona("19849215", (long)1, "Gerardo", "Cordero", new Date(), "/me.jpg", 
+//					true, "administrador@gmail.com");
+//			serviciopersona.Save(personh);
+//			Rol rolh = new Rol((long)1, "administrador");
+//			serviciorol.Save(rolh);
+//			Rol rolh2 = new Rol((long)2, "jugador");
+//			serviciorol.Save(rolh2);
+//			Usuario usuarioh = new Usuario((long)1, "1234", new Date(), true, (long)1, "administrador@gmail.com");
+//			serviciousuario.Save(usuarioh);
+//			Jugador jugadorh = new Jugador((long)1, (float)0, new Date(), "19849215");
+//			serviciojugador.Save(jugadorh);
 			personas = serviciopersona.getAll(Persona.class);
 			usuarios = serviciousuario.getAll(Usuario.class);
 			jugadores = serviciojugador.getAll(Jugador.class);
