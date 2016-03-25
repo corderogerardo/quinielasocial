@@ -28,6 +28,7 @@
 		<param-value>
 		            classpath:applicationContext.xml
 		            classpath:applicationContext_hib.xml
+		            classpath:jdbc.properties
 		            classpath:springOrmContext.xml
          </param-value>
 	</context-param>
