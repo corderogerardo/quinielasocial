@@ -8,6 +8,9 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Messagebox;
+
+import quinielasocial.lab.domain.entity.Usuario;
 
 public class ControladorBarraSesion extends SelectorComposer<Component> {
 @Wire
@@ -20,8 +23,9 @@ public ControladorBarraSesion() {
 	try{
 
 		Session session = Sessions.getCurrent();
-		String nombre = (String)session.getAttribute("usuario");
-		if(nombre.equals(null)){}
+		Usuario usr = (Usuario) session.getAttribute("usuario");
+		//Messagebox.show("Sesiones "+usr.getCorreo().toString());
+		if(usr.getCorreo().isEmpty()){}
 		
 	}catch(Exception e){
 		if(Executions.getCurrent().getDesktop().getRequestPath().equals("/administradorPagina/indexSesionAdmin.zul")){

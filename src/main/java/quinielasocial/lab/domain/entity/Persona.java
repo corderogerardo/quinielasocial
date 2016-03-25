@@ -38,14 +38,22 @@ public class Persona implements java.io.Serializable {
 	public Persona() {
 	}
 
-	public Persona(String cedula, long personaId, String nombre, String apellido, Date fechanacimiento, String correo) {
+	
+
+	public Persona(String cedula, long personaId, String nombre, String apellido, Date fechanacimiento, String foto,
+			Boolean estado, String correo) {
+		super();
 		this.cedula = cedula;
 		this.personaId = personaId;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.fechanacimiento = fechanacimiento;
+		this.foto = foto;
+		this.estado = estado;
 		this.correo = correo;
 	}
+
+
 
 	public Persona(String cedula, long personaId, String nombre, String apellido, Date fechanacimiento, String foto,
 			Boolean estado, String correo, Set<Torneo> torneos, Set<Mensajejugador> mensajejugadorsForCedulades,

@@ -25,10 +25,10 @@ public class ControladorIndexSesion extends SelectorComposer<Component>{
 	public ControladorIndexSesion() {
 		super();
 		Session session = Sessions.getCurrent();
-		String usr = (String) session.getAttribute("correo");
-		Messagebox.show("Sesiones "+usr);
+		Usuario usr = (Usuario) session.getAttribute("usuario");
+		//Messagebox.show("Sesiones "+usr.getCorreo().toString());
 			try{
-				if(usr.equals(null)){
+				if(usr.getCorreo().isEmpty()){
 			
 				}
 			}catch(Exception e){

@@ -1,5 +1,7 @@
 package quinielasocial.lab.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -12,11 +14,14 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
+import org.zkoss.zk.ui.WrongValueException;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.zul.Button;
+import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
@@ -58,13 +63,13 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 	@Wire
 	Textbox correo;
 	@Wire
-	Date fechanacimiento;
+	Datebox fechanacimiento;
 	@Wire
 	Textbox clave;
 	@Wire
 	Textbox confcontrasena;
 	@Wire
-	Textbox urlfoto;
+	Button urlfoto;
 	//wire components login
 		@Wire
 		Textbox usuario;
@@ -77,8 +82,18 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 		public ControladorUsuario(){
 			super();
 			try{
+			Persona personh = new Persona("19849215", (long)1, "Gerardo", "Cordero", new Date(), "/me.jpg", 
+					true, "administrador@gmail.com");
+			serviciopersona.Save(personh);
+			Rol rolh = new Rol((long)1, "administrador");
+			serviciorol.Save(rolh);
+			Rol rolh2 = new Rol((long)2, "jugador");
+			serviciorol.Save(rolh2);
+			Usuario usuarioh = new Usuario((long)1, "1234", new Date(), true, (long)1, "administrador@gmail.com");
+			serviciousuario.Save(usuarioh);
+			Jugador jugadorh = new Jugador((long)1, (float)0, new Date(), "19849215");
+			serviciojugador.Save(jugadorh);
 			personas = serviciopersona.getAll(Persona.class);
-			roles = serviciorol.getAll(Rol.class);
 			usuarios = serviciousuario.getAll(Usuario.class);
 			jugadores = serviciojugador.getAll(Jugador.class);
 
@@ -138,19 +153,41 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			String txtNombre= nombre.getValue().toString();
 			String txtApellido = apellido.getValue().toString();
 			String txtCorreo = correo.getValue().toString();
-			Date txtFechanacimiento = fechanacimiento;
 			String txtClave =clave.getValue().toString();
 			String txtConfcontrasena = confcontrasena.getValue().toString();
-			String txtUrlfoto = urlfoto.getValue().toString();
+			
+			@SuppressWarnings("deprecation")
+			String txtUrlfoto = urlfoto.getUpload();
+			
+			//Tomando la fecha de nacimiento y dandole formato correcto
+			SimpleDateFormat smFechanacimiento = new SimpleDateFormat("dd/MM/yyyy");
+			Date txtFechanacimiento = new Date();
+			try {
+				txtFechanacimiento = smFechanacimiento.parse(fechanacimiento.getText().toString());
+			} catch (WrongValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			//Messagebox.show("URL foto, fecha nacimiento"+txtUrlfoto+" "+txtFechanacimiento.toGMTString().toString());
 			
 			//Paso 1 validad campos no vacios
-			//Paso 2 si todo el formulario esta completo guardar
+			//Paso 2 Valida contraseñas iguales
+			if(txtClave.equals(txtConfcontrasena) ){
+				//Paso 3 si todo el formulario esta completo guardar
+				Persona personac = new Persona(txtCedula, (long)personas.size()+1, txtNombre, txtApellido,txtFechanacimiento, txtUrlfoto, true, txtCorreo);
+				serviciopersona.Save(personac);
+				Usuario usuarioc = new Usuario((long)usuarios.size()+1, txtClave, new Date(), true, 2, txtCorreo);
+				serviciousuario.Save(usuarioc);
+				Jugador jugadorc = new Jugador((long)jugadores.size()+1, (float)0, new Date(), txtCedula);
+				serviciojugador.Save(jugadorc);		
+			}else{
+				 Messagebox.show("Contreñas no son iguales, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
+			}
 			
-			Persona personac = new Persona(txtCedula, 3, txtNombre, txtApellido, txtFechanacimiento, txtCorreo);
-			serviciopersona.Save(personac);
-			Usuario usuarioc = new Usuario(3, txtClave, txtFechanacimiento, true, 2, txtCorreo);
-			serviciousuario.Save(usuarioc);
-			Jugador jugadorc = new Jugador((long)1, (float)0, new Date(), "19849215");
-			serviciojugador.Save(jugadorc);		
+			
 		}
 }

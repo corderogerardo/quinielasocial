@@ -21,8 +21,6 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Messagebox.ClickEvent;
 import org.zkoss.zk.ui.event.EventListener;
 
-
-
 public class ControladorCamposRegistrarTorneo extends GenericForwardComposer<Window>{
 	private ControladorIndex menu = new ControladorIndex();
 

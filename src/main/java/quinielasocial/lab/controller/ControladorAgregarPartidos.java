@@ -20,14 +20,7 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Messagebox.ClickEvent;
 import org.zkoss.zk.ui.event.EventListener;
 
-
-
-	
-	
-
-	
-
-	public class ControladorAgregarPartidos extends SelectorComposer<Component>{
+public class ControladorAgregarPartidos extends SelectorComposer<Component>{
 		private static final long serialVersionUID = 1L;
 
 		@Listen("onClick=#saveTimesheetDetails; onOK=#registrarTorneoWin")
