@@ -1,5 +1,4 @@
 package quinielasocial.lab.controller;
-
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
@@ -9,65 +8,71 @@ import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zk.ui.select.annotation.WireVariable;
-import org.zkoss.zkplus.spring.SpringUtil;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
-import quinielasocial.lab.business.services.CRUDService;
-import quinielasocial.lab.domain.entity.Jugador;
-import quinielasocial.lab.domain.entity.Persona;
-import quinielasocial.lab.domain.entity.Rol;
-import quinielasocial.lab.domain.entity.Usuario;
-
+//import quiniela.entidad.*;
+//import servicio.*;
 public class ControladorLogin extends SelectorComposer<Component> {
 	private static final long serialVersionUID = 1L;
-	
-	
-	@WireVariable
-	protected CRUDService serviciousuario = (CRUDService) SpringUtil.getBean("CRUDService");
-	@WireVariable
-	protected CRUDService serviciorol = (CRUDService) SpringUtil.getBean("CRUDService");
-	
-	private List<Usuario> usuarios;
-	private List<Rol> roles;
-	private Usuario unusuario;
-	
+//	private jugadorServicio serv = new jugadorServicio();
+//	private List<Jugador> todosUsuarios;
 	//wire components
 	@Wire
-	Textbox txtUsuario;
+	Textbox usuario;
 	@Wire
-	Textbox txtPassword;
+	Textbox password;
 	@Wire
-	Label lblMessage;
+	Label message;
 	
 	//services
 
 	
-	@Listen("onClick=#btnLogin; onOK=#loginWin")
+	public ControladorLogin() {
+		super();
+		try {
+//			todosUsuarios=serv.getAllJugadores();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Listen("onClick=#login; onOK=#loginWin")
 	public void doLogin(){
-		String usuario = txtUsuario.getValue().toString();
-		String contrasenna = txtPassword.getValue().toString();
-			if(usuario.equals("usuario@correo.com") && contrasenna.equals("1234")){
-				Session miSession = Sessions.getCurrent();
-				
-				miSession.setAttribute("rolUsuario","Administrador del Sistema");
-				miSession.setAttribute("nombreUsuario",txtUsuario.getValue());
-				Executions.sendRedirect("/indexSesion.zul");
-			}
-			else{
-				Messagebox.show("Usuario o contrasena incorrecta");
-			}
-//		if(!authService.login(nm,pd)){
-//			message.setValue("usuario o password no son correctos.");
-//			return;
+		String nm = usuario.getValue().toString();
+		String pd = password.getValue().toString();
+		Session miSession = Sessions.getCurrent();
+		Boolean s=false;
+
+		miSession.setAttribute("usuario", nm);					
+		Executions.sendRedirect("/indexSesion.zul");		
+		s=true;
+//		for (int i=0;i<todosUsuarios.size();i++){
+//			if(todosUsuarios.get(i).getCorreo().equals(nm)) {
+//				if (todosUsuarios.get(i).getTipo().equals("admin") && todosUsuarios.get(i).getClave().equals(pd)){
+//					miSession.setAttribute("usuario", "Administrador");	
+//					Executions.sendRedirect("/administradorPagina/indexSesionAdmin.zul");					
+//					s=true;
+//				}
+//				else
+//				if (todosUsuarios.get(i).getTipo().equals("player") && todosUsuarios.get(i).getClave().equals(pd)){
+//
+//					miSession.setAttribute("usuario", nm);					
+//					Executions.sendRedirect("/indexSesion.zul");		
+//					s=true;
+//				}
+					
+//			}
+//							
 //		}
-//		CredencialUsuario cre= authService.getCredencialUsuario();
-//		message.setValue("Bienvenido, "+cre.getNombre().toString());
-//		message.setSclass("");
-		
-		
+		if (s==false){
+			 Messagebox.show("Clave o Usuario Incorrecto, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
+		}
+//		Executions.sendRedirect("/indexSesion.zul");
 		
 	}
 }

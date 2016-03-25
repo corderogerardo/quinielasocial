@@ -1,0 +1,43 @@
+<window title="Todas Las Quinielas" height="500px" width="800px" border="normal"
+	apply="quinielasocial.lab.controller.ControladorListaQuinielas" sclass="margenTabla borde sombra" >
+	
+	<zscript><![CDATA[
+	     public void unirse(){
+	    	 Messagebox.show("Solicitud Enviada", "Información", Messagebox.OK, Messagebox.INFORMATION);}
+	     public void cerrar() {
+	         //create a window programmatically and use it as a modal dialog.
+	         Window window = (Window)Executions.createComponents("/componentes/leerMensaje.zul", null, null);
+	         window.doModal();
+	     }
+]]></zscript>
+	<hbox align="center">
+		Palabra Clave:
+		<textbox id="txtPalabraClave" />
+		<button id="btnBuscar" label="Buscar"/>
+	</hbox>
+<div  apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('modelo') @init('quinielasocial.lab.controller.ControladorGridTorneos')">
+		<grid visible="true" id="datosTorneos" mold="paging" pageSize="5"  pagingPosition="top"
+			model="@load(modelo.obtenerTorneos)" >
+			<columns menupopup="auto">
+				<column width="150px" label="Nombre" />
+				<column width="110px" label="Administrador" />
+				<column width="150px" label="Fecha De Inicio" />
+			    <column width="150px" label="Fecha de Final" />
+			    <column width="100px" label="Participantes" />
+				<column width="120px" label="Solicitar Unirse" />
+				
+			</columns>	
+			<template name="model">
+				<row>
+					<label value="@load(each.nombre)" />
+					<a id="@load(each.cantParticipantes)" label="Jose Gabriel" onClick="cerrar()"/>
+					<label value="@load(each.fechaInicio)" />	
+					<label value="@load(each.fechaFin)" />		
+					<label value="@load(each.cantParticipantes)"/>
+					<button label="Unirse" onClick="unirse()"/>
+				</row>	
+			</template>
+		</grid>
+	</div>
+</window>

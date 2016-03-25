@@ -25,9 +25,25 @@ public class Usuario implements java.io.Serializable {
 	private String contrasena;
 	private Date fechaIngreso;
 	private Boolean estado;
+	private long idrol;
+	private String correo;
 
 	public Usuario() {
 	}
+
+	
+	
+	public Usuario(long usuarioId, String contrasena, Date fechaIngreso, Boolean estado, long idrol, String correo) {
+		super();
+		this.usuarioId = usuarioId;
+		this.contrasena = contrasena;
+		this.fechaIngreso = fechaIngreso;
+		this.estado = estado;
+		this.idrol = idrol;
+		this.correo = correo;
+	}
+
+
 
 	public Usuario(long usuarioId, Persona persona, Rol rol, String contrasena, Date fechaIngreso) {
 		this.usuarioId = usuarioId;
@@ -58,7 +74,7 @@ public class Usuario implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "correo", nullable = false)
+	@JoinColumn(name = "correo", nullable = false,insertable=false, updatable=false)
 	public Persona getPersona() {
 		return this.persona;
 	}
@@ -68,7 +84,7 @@ public class Usuario implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idrol", nullable = false)
+	@JoinColumn(name = "idrol", nullable = false,insertable=false, updatable=false)
 	public Rol getRol() {
 		return this.rol;
 	}
@@ -104,5 +120,31 @@ public class Usuario implements java.io.Serializable {
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
+
+
+
+	public long getIdrol() {
+		return idrol;
+	}
+
+
+
+	public void setIdrol(long idrol) {
+		this.idrol = idrol;
+	}
+
+
+
+	public String getCorreo() {
+		return correo;
+	}
+
+
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	
+	
 
 }

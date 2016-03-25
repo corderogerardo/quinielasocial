@@ -89,9 +89,6 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 		
 		@Listen("onClick=#login; onOK=#loginWin")
 		public void doLogin(){
-		
-			
-			
 			//Login
 			String txtUser = usuario.getValue().toString();
 			String txtPass = password.getValue().toString();
@@ -99,51 +96,39 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			Session miSession = Sessions.getCurrent();
 			
 			//Paso 1 Buscar usuario con ese correo: Hay dos formas, 1. con una consulta SQL, 2. En los servicios.
-			
-			usuarios = serviciousuario.getAll(Usuario.class);
-			
-			
-			
 			//Paso 2 si existe validad que la contraseña sea la correcta.
 			//Paso 3 setear variable de sesion
 			//Paso 4 si es valido redireccionar
 			
 			Boolean s=false;
-						
-//			for (int i=0;i<usuarios.size();i++){
-//				Messagebox.show("Usuario actual: "+usuarios.toString(), "Error", Messagebox.OK, Messagebox.ERROR);
-//				
-//				//Paso 1 Buscar usuario con ese correo
-//				if(txtUser.equals(usuarios.get(i).getPersona().getCorreo())) {
-//
-//					//Paso 2 si existe validad que la contraseña sea la correcta.
-//					if (txtPass.equals(usuarios.get(i).getContrasena()) && usuarios.get(i).getRol().getRolId()== 1 ){ //si es jugador
-//						//Paso 3 setear variable de sesion
-//						miSession.setAttribute("usuario", usuarios.get(i));	
-//						//Paso 4 si es valido redireccionar
-//						Executions.sendRedirect("/administradorPagina/indexSesionAdmin.zul");					
-//						s=true;
-//					}
-//					else
-//					if (txtPass.equals(usuarios.get(i).getContrasena()) && usuarios.get(i).getRol().getRolId()== 2){ //si es admin
-//	
-//						miSession.setAttribute("usuario", usuarios.get(i));					
-//						Executions.sendRedirect("/indexSesion.zul");		
-//						s=true;
-//					}
-//						
-//				}
-//								
-//			}
-		
-			long cant = usuarios.size();
-			Messagebox.show("Usuario actual: "+cant);
-
-//			if (s==false){
-//				 Messagebox.show("Clave o Usuario Incorrecto, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
-//			}
-			//Executions.sendRedirect("/indexSesion.zul");
+					
+			for (int i=0;i<usuarios.size();i++){
 			
+				//Paso 1 Buscar usuario con ese correo
+				if(txtUser.equals(usuarios.get(i).getCorreo())) {
+
+					//Paso 2 si existe validad que la contraseña sea la correcta.
+					if (txtPass.equals(usuarios.get(i).getContrasena()) && usuarios.get(i).getIdrol() == 1 ){ //si es jugador
+						//Paso 3 setear variable de sesion
+						miSession.setAttribute("usuario", usuarios.get(i));	
+						//Paso 4 si es valido redireccionar
+						Executions.sendRedirect("/administradorPagina/indexSesionAdmin.zul");					
+						s=true;
+					}
+					else
+					if (txtPass.equals(usuarios.get(i).getContrasena()) && usuarios.get(i).getIdrol() == 2){ //si es admin
+	
+						miSession.setAttribute("usuario", usuarios.get(i));					
+						Executions.sendRedirect("/indexSesion.zul");		
+						s=true;
+					}
+						
+				}
+								
+			}	
+			if (s==false){
+				 Messagebox.show("Clave o Usuario Incorrecto, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
+			}			
 		}
 		
 		@Listen("onClick=#saved; onOK=#registrarWin")
@@ -161,11 +146,11 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			//Paso 1 validad campos no vacios
 			//Paso 2 si todo el formulario esta completo guardar
 			
-			Persona personac = new Persona(txtCedula, txtNombre, txtApellido, txtFechanacimiento, txtCorreo);
+			Persona personac = new Persona(txtCedula, 3, txtNombre, txtApellido, txtFechanacimiento, txtCorreo);
 			serviciopersona.Save(personac);
-			Usuario usuarioc = new Usuario(txtCorreo, txtClave, txtFechanacimiento, true,2);
+			Usuario usuarioc = new Usuario(3, txtClave, txtFechanacimiento, true, 2, txtCorreo);
 			serviciousuario.Save(usuarioc);
-			Jugador jugadorc = new Jugador(personac, (float) 0, new Date());
+			Jugador jugadorc = new Jugador((long)1, (float)0, new Date(), "19849215");
 			serviciojugador.Save(jugadorc);		
 		}
 }

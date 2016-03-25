@@ -27,16 +27,23 @@ public class Jugador implements java.io.Serializable {
 	private Persona persona;
 	private Float puntajetotal;
 	private Date fechaIngreso;
+	private String jugadorcedula;
 	private Set<Jugadortorneo> jugadortorneos = new HashSet<Jugadortorneo>(0);
 	private Set<Prediccion> prediccions = new HashSet<Prediccion>(0);
 
 	public Jugador() {
 	}
+	
+	
 
-	public Jugador(long jugadorId, Date fechaIngreso) {
+	public Jugador(long jugadorId, Float puntajetotal, Date fechaIngreso, String jugadorcedula) {
+		super();
 		this.jugadorId = jugadorId;
+		this.puntajetotal = puntajetotal;
 		this.fechaIngreso = fechaIngreso;
+		this.jugadorcedula = jugadorcedula;
 	}
+
 
 	public Jugador(long jugadorId, Persona persona, Float puntajetotal, Date fechaIngreso,
 			Set<Jugadortorneo> jugadortorneos, Set<Prediccion> prediccions) {
@@ -60,7 +67,7 @@ public class Jugador implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedulajugador", unique = true)
+	@JoinColumn(name = "cedulajugador", unique = true,insertable=false, updatable=false)
 	public Persona getPersona() {
 		return this.persona;
 	}
@@ -105,5 +112,19 @@ public class Jugador implements java.io.Serializable {
 	public void setPrediccions(Set<Prediccion> prediccions) {
 		this.prediccions = prediccions;
 	}
+
+
+
+	public String getCedulajugador() {
+		return jugadorcedula;
+	}
+
+
+
+	public void setCedulajugador(String jugadorcedula) {
+		this.jugadorcedula = jugadorcedula;
+	}
+	
+	
 
 }

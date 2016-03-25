@@ -20,7 +20,7 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
-
+//import controlador.ControladorIndex;
 
 public class ControladorRegistrarTorneo extends SelectorComposer<Component>{
 

@@ -1,0 +1,16 @@
+<window id="responderMensaje" title="Mensaje" border="normal" width="460px"
+    apply="quinielasocial.lab.controller.ControladorMensajes"
+    position="center,center"
+    action="show: slideDown;hide: slideUp" sclass="margenTabla borde sombra" onClose="self.visible = false; event.stopPropagation();  " >
+    <vlayout >
+    <label value="Enviar Mensaje por Email a los Usuarios de la Página" width="150px" />
+    	<hlayout>  
+    	<textbox rows="6" width="370px;" tabindex="6">
+
+    	</textbox>
+    	
+    	
+    	</hlayout>
+       <button id="enviar" label="Enviar" sclass="btn btn-sm button-0" />
+    </vlayout>
+</window>
