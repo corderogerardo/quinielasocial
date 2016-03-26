@@ -1,0 +1,56 @@
+<zk>
+<window id="leerMensaje" apply="quinielasocial.lab.controller.ControladorMensajes" position="center,center" closable="true"
+    action="show: slideDown;hide: slideUp" sclass="borde sombra" onClose="self.visible = false; event.stopPropagation();" >
+
+    <panel id="panel" width="500px" height="400px" sclass="borde sombra">
+        <toolbar sclass="msg">CHAT.</toolbar>
+        <panelchildren>
+            <borderlayout>
+                <west size="130px">
+                    <borderlayout height="370px" width="100%">
+                        <north>
+                            <image src="/img/chat1.jpg" width="121px" height="118px" />
+                        </north>
+                        <south>
+                            <image src="/img/chat2.jpg" width="121px" height="118px"/>
+                        </south>
+                    </borderlayout>
+                </west>
+                <east width="360px" border="0" flex="true">
+                    <borderlayout height="370px">
+                        <center flex="true">
+                            <vlayout id="viewer" sclass="viewer" style="overflow:auto;">
+                                Juan Dice:
+                                <label sclass="content chat" >Ganeeee jajaajaj</label>
+                               
+                            </vlayout>
+                        </center>
+                        <south splittable="true" height="130px" >
+                            <div>
+                                <textbox id="text" multiline="true" width="100%" height="80px" style="margin: 0 0 0 1px"
+                                    value="" />
+                                <toolbar mold="panel" align="center">
+                                    <button label="Enviar" width="65px">
+                                        <attribute name="onClick" ><![CDATA[
+                                            if (text.value.isEmpty())
+                                                return;
+                                            Div div = new Div();
+                                            new Label("Jose dice:").setParent(div);
+                                            Html content = new Html("<pre>" + text.value + "</pre>");
+                                            viewer.appendChild(div);
+                                            viewer.appendChild(content);
+                                            text.value = "";
+                                        ]]></attribute>
+                                    </button>
+                                    <button id="cerrar" label="Salir" width="65px" onClick='text.value = ""' />
+                                </toolbar>
+                            </div>
+                        </south>
+                    </borderlayout>
+ 
+                </east>
+            </borderlayout>
+        </panelchildren>
+    </panel>
+    </window>
+</zk>

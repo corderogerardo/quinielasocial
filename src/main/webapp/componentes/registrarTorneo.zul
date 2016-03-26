@@ -1,8 +1,9 @@
 
 <zk>
-<window id="registrarTorneoWin" border="normal" sclass="margintabletittle borde sombra" contentStyle="overflow:auto;" apply="quinielasocial.lab.controller.ControladorRegistrarTorneo">
+<window id="registrarTorneoWin" border="normal" sclass="margintabletittle borde sombra" contentStyle="overflow:auto;" 
+apply="quinielasocial.lab.controller.ControladorRegistrarTorneo">
 	<caption label="Registro De Torneo"/>
-	<borderlayout height="250px" >
+	<borderlayout height="350px" >
 		<center autoscroll="true">
 			<div>
 			<grid fixedLayout="true">
@@ -28,7 +29,18 @@
 		</button>
 		<image id="pics" />
 	</vlayout></row>
-
+	<row>
+	<label value="Puntos Por Prediccion Acertada" width="150px"/>
+    <textbox id="puntoGanado"  width="100px" value="" constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
+	</row>	
+	<row>
+	<label value="Puntos Acierto Marcador Equipo Local" width="150px"/>
+    <textbox id="puntoMarcadorLocal"  width="100px" value="" constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
+	</row>	
+	<row>
+	<label value="Puntos Acierto Marcador Equipo Visitante" width="150px"/>
+    <textbox id="puntoMarcadorVisitante"  width="100px" value="" constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
+	</row>	
 	<row>
 	<div>
 		<separator/>	

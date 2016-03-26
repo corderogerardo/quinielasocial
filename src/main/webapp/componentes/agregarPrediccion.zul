@@ -1,0 +1,83 @@
+<zk>
+<window title="Agregue Predicciones de los Partidos de los partidos" sclass="margenTabla sombra">
+
+	<div apply="org.zkoss.bind.BindComposer" sclass="margenTabla sombra" width="90%">
+	
+		<grid visible="true">
+			<columns>
+				<column width="130px" label="Equipo Local" />
+				<column width="100px" label="Marcador Eq.L." />
+				<column width="50px" label="Vs." />
+				<column width="130px" label="Equipo Visitante" />
+				<column width="100px" label="Marcador Eq.V." />
+				<column width="120px" label="Lugar" />
+				<column width="100px" label="Fecha" />
+				<column width="100px" label="Hora" />	
+			</columns>
+			
+		
+			 <rows>
+			 
+				<row>
+					<label value="Venezuela" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+				    <label>Vs.</label>
+					<label value="Chile" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+					<label value="Estadio Nacional" />
+					<label value="30/06/2015" />			
+					<label value="01:30" />			
+				</row>	
+				
+				<row>
+					<label value="Ecuador" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+				    <label>Vs.</label>
+					<label value="Bolivia" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+					<label value="Estadio Monumental" />
+					<label value="15/06/2015" />			
+					<label value="08:00" />			
+				</row>	
+				
+				<row>
+					<label value="Chile" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+				    <label>Vs.</label>
+					<label value="Mexico" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+					<label value="Estadio Ester Roa" />
+					<label value="16/06/2015" />			
+					<label value="08:00" />			
+				</row>	
+				
+				<row>
+					<label value="Colombia" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+				    <label>Vs.</label>
+					<label value="Venezuela" />
+					<hbox><textbox hflex="1" value="" /></hbox>
+					<label value="Estadio la Portada" />
+					<label value="14/06/2015" />			
+					<label value="05:00" />			
+				</row>	
+				<row>
+								<hbox align="center" width="100%">
+								<div >
+								<button label="Guardar" id="saveTimesheetDetails"/>
+								</div>
+								</hbox>	
+				</row>
+				
+			</rows>
+		</grid>
+
+	</div>
+	
+	<separator/><separator/>
+	
+
+		
+</window>
+
+</zk>

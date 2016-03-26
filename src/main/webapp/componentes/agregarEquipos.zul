@@ -1,5 +1,6 @@
 <zk>
-	<window title="Agregar Equipos Al Torneo" border="normal" id="agregarEquiposWin" sclass="margintabletittle borde sombra" apply="quinielasocial.lab.controller.ControladorAgregarEquipos" >
+	<window title="Agregar Equipos Al Torneo" border="normal" id="agregarEquiposWin" 
+	sclass="margintabletittle borde sombra" apply="quinielasocial.lab.controller.ControladorAgregarEquipos" >
 		<div style="padding: 10px;">
 			<panel collapsible="false" title="Detalles De Los Equipos">
 				<panelchildren>

@@ -1,0 +1,33 @@
+<window title="Tabla de Puntuacion del Torneo" sclass="margintabletittle borde sombra">
+<zscript><![CDATA[
+
+    public void mensaje() {
+        //create a window programmatically and use it as a modal dialog.
+        Window window = (Window)Executions.createComponents("/componentes/leerMensaje.zul", null, null);
+        window.doModal();
+    }
+
+
+]]></zscript>
+<div  apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('modelo') @init('quinielasocial.lab.controller.ControladorGridJugadores')">
+		<grid visible="true" id="datosJugadores" mold="paging" pageSize="5"  pagingPosition="top"
+			model="@load(modelo.obtenerJugadores)" >
+			<columns menupopup="auto">
+				<column width="180px" label="Nombre" />
+				<column width="180px" label="Apellido" />
+				<column width="180px" label="Correo" />
+			    <column width="180px" label="Puntaje" />
+				
+			</columns>	
+			<template name="model">
+				<row>
+					<a label="@load(each.nombre)" onClick="mensaje()"/>
+					<a label="@load(each.apellido)" onClick="mensaje()"/>
+					<label value="@load(each.correo)" />	
+					<label value="@load(each.puntaje)" />					
+				</row>	
+			</template>
+		</grid>
+	</div>
+</window>

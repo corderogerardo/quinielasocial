@@ -10,7 +10,9 @@
     			
     			<space spacing="40px"></space>
     			<div>
-						<button id="inicio" label="Inicio" sclass="btn btn-primary btn-lg boton" width="180px" >
+						<button href="/" id="inicio" label="Inicio" sclass="btn btn-primary btn-lg boton" width="180px" >
+						</button>
+						<button href="componentes/actualizarDatosUsuario.zul" id="perfil" label="Mi Perfil" sclass="btn btn-primary btn-lg boton" width="180px" >
 						</button>
 						<button id="cerrarSesion" label="Cerrar Sesion" sclass="btn btn-primary btn-lg boton" width="180px" >
 						</button>

@@ -1,6 +1,11 @@
 
 <zk xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
+<zscript><![CDATA[
+	public void redireccionarParticipantes() {
+		Executions.sendRedirect("sesionParticipantes.zul");
+	}
 
+]]></zscript>
 <div sclass="margenTabla" width="90%">
 
     <grid sclass="margintabletittle borde sombra">
@@ -15,49 +20,49 @@
         </columns>
         <rows sclass="narrow">
             <row>
-                <label value="Copa Polar" />
+                <a label="Copa Polar" onClick="redireccionarParticipantes()"/>
                 <label value="12 | 50" />
                 <label value="15" />
                 
             </row>
             <row>
-                <label value="Copa Sudamericana" />
+                <a label="Copa Sudamericana" onClick="redireccionarParticipantes()"/>
                 <label value="7 | 35" />
                 <label value="8" />
                 
             </row>
             <row>
-                <label value="Liga Inglesa Futbol" />
+                <a label="Liga Inglesa Futbol" onClick="redireccionarParticipantes()"/>
                 <label value="1 | 12" />
                 <label value="65" />
                 
             </row>
             <row>
-                <label value="Copa Davis Tenis" />
+                <a label="Copa Davis Tenis" onClick="redireccionarParticipantes()"/>
                 <label value="7 | 28" />
                 <label value="21" />
                 
             </row>
                         <row>
-                <label value="Copa Polar" />
+                <a label="Copa UCLA" onClick="redireccionarParticipantes()"/>
                 <label value="12 | 50" />
                 <label value="15" />
                 
             </row>
             <row>
-                <label value="Copa Sudamericana" />
+                <a label="Serie Del Caribe" onClick="redireccionarParticipantes()"/>
                 <label value="7 | 35" />
                 <label value="8" />
                 
             </row>
             <row>
-                <label value="Liga Inglesa Futbol" />
+                <a label="Liga Tenis de Mesa" onClick="redireccionarParticipantes()"/>
                 <label value="1 | 12" />
                 <label value="65" />
                 
             </row>
             <row>
-                <label value="Copa Davis Tenis" />
+                <a label="Torneo de Boxeo" onClick="redireccionarParticipantes()"/>
                 <label value="7 | 28" />
                 <label value="21" />
                 

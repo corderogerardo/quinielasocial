@@ -26,7 +26,7 @@ public class ControladorIndexSesion extends SelectorComposer<Component>{
 		super();
 		Session session = Sessions.getCurrent();
 		Usuario usr = (Usuario) session.getAttribute("usuario");
-		//Messagebox.show("Sesiones "+usr.getCorreo().toString());
+//		Messagebox.show("Sesiones "+usr.getCorreo().toString());
 			try{
 				if(usr.getCorreo().isEmpty()){
 			

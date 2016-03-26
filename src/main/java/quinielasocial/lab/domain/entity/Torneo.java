@@ -76,7 +76,7 @@ public class Torneo implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedula_administrador")
+	@JoinColumn(name = "cedula_administrador", insertable = false, updatable = false)
 	public Persona getPersona() {
 		return this.persona;
 	}

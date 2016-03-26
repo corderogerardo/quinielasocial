@@ -1,14 +1,28 @@
 
 <window title="A continuacion las Quinielas Que Administras" sclass="margintabletittle borde sombra">
+<zscript><![CDATA[
+	public void redireccionarRegistrarResultados() {
+		Executions.sendRedirect("sesionAgregarResultados.zul");
+	}
+	public void redireccionarJugadores() {
+		Executions.sendRedirect("sesionParticipantes.zul");
+	}
+	public void redireccionarPartidos() {
+		Executions.sendRedirect("sesionAgregarPartidos.zul");
+	}
+
+]]></zscript>
 <div  apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('modelo') @init('quinielasocial.lab.controller.ControladorGridTorneos')">
 		<grid visible="true" id="datosTorneos" mold="paging" pageSize="5"  pagingPosition="top"
 			model="@load(modelo.obtenerTorneos)" >
 			<columns menupopup="auto">
-				<column width="180px" label="Nombre" />
-				<column width="180px" label="Deporte" />
-				<column width="180px" label="Fecha De Inicio" />
-			    <column width="180px" label="Fecha de Final" />
+				<column width="150px" label="Nombre" />
+				<column width="110px" label="Deporte" />
+				<column width="150px" label="Fecha De Inicio" />
+			    <column width="150px" label="Fecha de Final" />
+			    <column width="100px" label="Participantes" />
+				<column width="120px" label="Editar" />
 				
 			</columns>	
 			<template name="model">
@@ -16,7 +30,17 @@
 					<label value="@load(each.nombre)" />
 					<label value="@load(each.deporte)" />
 					<label value="@load(each.fechaInicio)" />	
-					<label value="@load(each.fechaFin)" />					
+					<label value="@load(each.fechaFin)" />		
+					<label value="@load(each.cantParticipantes)"/>
+					<menubar autodrop="true">
+        <menu label="Opciones">
+            <menupopup>
+                <menuitem label="Agregar Resultados" onClick="redireccionarRegistrarResultados()" />
+                <menuitem label="Agregar Partidos" onClick="redireccionarPartidos()" />
+                <menuitem label="Participantes" onClick="redireccionarJugadores()" />
+            </menupopup>
+        </menu>
+        </menubar>
 				</row>	
 			</template>
 		</grid>
