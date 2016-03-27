@@ -1,5 +1,5 @@
 <window title="Todas Las Quinielas" height="500px" width="800px" border="normal"
-	apply="controlador.ControladorListaQuinielas" sclass="margenTabla borde sombra" >
+	apply="quinielasocial.lab.controller.ControladorListaQuinielas" sclass="margenTabla borde sombra" >
 	
 	<zscript><![CDATA[
 	     public void unirse(){
@@ -12,7 +12,7 @@
 		<button id="btnBuscar" label="Buscar"/>
 	</hbox>
 <div  apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('modelo') @init('controlador.ControladorGridTorneos')">
+		viewModel="@id('modelo') @init('quinielasocial.lab.controller.ControladorGridTorneos')">
 		<grid visible="true" id="datosTorneos" mold="paging" pageSize="5"  pagingPosition="top"
 			model="@load(modelo.obtenerTorneos)" >
 			<columns menupopup="auto">

@@ -9,10 +9,10 @@
     			<image sclass="navbar-left" src="img/logonegro1.svg"/>
     			
     			<space spacing="40px"></space>
-    			<div>
-						<button href="/" id="inicio" label="Inicio" sclass="btn btn-primary btn-lg boton" width="180px" >
+    			<div apply="quinielasocial.lab.controller.ControladorNavegacion">
+						<button href="indexSesion.zul" id="inicio" label="Inicio" sclass="btn btn-primary btn-lg boton" width="180px" >
 						</button>
-						<button href="componentes/actualizarDatosUsuario.zul" id="perfil" label="Mi Perfil" sclass="btn btn-primary btn-lg boton" width="180px" >
+						<button id="btnPerfil" label="Mi Perfil" sclass="btn btn-primary btn-lg boton" width="180px" >
 						</button>
 						<button id="cerrarSesion" label="Cerrar Sesion" sclass="btn btn-primary btn-lg boton" width="180px" >
 						</button>

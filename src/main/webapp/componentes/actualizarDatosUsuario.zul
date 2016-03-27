@@ -1,6 +1,6 @@
 <zk>
-<window  border="normal" sclass="margintabletittle borde sombra" contentStyle="overflow:auto;" id="modificarPerfil" 
-apply="quinielasocial.lab.controller.ControladorModificarPerfil">
+<window border="normal" sclass="margintabletittle borde sombra" contentStyle="overflow:auto;" id="modificarPerfil" 
+apply="quinielasocial.lab.controller.ControladorUsuario">
 <caption label="Modificar Datos del Usuario"/>
 	<borderlayout height="420px" width="800px" >
 	<center autoscroll="true">
@@ -9,51 +9,63 @@ apply="quinielasocial.lab.controller.ControladorModificarPerfil">
 				<rows>	
 					<row>	
 						<label value="Cedula:" width="100px" />
-						<cell><textbox value="21296217" width="100px"/></cell>
+						<cell><textbox id="cedulau" sclass="input"
+				constraint="no empty: Por favor escribe tu cedula" 
+				width="260px"/></cell>
 					</row>
 					
 					<row>	
 						<label value="Nombre:" width="20%" />
-						<cell><textbox value="Rosa Ines" width="50%"/></cell>	
+						<cell><textbox id="nombreu" sclass="input"
+				constraint="no empty: Por favor escribe tu nombre" width="260px"/></cell>	
 					</row>
 					
 					<row>	
 						<label value="Apellido:" width="50%" />
-						<cell><textbox value="Chavez Rodriguez" width="50%"/></cell>	
+						<cell><textbox id="apellidou" sclass="input" 
+				constraint="no empty: Por favor escribe tu apellido" 
+				width="260px"/></cell>	
 					</row>
 					
 					<row>
 						<label value="Correo:" width="50%" />
-						<cell><textbox value="la_rosi_13@gmail.com" width="50%"/></cell>	
+						<cell><textbox id="correou" sclass="input"
+				constraint="/.+@.+\.[a-z]+/: Por favor escribe tu correo" 
+				width="260px"/></cell>	
 					</row>
 						
 					<row>
 						<label value="Fecha de Nacimiento:" width="50%" />
-						<cell><datebox value="@bind(vm.currentUser.fechaNacimiento)" width="50%"/></cell>	
+						<cell><datebox id="fechanacimientou" sclass="input" width="260px" height="40px"/></cell>	
 					</row>
 	
 					<row>
-						<label value="Contraseña Actual:" width="50%" />
-						<cell><textbox value="" type="password" width="50%"/></cell>	
+						<label value="Contraseña Nueva:" width="50%" />
+						<cell><textbox id="claveu" sclass="input" 
+				constraint="no empty: Por favor escribe tu contraseña " 
+				type="password" width="260px"/></cell>	
 					</row>
 					
 					<row>
-						<label value="Nueva Contraseña:" width="50%" />
-						<cell><textbox value="" type="password" width="50%"/></cell>	
+						<label value="Confirmar Contraseña Nueva:" width="50%" />
+						<cell><textbox id="confcontrasenau" sclass="input" 
+						constraint="no empty: Por favor repite tu contraseña " 
+						type="password" width="260px"/></cell>	
 					</row>
 					
 					<row>	
 						<label value="Foto:" width="50%" />
-						<cell><button id="btnimagen" label="Seleccionar Foto" upload="true">	
-		</button>
-		<image id="pics" /></cell>
+						<cell><button id="urlfotou" upload="true" sclass="input" label="Seleccionar Foto" width="260px"/>
+		 				</cell>
 					</row>	
 				</rows>
 			</grid>
 			<div>
 				<separator/><separator/><space /><space /><space />
-				<button  id="guardar" label="Guardar" sclass="btn btn-sm button-0" width="20%"/><space /><space />
+				<button  id="update" label="Guardar" sclass="btn btn-sm button-0" width="20%" onClick="@command('update')"/><space /><space />
 				<button  id="salir" label="Salir" sclass="btn btn-sm button-0" width="20%"/>	
+				<button  id="cargar" label="Salir" sclass="btn btn-sm button-0" width="20%" visible="false"
+				onClick="@command('cargar')"/>	
 				<separator/><separator/>
 			</div>
 		</div>	

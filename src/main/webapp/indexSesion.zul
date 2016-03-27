@@ -1,20 +1,23 @@
 <?page title="Inicio" contentType="text/html;charset=UTF-8"?>
 <zk xmlns:h="http://www.w3.org/1999/xhtml" xmlns:zk="http://www.zkoss.org/2005/zk">
-<window id="indexSesion" apply="quinielasocial.lab.controller.ControladorIndexSesion" width="100%" height="100%" >
+<window apply="quinielasocial.lab.controller.ControladorIndexSesion" width="100%" height="100%" >
  <style src="css/iconos.css" />
  <style src="css/bootstrap.css" />
   <style src="css/font-awesome/css/font-awesome.min.css" />
   <style src="css/estilo.css" />
 <borderlayout height="300%"><north height="5%" border="none">
+<!-- menu - jugador -->
 <include src="barSesion.zul" />
 </north>
 
 <center><div>
 <div>
+<!-- menu vertical - jugadores -->
 <div sclass="col-md-2 barraTareas">
 <include id="barraTareas" src="barraTareas.zul"/>
 </div>
-<div sclass="col-md-9">
+<div sclass="col-md-9" id="contenidos">
+<!-- menu vertical - jugadores -->
 <include id="middle" src="componentes/tablaposiciones.zul"/>
 </div>
 
