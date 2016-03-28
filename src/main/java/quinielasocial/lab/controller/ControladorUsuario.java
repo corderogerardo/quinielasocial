@@ -106,7 +106,6 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 		
 		public ControladorUsuario(){
 			super();
-			try{
 			Persona personh = new Persona("19849215", (long)1, "Gerardo", "Cordero", new Date(), "/me.jpg", 
 					true, "administrador@gmail.com");
 			serviciopersona.Save(personh);
@@ -118,9 +117,11 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			serviciousuario.Save(usuarioh);
 			Jugador jugadorh = new Jugador((long)1, (float)0, new Date(), "19849215");
 			serviciojugador.Save(jugadorh);
-			personas = serviciopersona.getAll(Persona.class);
-			usuarios = serviciousuario.getAll(Usuario.class);
-			jugadores = serviciojugador.getAll(Jugador.class);
+			try{
+
+//			personas = serviciopersona.getAll(Persona.class);
+//			usuarios = serviciousuario.getAll(Usuario.class);
+//			jugadores = serviciojugador.getAll(Jugador.class);
 			
 		
 			}catch(Exception e){
