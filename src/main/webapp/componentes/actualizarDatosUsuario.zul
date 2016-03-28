@@ -1,6 +1,9 @@
 <zk>
-<window border="normal" sclass="margintabletittle borde sombra" contentStyle="overflow:auto;" id="modificarPerfil" 
-apply="quinielasocial.lab.controller.ControladorUsuario">
+<window apply="quinielasocial.lab.controller.ControladorUsuario" border="normal" 
+sclass="margintabletittle borde sombra" 
+contentStyle="overflow:auto;" 
+id="modificarPerfil"
+>
 <caption label="Modificar Datos del Usuario"/>
 	<borderlayout height="420px" width="800px" >
 	<center autoscroll="true">

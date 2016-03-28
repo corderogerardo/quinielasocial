@@ -19,7 +19,7 @@ public class ControladorNavegacion extends GenericForwardComposer<Component> {
 	private Div contenidos;
 	private Window contenedor;
 	private String pagina;
-	private ControladorUsuario controladorUsuario = new ControladorUsuario();
+	
 	
 	public void onClick$btnPerfil(){
 		System.out.println("Entro al metodo");
@@ -27,7 +27,8 @@ public class ControladorNavegacion extends GenericForwardComposer<Component> {
 		contenidos.getChildren().clear();
 		contenedor = (Window) Executions.createComponents(pagina, null, null);
 		contenidos.appendChild(contenedor);
-		controladorUsuario.cargarusuario();
+		ControladorUsuario controladorUsuario = new ControladorUsuario();
+		controladorUsuario.cargarusaurios();
 	}
 	public void onClick$btnNuevo(){
 		System.out.println("Entro al metodo");

@@ -9,7 +9,9 @@ import java.util.List;
 import javax.persistence.criteria.Predicate;
 
 import org.springframework.util.CollectionUtils;
+import org.zkoss.bind.annotation.AfterCompose;
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.Init;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
@@ -22,10 +24,12 @@ import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Datebox;
+import org.zkoss.zul.Div;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
+import javassist.bytecode.stackmap.BasicBlock.Catch;
 import quinielasocial.lab.business.services.CRUDService;
 import quinielasocial.lab.domain.entity.Jugador;
 import quinielasocial.lab.domain.entity.Persona;
@@ -52,6 +56,7 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 	private Usuario unusuario;
 	Persona personau = new Persona();
 	Jugador jugadoru = new Jugador();
+	private Div modificarPerfil; 
 	
 
 	
@@ -121,6 +126,7 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
+			
 		}
 		
 		@Listen("onClick=#login; onOK=#loginWin")
@@ -164,7 +170,7 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			}	
 			if (s==false){
 				 Messagebox.show("Clave o Usuario Incorrecto, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
-			}			
+			}	
 		}//fin login
 		
 		@Listen("onClick=#saved; onOK=#registrarWin")
@@ -212,6 +218,7 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 		
 		@Listen("onClick=#update; onOK=#modificarPerfil")
 		public void update(){
+			
 //			personas.clear();
 //			jugadores.clear();
 //			personas = serviciopersona.getAll(Persona.class);
@@ -264,13 +271,14 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 				 Messagebox.show("Contreñas no son iguales, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
 			}
 		}//fin actualizar
-		@Listen("onLoad=#modificarPerfil ")
-		public void cargarusuario(){
+		@Listen("onOK=#modificarPerfil")
+		public void cargarusaurios(){
+//			Messagebox.show("OK Pressed");
 //			personas.clear();
 //			jugadores.clear();
 //			personas = serviciopersona.getAll(Persona.class);
 //			jugadores= serviciojugador.getAll(Jugador.class);
-			
+			try{
 			personau = new Persona();
 			jugadoru = new Jugador();
 			//Paso 1 buscar lo que tiene sesion
@@ -286,13 +294,16 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 					jugadoru = jugadores.get(j);
 				}
 			}
-			Messagebox.show("Sesiones "+usr.getCorreo().toString());
-			Messagebox.show("Sesiones "+personau.getCedula().toString());
+//			Messagebox.show("Sesiones "+usr.getCorreo().toString());
+//			Messagebox.show("Sesiones "+personau.getCedula().toString());
 			//Paso 2 asignarlo a las cajas de texto
 			//Registrar
 			
-			cedulau.setValue(personau.getCedula());
 			
+			cedulau.setValue(personau.getApellido());
+			
+//			cedulau.setValue(personau.getCedula());
+//			
 			nombreu.setValue(personau.getNombre());
 			
 			apellidou.setValue(personau.getApellido());
@@ -304,6 +315,9 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			claveu.setValue(usr.getContrasena());
 			
 			confcontrasenau.setValue(usr.getContrasena());
-		}//fin cargarusuario
 		
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}//fin cargarusuario
 }
