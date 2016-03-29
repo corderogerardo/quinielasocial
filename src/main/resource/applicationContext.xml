@@ -23,13 +23,15 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		
-<!-- 		<property name="url" value="${jdbc.url}" /> -->
-<!-- 		<property name="username" value="${jdbc.username}" /> -->
-<!-- 		<property name="password" value="${jdbc.password}" /> -->
-		
-		<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
-        <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-        <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+
+	<!-- 		REMOTO- HEROKU -->
+	<!--Esto si funciona junto con el Beam -->
+<!-- 		<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/> -->
+<!--         <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/> -->
+<!--         <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/> -->
         
       
 	</bean>
@@ -49,9 +51,10 @@
 <!--         <property name="minEvictableIdleTimeMillis" value="1800000"/> -->
 <!--         <property name="validationQuery" value="SELECT version();"/> -->
 <!--     </bean> -->
-	<bean class="java.net.URI" id="dbUrl">
-      <constructor-arg value="${DATABASE_URL}"/>
-    </bean>
+	<!-- IMPORTANTE PARA HEROKU -->
+<!-- 	<bean class="java.net.URI" id="dbUrl"> -->
+<!--       <constructor-arg value="${DATABASE_URL}"/> -->
+<!--     </bean> -->
 
 	
 </beans>

@@ -20,6 +20,12 @@ public class CRUDServiceImpl implements CRUDService {
 	public <T> List<T> getAll(Class<T> klass) {
 		return CRUDDao.getTodos(klass);
 	}
+	
+	@Transactional(readOnly = true)
+	public <T> List<T> getEquiposUnTorneo(Class<T> klass,long id) {
+		// TODO Auto-generated method stub
+		return CRUDDao.getEquiposUnTorneo(klass,id);
+	}
 
 	@Transactional
 	public <T> void Save(T klass) throws DataAccessException {
@@ -54,5 +60,7 @@ public class CRUDServiceImpl implements CRUDService {
 	public <T> T findByEmail(Class<T> klass, String correo) {
 		 return CRUDDao.encontrarPorId(klass, correo);
 	}
+
+	
 	
 }

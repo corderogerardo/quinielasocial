@@ -24,6 +24,7 @@
 
 		<property name="hibernateProperties">
 			<props>
+				
 				<prop key="configurationClass">org.hibernate.cfg.AnnotationConfiguration</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>

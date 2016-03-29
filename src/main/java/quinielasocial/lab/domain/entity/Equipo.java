@@ -17,6 +17,7 @@ public class Equipo implements java.io.Serializable {
 	private String nombre;
 	private String descripcion;
 	private String logo;
+	private long torneoid;
 
 	public Equipo() {
 	}
@@ -26,11 +27,12 @@ public class Equipo implements java.io.Serializable {
 		this.nombre = nombre;
 	}
 
-	public Equipo(long equipoId, String nombre, String descripcion, String logo) {
+	public Equipo(long equipoId, String nombre, String descripcion, String logo, long torneoid) {
 		this.equipoId = equipoId;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.logo = logo;
+		this.torneoid = torneoid;
 	}
 
 	@Id
@@ -70,5 +72,14 @@ public class Equipo implements java.io.Serializable {
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
+	@Column(name = "torneoid")
+	public long getTorneoid() {
+		return torneoid;
+	}
+
+	public void setTorneoid(long torneoid) {
+		this.torneoid = torneoid;
+	}
+	
 
 }

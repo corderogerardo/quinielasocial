@@ -1,8 +1,9 @@
 <zk>
-<window apply="quinielasocial.lab.controller.ControladorUsuario" border="normal" 
+<window apply="org.zkoss.bind.BindComposer" border="normal" 
 sclass="margintabletittle borde sombra" 
 contentStyle="overflow:auto;" 
 id="modificarPerfil"
+viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.VMUsuario')"
 >
 <caption label="Modificar Datos del Usuario"/>
 	<borderlayout height="420px" width="800px" >
@@ -13,6 +14,7 @@ id="modificarPerfil"
 					<row>	
 						<label value="Cedula:" width="100px" />
 						<cell><textbox id="cedulau" sclass="input"
+						value="@bind(vm.cedula)" disabled="true"
 				constraint="no empty: Por favor escribe tu cedula" 
 				width="260px"/></cell>
 					</row>
@@ -20,12 +22,14 @@ id="modificarPerfil"
 					<row>	
 						<label value="Nombre:" width="20%" />
 						<cell><textbox id="nombreu" sclass="input"
+						value="@bind(vm.nombre)"
 				constraint="no empty: Por favor escribe tu nombre" width="260px"/></cell>	
 					</row>
 					
 					<row>	
 						<label value="Apellido:" width="50%" />
 						<cell><textbox id="apellidou" sclass="input" 
+						value="@bind(vm.apellido)"
 				constraint="no empty: Por favor escribe tu apellido" 
 				width="260px"/></cell>	
 					</row>
@@ -33,18 +37,22 @@ id="modificarPerfil"
 					<row>
 						<label value="Correo:" width="50%" />
 						<cell><textbox id="correou" sclass="input"
+						value="@bind(vm.correo)"
 				constraint="/.+@.+\.[a-z]+/: Por favor escribe tu correo" 
 				width="260px"/></cell>	
 					</row>
 						
 					<row>
 						<label value="Fecha de Nacimiento:" width="50%" />
-						<cell><datebox id="fechanacimientou" sclass="input" width="260px" height="40px"/></cell>	
+						<cell><datebox id="fechanacimientou" 
+						value="@bind(vm.nacimiento)"
+						sclass="input" width="260px" height="40px"/></cell>	
 					</row>
 	
 					<row>
 						<label value="Contraseña Nueva:" width="50%" />
 						<cell><textbox id="claveu" sclass="input" 
+						value="@bind(vm.passuno)"
 				constraint="no empty: Por favor escribe tu contraseña " 
 				type="password" width="260px"/></cell>	
 					</row>
@@ -52,6 +60,7 @@ id="modificarPerfil"
 					<row>
 						<label value="Confirmar Contraseña Nueva:" width="50%" />
 						<cell><textbox id="confcontrasenau" sclass="input" 
+						value="@bind(vm.passdos)"
 						constraint="no empty: Por favor repite tu contraseña " 
 						type="password" width="260px"/></cell>	
 					</row>
@@ -67,8 +76,7 @@ id="modificarPerfil"
 				<separator/><separator/><space /><space /><space />
 				<button  id="update" label="Guardar" sclass="btn btn-sm button-0" width="20%" onClick="@command('update')"/><space /><space />
 				<button  id="salir" label="Salir" sclass="btn btn-sm button-0" width="20%"/>	
-				<button  id="cargar" label="Salir" sclass="btn btn-sm button-0" width="20%" visible="false"
-				onClick="@command('cargar')"/>	
+				
 				<separator/><separator/>
 			</div>
 		</div>	

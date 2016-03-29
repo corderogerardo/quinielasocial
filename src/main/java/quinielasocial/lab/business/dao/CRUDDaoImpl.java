@@ -21,6 +21,11 @@ public class CRUDDaoImpl implements CRUDDao {
 		return getCurrentSession().createQuery("from "+klass.getName())
 				.list();
 	}
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getEquiposUnTorneo(Class<T> klass,long id ){
+		Query query = getCurrentSession().createQuery("from "+ klass.getName()+ " where torneoid = "+id);
+		return query.list();
+	}
 	protected final Session getCurrentSession(){
 		return sessionFactory.getCurrentSession();
 	}

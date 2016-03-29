@@ -7,7 +7,7 @@
     <session-factory> 
     <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost:5433/quinielados</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5433/quinielasocial</property>
 		<property name="connection.username">postgres</property>
 		<property name="connection.password">botHACK.13</property>		
 		<property name="cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>		
@@ -27,7 +27,7 @@
             <mapping class="quinielasocial.lab.domain.entity.Resultado"/>
              <mapping class="quinielasocial.lab.domain.entity.Prediccion"/>
               <mapping class="quinielasocial.lab.domain.entity.Jugadortorneo"/>
-               <mapping class="quinielasocial.lab.domain.entity.mensajeJugador"/>
+               <mapping class="quinielasocial.lab.domain.entity.Mensajejugador"/>
     </session-factory>
 
 </hibernate-configuration>

@@ -31,6 +31,7 @@ import org.zkoss.zul.Textbox;
 
 import javassist.bytecode.stackmap.BasicBlock.Catch;
 import quinielasocial.lab.business.services.CRUDService;
+import quinielasocial.lab.domain.entity.Equipo;
 import quinielasocial.lab.domain.entity.Jugador;
 import quinielasocial.lab.domain.entity.Persona;
 import quinielasocial.lab.domain.entity.Rol;
@@ -52,6 +53,7 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 	private List<Persona> personas;
 	private List<Jugador> jugadores;
 	private List<Usuario> usuarios;
+
 	private List<Rol> roles;
 	private Usuario unusuario;
 	Persona personau = new Persona();
@@ -85,24 +87,7 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 	//Mensajes
 	@Wire
 	Label message;
-	//Actualizar
-	//wire components registrar
-		@Wire
-		Textbox cedulau;
-		@Wire
-		Textbox nombreu;
-		@Wire
-		Textbox apellidou;
-		@Wire
-		Textbox correou;
-		@Wire
-		Datebox fechanacimientou;
-		@Wire
-		Textbox claveu;
-		@Wire
-		Textbox confcontrasenau;
-		@Wire
-		Button urlfotou;
+	
 		
 		public ControladorUsuario(){
 			super();
@@ -121,11 +106,15 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			personas = serviciopersona.getAll(Persona.class);
 			usuarios = serviciousuario.getAll(Usuario.class);
 			jugadores = serviciojugador.getAll(Jugador.class);
+		
 						
 		}
 		
+		
+		
 		@Listen("onClick=#login; onOK=#loginWin")
 		public void doLogin(){
+			
 			//Login
 			String txtUser = usuario.getValue().toString();
 			String txtPass = password.getValue().toString();
@@ -217,108 +206,4 @@ public class ControladorUsuario extends SelectorComposer<Component> {
 			}
 		}//fin guardar
 		
-		@Listen("onClick=#update; onOK=#modificarPerfil")
-		public void update(){
-			
-//			personas.clear();
-//			jugadores.clear();
-//			personas = serviciopersona.getAll(Persona.class);
-//			jugadores= serviciojugador.getAll(Jugador.class);
-			
-		
-			//Paso 1 buscar lo que tiene sesion
-			Session session = Sessions.getCurrent();
-			Usuario usr = (Usuario) session.getAttribute("usuario");
-			
-			//Messagebox.show("Sesiones "+usr.getCorreo().toString());
-			
-			
-			String txtCedulau = cedulau.getValue().toString();
-			String txtNombreu= nombreu.getValue().toString();
-			String txtApellidou = apellidou.getValue().toString();
-			String txtCorreou = correou.getValue().toString();
-			String txtClaveu =claveu.getValue().toString();
-			String txtConfcontrasenau = confcontrasenau.getValue().toString();
-			
-			@SuppressWarnings("deprecation")
-			String txtUrlfotou = urlfotou.getUpload();
-			
-			//Tomando la fecha de nacimiento y dandole formato correcto
-			SimpleDateFormat smFechanacimiento = new SimpleDateFormat("dd/MM/yyyy");
-			Date txtFechanacimientou = new Date();
-			try {
-				txtFechanacimientou = smFechanacimiento.parse(fechanacimientou.getText().toString());
-			} catch (WrongValueException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			//Messagebox.show("URL foto, fecha nacimiento"+txtUrlfoto+" "+txtFechanacimiento.toGMTString().toString());
-			
-			//Paso 1 validad campos no vacios
-			//Paso 2 Valida contraseñas iguales
-			if(txtClaveu.equals(txtConfcontrasenau) ){
-				//Paso 3 si todo el formulario esta completo guardar
-				Persona personac = new Persona(txtCedulau, personau.getPersonaId(), txtNombreu, txtApellidou,txtFechanacimientou, txtUrlfotou, true, txtCorreou);
-				serviciopersona.Save(personac);
-				Usuario usuarioc = new Usuario(usr.getUsuarioId(), txtClaveu, new Date(), true, 2, txtCorreou);
-				serviciousuario.Save(usuarioc);
-				Jugador jugadorc = new Jugador(jugadoru.getJugadorId(), (float)0, new Date(), txtCedulau);
-				serviciojugador.Save(jugadorc);		
-			}else{
-				 Messagebox.show("Contreñas no son iguales, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
-			}
-		}//fin actualizar
-		@Listen("onOK=#modificarPerfil")
-		public void cargarusaurios(){
-//			Messagebox.show("OK Pressed");
-//			personas.clear();
-//			jugadores.clear();
-//			personas = serviciopersona.getAll(Persona.class);
-//			jugadores= serviciojugador.getAll(Jugador.class);
-			try{
-			personau = new Persona();
-			jugadoru = new Jugador();
-			//Paso 1 buscar lo que tiene sesion
-			Session session = Sessions.getCurrent();
-			Usuario usr = (Usuario) session.getAttribute("usuario");
-			for(int i = 0; i<personas.size();i++){
-				if(usr.getCorreo().equals(personas.get(i).getCorreo())){
-					personau = personas.get(i);
-				}
-			}
-			for(int j = 0; j<jugadores.size();j++){
-				if(personau.getCedula().equals(jugadores.get(j).getCedulajugador())){
-					jugadoru = jugadores.get(j);
-				}
-			}
-//			Messagebox.show("Sesiones "+usr.getCorreo().toString());
-//			Messagebox.show("Sesiones "+personau.getCedula().toString());
-			//Paso 2 asignarlo a las cajas de texto
-			//Registrar
-			
-			
-			cedulau.setValue(personau.getApellido());
-			
-//			cedulau.setValue(personau.getCedula());
-//			
-			nombreu.setValue(personau.getNombre());
-			
-			apellidou.setValue(personau.getApellido());
-			
-			correou.setValue(usr.getCorreo());
-			
-			fechanacimientou.setValue(personau.getFechanacimiento());;
-			
-			claveu.setValue(usr.getContrasena());
-			
-			confcontrasenau.setValue(usr.getContrasena());
-		
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}//fin cargarusuario
 }

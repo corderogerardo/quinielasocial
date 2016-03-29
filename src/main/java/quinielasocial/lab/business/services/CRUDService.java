@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface CRUDService {
 	<T> List<T> getAll(Class<T> klass);
+	
+	<T> List<T> getEquiposUnTorneo(Class<T> klass,long id );
 
 	<T> void Save(T klass);
 
