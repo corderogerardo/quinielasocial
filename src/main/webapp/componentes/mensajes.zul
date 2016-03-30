@@ -1,5 +1,8 @@
 <zk>
-<window apply="quinielasocial.lab.controller.ControladorMensajes" id="mensajes">
+<window apply="org.zkoss.bind.BindComposer" id="mensajes"
+id="mensajes"
+viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.VMMensaje')"
+>
 <div sclass="margintabletittle borde sombra">
     <grid id="grid" mold="paging" pageSize="3" >
             <auxhead >
@@ -12,9 +15,9 @@
         </columns>
 		<rows>
             <row>
-                <label value="Juan Carlos Quintero" />
-				<label value="Ganeeee jajaajaj" />
-                <button id="leer" label="Leer" sclass="btn btn-sm button-0"/>
+                <label value="@bind(vm.destinatario)" />
+				<label value="value="@bind(vm.mensaje)"" />
+                <button onClick="@command('leer')" id="leer" label="Leer" sclass="btn btn-sm button-0"/>
 
             </row>
             
