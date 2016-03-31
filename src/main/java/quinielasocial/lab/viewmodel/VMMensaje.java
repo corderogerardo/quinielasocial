@@ -39,10 +39,54 @@ public class VMMensaje {
 	Mensaje mensajem = new Mensaje();
 	Mensajejugador mensajejugadorm = new Mensajejugador();
 	
-	private String cedula, nombre, idmensaje,mensaje;
+	private String cedula, nombre, idmensaje,mensaje,destinatario, remitente;
 	private Date nacimiento;
 	
 	Session session = Sessions.getCurrent();
 	Usuario usr = (Usuario) session.getAttribute("usuario");
+	public List<Mensaje> getMensajes() {
+		return mensajes;
+	}
+	public void setMensajes(List<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
+	public String getCedula() {
+		return cedula;
+	}
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getIdmensaje() {
+		return idmensaje;
+	}
+	public void setIdmensaje(String idmensaje) {
+		this.idmensaje = idmensaje;
+	}
+	public String getMensaje() {
+		return mensaje;
+	}
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+	public String getDestinatario() {
+		return destinatario;
+	}
+	public void setDestinatario(String destinatario) {
+		this.destinatario = destinatario;
+	}
+	public String getRemitente() {
+		return remitente;
+	}
+	public void setRemitente(String remitente) {
+		this.remitente = remitente;
+	}
+	
+	
 
 }

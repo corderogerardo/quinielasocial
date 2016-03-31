@@ -1,6 +1,5 @@
 <zk>
 <window apply="org.zkoss.bind.BindComposer" id="mensajes"
-id="mensajes"
 viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.VMMensaje')"
 >
 <div sclass="margintabletittle borde sombra">
@@ -16,7 +15,7 @@ viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.VMMensaje')"
 		<rows>
             <row>
                 <label value="@bind(vm.destinatario)" />
-				<label value="value="@bind(vm.mensaje)"" />
+				<label value="@bind(vm.mensaje)" />
                 <button onClick="@command('leer')" id="leer" label="Leer" sclass="btn btn-sm button-0"/>
 
             </row>
