@@ -17,29 +17,24 @@ import javax.persistence.Table;
 public class Jugadortorneo implements java.io.Serializable {
 
 	private long jugadortorneoId;
-	private Jugador jugador;
-	private Torneo torneo;
+	private long idtorneo;
+	private String cedula;
 	private Long puntor;
-	private Boolean estado;
+	private String estado;
 
 	public Jugadortorneo() {
 	}
 
-	public Jugadortorneo(long jugadortorneoId, Torneo torneo) {
+	public Jugadortorneo(long jugadortorneoId, long idtorneo, String cedula, Long puntor, String estado) {
+		super();
 		this.jugadortorneoId = jugadortorneoId;
-		this.torneo = torneo;
-	}
-
-	public Jugadortorneo(long jugadortorneoId, Jugador jugador, Torneo torneo, Long puntor, Boolean estado) {
-		this.jugadortorneoId = jugadortorneoId;
-		this.jugador = jugador;
-		this.torneo = torneo;
+		this.idtorneo = idtorneo;
+		this.cedula = cedula;
 		this.puntor = puntor;
 		this.estado = estado;
 	}
 
 	@Id
-
 	@Column(name = "jugadortorneo_id", unique = true, nullable = false)
 	public long getJugadortorneoId() {
 		return this.jugadortorneoId;
@@ -48,27 +43,7 @@ public class Jugadortorneo implements java.io.Serializable {
 	public void setJugadortorneoId(long jugadortorneoId) {
 		this.jugadortorneoId = jugadortorneoId;
 	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedulajugador")
-	public Jugador getJugador() {
-		return this.jugador;
-	}
-
-	public void setJugador(Jugador jugador) {
-		this.jugador = jugador;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idtor", nullable = false)
-	public Torneo getTorneo() {
-		return this.torneo;
-	}
-
-	public void setTorneo(Torneo torneo) {
-		this.torneo = torneo;
-	}
-
+	
 	@Column(name = "puntor")
 	public Long getPuntor() {
 		return this.puntor;
@@ -77,14 +52,31 @@ public class Jugadortorneo implements java.io.Serializable {
 	public void setPuntor(Long puntor) {
 		this.puntor = puntor;
 	}
-
-	@Column(name = "estado")
-	public Boolean getEstado() {
-		return this.estado;
+	@Column(name="idtor", nullable = false)
+	public long getIdtorneo() {
+		return idtorneo;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setIdtorneo(long idtorneo) {
+		this.idtorneo = idtorneo;
+	}
+	@Column(name="cedulajugador", nullable = false)
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+	@Column(name="estado", nullable = false)
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	
 
 }

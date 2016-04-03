@@ -4,6 +4,8 @@ package quinielasocial.lab.domain.entity;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,6 +27,7 @@ public class Torneo implements java.io.Serializable {
 	private long torneoId;
 	private Persona persona;
 	private String nombre;
+	private String cedula_administrador;
 	private String descripcion;
 	private Date fechainicio;
 	private Date fechafin;
@@ -34,24 +37,23 @@ public class Torneo implements java.io.Serializable {
 	private Long punmarloc;
 	private Long punmarvic;
 	private Boolean estadi;
-	private Set<Jugadortorneo> jugadortorneos = new HashSet<Jugadortorneo>(0);
 
+	@OneToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="equipo_id")
+	private Set<Equipo> equipos;
+	
 	public Torneo() {
 	}
 
-	public Torneo(long torneoId, String nombre, Date fechainicio, Date fechafin) {
-		this.torneoId = torneoId;
-		this.nombre = nombre;
-		this.fechainicio = fechainicio;
-		this.fechafin = fechafin;
-	}
+	
 
-	public Torneo(long torneoId, Persona persona, String nombre, String descripcion, Date fechainicio, Date fechafin,
-			Long topepredicion, String logotorneo, Long punpreace, Long punmarloc, Long punmarvic, Boolean estadi,
-			Set<Jugadortorneo> jugadortorneos) {
+	public Torneo(long torneoId, String nombre, String cedula_administrador, String descripcion, Date fechainicio,
+			Date fechafin, Long topepredicion, String logotorneo, Long punpreace, Long punmarloc, Long punmarvic,
+			Boolean estadi) {
+		super();
 		this.torneoId = torneoId;
-		this.persona = persona;
 		this.nombre = nombre;
+		this.cedula_administrador = cedula_administrador;
 		this.descripcion = descripcion;
 		this.fechainicio = fechainicio;
 		this.fechafin = fechafin;
@@ -61,8 +63,9 @@ public class Torneo implements java.io.Serializable {
 		this.punmarloc = punmarloc;
 		this.punmarvic = punmarvic;
 		this.estadi = estadi;
-		this.jugadortorneos = jugadortorneos;
 	}
+
+
 
 	@Id
 
@@ -76,7 +79,7 @@ public class Torneo implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedula_administrador", insertable = false, updatable = false)
+	@JoinColumn(name = "cedula_administrador", unique=true, insertable = false, updatable = false)
 	public Persona getPersona() {
 		return this.persona;
 	}
@@ -176,14 +179,10 @@ public class Torneo implements java.io.Serializable {
 	public void setEstadi(Boolean estadi) {
 		this.estadi = estadi;
 	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "torneo")
-	public Set<Jugadortorneo> getJugadortorneos() {
-		return this.jugadortorneos;
+	public String getCedula_administrador() {
+		return cedula_administrador;
 	}
-
-	public void setJugadortorneos(Set<Jugadortorneo> jugadortorneos) {
-		this.jugadortorneos = jugadortorneos;
+	public void setCedula_administrador(String cedula_administrador) {
+		this.cedula_administrador = cedula_administrador;
 	}
-
 }

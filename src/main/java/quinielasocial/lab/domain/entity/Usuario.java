@@ -44,24 +44,6 @@ public class Usuario implements java.io.Serializable {
 	}
 
 
-
-	public Usuario(long usuarioId, Persona persona, Rol rol, String contrasena, Date fechaIngreso) {
-		this.usuarioId = usuarioId;
-		this.persona = persona;
-		this.rol = rol;
-		this.contrasena = contrasena;
-		this.fechaIngreso = fechaIngreso;
-	}
-
-	public Usuario(long usuarioId, Persona persona, Rol rol, String contrasena, Date fechaIngreso, Boolean estado) {
-		this.usuarioId = usuarioId;
-		this.persona = persona;
-		this.rol = rol;
-		this.contrasena = contrasena;
-		this.fechaIngreso = fechaIngreso;
-		this.estado = estado;
-	}
-
 	@Id
 
 	@Column(name = "usuario_id", unique = true, nullable = false)

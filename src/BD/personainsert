@@ -1,5 +1,0 @@
-﻿INSERT INTO public.persona(
-            personaid, apellido, cedula, correo, estado, fechanacimiento, 
-            foto, nombre)
-    VALUES (2, 'Cordero', '19849216', 'me@corderogerardo.me', true,'2016-06-13 04:05:06' , 
-            '/url', 'Gerardo');

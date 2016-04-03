@@ -1,5 +1,6 @@
 package quinielasocial.lab.controller;
 
+import org.zkoss.bind.annotation.Command;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -67,6 +68,14 @@ public class ControladorNavegacion extends GenericForwardComposer<Component> {
 		System.out.println("Entro al metodo");
 		pagina = "./componentes/solicitudes.zul";
 		contenidos.getChildren().clear();
+		contenedor = (Window) Executions.createComponents(pagina, null, null);
+		contenidos.appendChild(contenedor);
+	}
+	@Command
+	public void guardartorneopartido(){
+		System.out.println("Entro al metodo");
+		pagina = "./componentes/agregarEquipos.zul";
+		
 		contenedor = (Window) Executions.createComponents(pagina, null, null);
 		contenidos.appendChild(contenedor);
 	}

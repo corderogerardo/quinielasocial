@@ -28,7 +28,7 @@ public class Jugador implements java.io.Serializable {
 	private Float puntajetotal;
 	private Date fechaIngreso;
 	private String jugadorcedula;
-	private Set<Jugadortorneo> jugadortorneos = new HashSet<Jugadortorneo>(0);
+	
 	private Set<Prediccion> prediccions = new HashSet<Prediccion>(0);
 
 	public Jugador() {
@@ -51,7 +51,7 @@ public class Jugador implements java.io.Serializable {
 		this.persona = persona;
 		this.puntajetotal = puntajetotal;
 		this.fechaIngreso = fechaIngreso;
-		this.jugadortorneos = jugadortorneos;
+	
 		this.prediccions = prediccions;
 	}
 
@@ -95,14 +95,6 @@ public class Jugador implements java.io.Serializable {
 		this.fechaIngreso = fechaIngreso;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jugador")
-	public Set<Jugadortorneo> getJugadortorneos() {
-		return this.jugadortorneos;
-	}
-
-	public void setJugadortorneos(Set<Jugadortorneo> jugadortorneos) {
-		this.jugadortorneos = jugadortorneos;
-	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jugador")
 	public Set<Prediccion> getPrediccions() {

@@ -28,13 +28,7 @@ import quinielasocial.lab.domain.entity.Usuario;
 public class VMUsuario {
 	
 	@WireVariable
-	protected CRUDService serviciopersona = (CRUDService) SpringUtil.getBean("CRUDService");
-	@WireVariable
-	protected CRUDService serviciojugador = (CRUDService) SpringUtil.getBean("CRUDService");
-	@WireVariable
-	protected CRUDService serviciousuario = (CRUDService) SpringUtil.getBean("CRUDService");
-	@WireVariable
-	protected CRUDService serviciorol = (CRUDService) SpringUtil.getBean("CRUDService");
+	protected CRUDService servicio = (CRUDService) SpringUtil.getBean("CRUDService");
 	
 	private List<Persona> personas;
 	private List<Jugador> jugadores;
@@ -106,8 +100,8 @@ public class VMUsuario {
 				try{
 					personau = new Persona();
 					jugadoru = new Jugador();
-					personas = serviciopersona.getAll(Persona.class);
-					jugadores = serviciojugador.getAll(Jugador.class);
+					personas = servicio.getAll(Persona.class);
+					jugadores = servicio.getAll(Jugador.class);
 					//Paso 1 buscar lo que tiene sesion
 					Session session = Sessions.getCurrent();
 					Usuario usr = (Usuario) session.getAttribute("usuario");
@@ -162,11 +156,11 @@ public class VMUsuario {
 				if(getPassuno().equals(getPassdos()) ){
 					//Paso 3 si todo el formulario esta completo guardar
 					Persona personac = new Persona(getCedula(), personau.getPersonaId(), getNombre(), getApellido(),txtFechanacimientou, getUrlfoto(), true, getCorreo());
-					serviciopersona.Save(personac);
+					servicio.Save(personac);
 					Usuario usuarioc = new Usuario(usr.getUsuarioId(), getPassuno(), new Date(), true, 2, getCorreo());
-					serviciousuario.Save(usuarioc);
+					servicio.Save(usuarioc);
 					Jugador jugadorc = new Jugador(jugadoru.getJugadorId(), (float)0, new Date(), getCedula());
-					serviciojugador.Save(jugadorc);		
+					servicio.Save(jugadorc);		
 				}else{
 					 Messagebox.show("Contreñas no son iguales, por favor verifique.", "Error", Messagebox.OK, Messagebox.ERROR);
 				}

@@ -20,27 +20,20 @@ import javax.persistence.Table;
 public class Resultado implements java.io.Serializable {
 
 	private long resultadoId;
-	private Partido partido;
 	private long scorelocal;
 	private long scorevisitante;
-	private Set<Partido> partidos = new HashSet<Partido>(0);
-
+	private String estado;
+	
 	public Resultado() {
+	
 	}
 
-	public Resultado(long resultadoId, Partido partido, long scorelocal, long scorevisitante) {
+	public Resultado(long resultadoId, long scorelocal, long scorevisitante, String estado) {
+		super();
 		this.resultadoId = resultadoId;
-		this.partido = partido;
 		this.scorelocal = scorelocal;
 		this.scorevisitante = scorevisitante;
-	}
-
-	public Resultado(long resultadoId, Partido partido, long scorelocal, long scorevisitante, Set<Partido> partidos) {
-		this.resultadoId = resultadoId;
-		this.partido = partido;
-		this.scorelocal = scorelocal;
-		this.scorevisitante = scorevisitante;
-		this.partidos = partidos;
+		this.estado = estado;
 	}
 
 	@Id
@@ -52,16 +45,6 @@ public class Resultado implements java.io.Serializable {
 
 	public void setResultadoId(long resultadoId) {
 		this.resultadoId = resultadoId;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idpartido", nullable = false)
-	public Partido getPartido() {
-		return this.partido;
-	}
-
-	public void setPartido(Partido partido) {
-		this.partido = partido;
 	}
 
 	@Column(name = "scorelocal", nullable = false)
@@ -81,14 +64,15 @@ public class Resultado implements java.io.Serializable {
 	public void setScorevisitante(long scorevisitante) {
 		this.scorevisitante = scorevisitante;
 	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "resultado")
-	public Set<Partido> getPartidos() {
-		return this.partidos;
+	@Column(name = "estado", nullable = false)
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setPartidos(Set<Partido> partidos) {
-		this.partidos = partidos;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
+
+	
 
 }

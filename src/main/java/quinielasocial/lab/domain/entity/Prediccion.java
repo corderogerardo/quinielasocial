@@ -20,6 +20,8 @@ import javax.persistence.TemporalType;
 public class Prediccion implements java.io.Serializable {
 
 	private long prediccionId;
+	private String cedulajugador;
+	private long idpartido;
 	private Jugador jugador;
 	private Partido partido;
 	private long prediccionlocal;
@@ -30,26 +32,17 @@ public class Prediccion implements java.io.Serializable {
 	public Prediccion() {
 	}
 
-	public Prediccion(long prediccionId, Partido partido, long prediccionlocal, long prediccionvisitante,
-			Date fechaprediccion) {
-		this.prediccionId = prediccionId;
-		this.partido = partido;
-		this.prediccionlocal = prediccionlocal;
-		this.prediccionvisitante = prediccionvisitante;
-		this.fechaprediccion = fechaprediccion;
-	}
-
-	public Prediccion(long prediccionId, Jugador jugador, Partido partido, long prediccionlocal,
+	public Prediccion(long prediccionId, String cedulajugador, long idpartido, long prediccionlocal,
 			long prediccionvisitante, Date fechaprediccion, Boolean estado) {
+		super();
 		this.prediccionId = prediccionId;
-		this.jugador = jugador;
-		this.partido = partido;
+		this.cedulajugador = cedulajugador;
+		this.idpartido = idpartido;
 		this.prediccionlocal = prediccionlocal;
 		this.prediccionvisitante = prediccionvisitante;
 		this.fechaprediccion = fechaprediccion;
 		this.estado = estado;
 	}
-
 	@Id
 
 	@Column(name = "prediccion_id", unique = true, nullable = false)
@@ -62,7 +55,7 @@ public class Prediccion implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedulajugador")
+	@JoinColumn(name = "cedulajugador", insertable=false,updatable=false)
 	public Jugador getJugador() {
 		return this.jugador;
 	}
@@ -72,7 +65,7 @@ public class Prediccion implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idpartido", nullable = false)
+	@JoinColumn(name = "idpartido", nullable = false,insertable=false,updatable=false)
 	public Partido getPartido() {
 		return this.partido;
 	}
@@ -117,5 +110,23 @@ public class Prediccion implements java.io.Serializable {
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
+
+	public String getCedulajugador() {
+		return cedulajugador;
+	}
+
+	public void setCedulajugador(String cedulajugador) {
+		this.cedulajugador = cedulajugador;
+	}
+
+	public long getIdpartido() {
+		return idpartido;
+	}
+
+	public void setIdpartido(long idpartido) {
+		this.idpartido = idpartido;
+	}
+	
+	
 
 }

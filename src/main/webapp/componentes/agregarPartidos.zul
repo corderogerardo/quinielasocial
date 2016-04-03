@@ -1,7 +1,8 @@
 <zk>
-	<window title="Agregar Partidos Al Torneo" border="normal" id="agregarPartidosWin" sclass="margintabletittle borde sombra" 
-	apply="quinielasocial.lab.controller.ControladorAgregarPartidos">
-		<div viewModel="@id('vm') @init('demo.combobox.simple_combobox.ShirtViewModel')">
+	<window title="Agregar Partidos Al Torneo" border="normal" id="agregarPartidosWin" 
+	sclass="margintabletittle borde sombra" 
+	apply="org.zkoss.bind.BindComposer">
+		<div viewModel="@id('vm') @init('')">
 			<panel collapsible="false" title="Detalles De Los partidos">
 				<panelchildren>
 					<listbox fixedLayout="true" id="lstpartidos">

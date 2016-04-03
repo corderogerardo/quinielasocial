@@ -1,7 +1,9 @@
 
 <zk>
 <window id="registrarTorneoWin" border="normal" sclass="margintabletittle borde sombra" contentStyle="overflow:auto;" 
-apply="quinielasocial.lab.controller.ControladorRegistrarTorneo">
+apply="org.zkoss.bind.BindComposer, quinielasocial.lab.controller.ControladorNavegacion"
+viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.VMTorneo')"
+>
 	<caption label="Registro De Torneo"/>
 	<borderlayout height="350px" >
 		<center autoscroll="true">
@@ -9,44 +11,56 @@ apply="quinielasocial.lab.controller.ControladorRegistrarTorneo">
 			<grid fixedLayout="true">
 		<rows>
 			<row>	
-			<label value="Ingrese el nombre del Torneo" width="150px" />
-            <textbox id="txtnombreTor"  width="100px" value="" constraint="no empty: El nombre del torneo no puede estar vacio" />		
+				<label value="Ingrese el nombre del Torneo" width="150px" />
+	            <textbox id="txtnombreTor"  width="100px" value="@bind(vm.nombretorneo)" constraint="no empty: El nombre del torneo no puede estar vacio" />		
 			</row>
 			<row>	
-			<label value="Ingrese la fecha de inicio del torneo" width="150px"/>
-           			<hlayout>
-				<datebox id="dtfecIni" width="100px" format="dd/MM/yyyy"/>
+				<label value="Ingrese el descripcion del Torneo" width="150px" />
+	            <textbox id="txtDesc"  width="100px" value="@bind(vm.descripciontorneo)" constraint="no empty: La descripcion del torneo no puede estar vacio" />		
+			</row>
+			<row>	
+				<label value="Ingrese la fecha de inicio del torneo" width="150px"/>
+           		<hlayout>
+					<datebox id="dtfecIni" width="100px" value="@bind(vm.fechainicio)" format="dd/MM/yyyy"/>
 				</hlayout>	
 			</row>
-				<row>	
-			<label value="Ingrese la fecha del fin del torneo" width="150px"/>
-           			<hlayout>
-				<datebox id="dtfecFin" width="100px" format="dd/MM/yyyy" />
+			<row>	
+				<label value="Ingrese la fecha del fin del torneo" width="150px"/>
+           		<hlayout>
+					<datebox id="dtfecFin" width="100px" value="@bind(vm.fechafin)" format="dd/MM/yyyy" />
 				</hlayout>	
 			</row>
-			<row>	<vlayout>
-		<button id="btnimagen" label="Logo del Torneo" upload="true">	
-		</button>
-		<image id="pics" />
-	</vlayout></row>
-	<row>
-	<label value="Puntos Por Prediccion Acertada" width="150px"/>
-    <textbox id="puntoGanado"  width="100px" value="" constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
-	</row>	
-	<row>
-	<label value="Puntos Acierto Marcador Equipo Local" width="150px"/>
-    <textbox id="puntoMarcadorLocal"  width="100px" value="" constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
-	</row>	
-	<row>
-	<label value="Puntos Acierto Marcador Equipo Visitante" width="150px"/>
-    <textbox id="puntoMarcadorVisitante"  width="100px" value="" constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
-	</row>	
+			<row>	
+			<vlayout>
+				<button id="btnimagen" label="Logo del Torneo" upload="true">	
+				</button>
+				<image id="pics" />
+			</vlayout>
+			</row>
+			<row>
+				<label value="Tope de las horas hasta las que se puede hacer la prediccion" width="150px"/>
+			    <textbox id="topePrediccion"  width="100px" value="@bind(vm.topeprediccion)" constraint="no empty: Ingrese Horas" />			
+			</row>	
+			<row>
+				<label value="Puntos Por Prediccion Acertada" width="150px"/>
+			    <textbox id="puntoGanado"  width="100px" value="@bind(vm.puntoganado)" constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
+			</row>	
+			<row>
+				<label value="Puntos Acierto Marcador Equipo Local" width="150px"/>
+			    <textbox id="puntoMarcadorLocal"  width="100px" value="@bind(vm.puntomarcadorlocal)" 
+			    constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
+			</row>	
+			<row>
+				<label value="Puntos Acierto Marcador Equipo Visitante" width="150px"/>
+			    <textbox id="puntoMarcadorVisitante"  width="100px" value="@bind(vm.puntomarcadorvisitante)" 
+			    constraint="no empty: Ingrese Puntos Por Partido Ganado" />			
+			</row>	
 	<row>
 	<div>
 		<separator/>	
-			<separator/>
-				
-	<space /><space /><space /><space /><space /><button id="btnguardarTorneo" label="Guardar Torneo" />	
+		<separator/>		
+	<space /><space /><space /><space /><space />
+	<button id="btnguardarTorneo" label="Guardar Torneo" onClick="@command('guardartorneo')" />	
 	<button id="btnlimpiar" label="Limpiar" />	
 </div>
 	
@@ -63,5 +77,4 @@ apply="quinielasocial.lab.controller.ControladorRegistrarTorneo">
 		
 	</borderlayout>
 </window>
-
 </zk>

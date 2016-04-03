@@ -29,37 +29,28 @@ public class Partido implements java.io.Serializable {
 	private long idequvis;
 	private String lugar;
 	private Date fecha;
-	private Boolean estado;
-	private Set<Resultado> resultados = new HashSet<Resultado>(0);
+	private String estado;
+	private long idResultado;
 	private Set<Prediccion> prediccions = new HashSet<Prediccion>(0);
 
 	public Partido() {
 	}
-
-	public Partido(long partidoId, Resultado resultado, long idtor, long idequiloc, long idequvis, String lugar,
-			Date fecha) {
+	
+	public Partido(long partidoId, long idtor, long idequiloc, long idequvis, String lugar, Date fecha, String estado,
+			long idResultado) {
+		super();
 		this.partidoId = partidoId;
-		this.resultado = resultado;
-		this.idtor = idtor;
-		this.idequiloc = idequiloc;
-		this.idequvis = idequvis;
-		this.lugar = lugar;
-		this.fecha = fecha;
-	}
-
-	public Partido(long partidoId, Resultado resultado, long idtor, long idequiloc, long idequvis, String lugar,
-			Date fecha, Boolean estado, Set<Resultado> resultados, Set<Prediccion> prediccions) {
-		this.partidoId = partidoId;
-		this.resultado = resultado;
 		this.idtor = idtor;
 		this.idequiloc = idequiloc;
 		this.idequvis = idequvis;
 		this.lugar = lugar;
 		this.fecha = fecha;
 		this.estado = estado;
-		this.resultados = resultados;
-		this.prediccions = prediccions;
+		this.idResultado = idResultado;
 	}
+
+
+
 
 	@Id
 
@@ -129,22 +120,14 @@ public class Partido implements java.io.Serializable {
 	}
 
 	@Column(name = "estado")
-	public Boolean getEstado() {
+	public String getEstado() {
 		return this.estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "partido")
-	public Set<Resultado> getResultados() {
-		return this.resultados;
-	}
-
-	public void setResultados(Set<Resultado> resultados) {
-		this.resultados = resultados;
-	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "partido")
 	public Set<Prediccion> getPrediccions() {
@@ -154,5 +137,15 @@ public class Partido implements java.io.Serializable {
 	public void setPrediccions(Set<Prediccion> prediccions) {
 		this.prediccions = prediccions;
 	}
+
+	public long getIdResultado() {
+		return idResultado;
+	}
+
+	public void setIdResultado(long idResultado) {
+		this.idResultado = idResultado;
+	}
+	
+	
 
 }
