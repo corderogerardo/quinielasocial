@@ -22,19 +22,22 @@ public class Resultado implements java.io.Serializable {
 	private long resultadoId;
 	private long scorelocal;
 	private long scorevisitante;
+
+
 	private String estado;
-	
+
 	public Resultado() {
-	
 	}
 
 	public Resultado(long resultadoId, long scorelocal, long scorevisitante, String estado) {
-		super();
 		this.resultadoId = resultadoId;
 		this.scorelocal = scorelocal;
 		this.scorevisitante = scorevisitante;
 		this.estado = estado;
+
 	}
+
+
 
 	@Id
 
@@ -47,7 +50,7 @@ public class Resultado implements java.io.Serializable {
 		this.resultadoId = resultadoId;
 	}
 
-	@Column(name = "scorelocal", nullable = false)
+	@Column(name = "scorelocal", nullable = true)
 	public long getScorelocal() {
 		return this.scorelocal;
 	}
@@ -56,7 +59,7 @@ public class Resultado implements java.io.Serializable {
 		this.scorelocal = scorelocal;
 	}
 
-	@Column(name = "scorevisitante", nullable = false)
+	@Column(name = "scorevisitante", nullable = true)
 	public long getScorevisitante() {
 		return this.scorevisitante;
 	}
@@ -65,14 +68,12 @@ public class Resultado implements java.io.Serializable {
 		this.scorevisitante = scorevisitante;
 	}
 	@Column(name = "estado", nullable = false)
-	public String getEstado() {
+	public final String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public final void setEstado(String estado) {
 		this.estado = estado;
 	}
-
-	
 
 }

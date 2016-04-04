@@ -2,6 +2,7 @@ package quinielasocial.lab.domain.entity;
 // Generated 23/03/2016 01:44:51 AM by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,6 +21,8 @@ import javax.persistence.TemporalType;
 public class Prediccion implements java.io.Serializable {
 
 	private long prediccionId;
+
+
 	private String cedulajugador;
 	private long idpartido;
 	private Jugador jugador;
@@ -27,22 +30,45 @@ public class Prediccion implements java.io.Serializable {
 	private long prediccionlocal;
 	private long prediccionvisitante;
 	private Date fechaprediccion;
+
+
 	private Boolean estado;
 
 	public Prediccion() {
 	}
-
-	public Prediccion(long prediccionId, String cedulajugador, long idpartido, long prediccionlocal,
-			long prediccionvisitante, Date fechaprediccion, Boolean estado) {
-		super();
+	
+	public Prediccion(long prediccionId,  long idpartido, String cedulajugador,
+			long prediccionlocal, long prediccionvisitante,
+			Date fechaprediccion, Boolean estado) {
 		this.prediccionId = prediccionId;
-		this.cedulajugador = cedulajugador;
 		this.idpartido = idpartido;
+		this.cedulajugador = cedulajugador;
 		this.prediccionlocal = prediccionlocal;
 		this.prediccionvisitante = prediccionvisitante;
 		this.fechaprediccion = fechaprediccion;
 		this.estado = estado;
 	}
+
+	public Prediccion(long prediccionId, Partido partido, long prediccionlocal, long prediccionvisitante,
+			Date fechaprediccion) {
+		this.prediccionId = prediccionId;
+		this.partido = partido;
+		this.prediccionlocal = prediccionlocal;
+		this.prediccionvisitante = prediccionvisitante;
+		this.fechaprediccion = fechaprediccion;
+	}
+
+	public Prediccion(long prediccionId, Jugador jugador, Partido partido, long prediccionlocal,
+			long prediccionvisitante, Date fechaprediccion, Boolean estado) {
+		this.prediccionId = prediccionId;
+		this.jugador = jugador;
+		this.partido = partido;
+		this.prediccionlocal = prediccionlocal;
+		this.prediccionvisitante = prediccionvisitante;
+		this.fechaprediccion = fechaprediccion;
+		this.estado = estado;
+	}
+
 	@Id
 
 	@Column(name = "prediccion_id", unique = true, nullable = false)
@@ -55,7 +81,7 @@ public class Prediccion implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedulajugador", insertable=false,updatable=false)
+	@JoinColumn(name = "cedulajugador", unique=false, insertable = false, updatable = false)
 	public Jugador getJugador() {
 		return this.jugador;
 	}
@@ -65,7 +91,7 @@ public class Prediccion implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idpartido", nullable = false,insertable=false,updatable=false)
+	@JoinColumn(name = "idpartido", nullable = false, insertable=false, updatable=false)
 	public Partido getPartido() {
 		return this.partido;
 	}
@@ -111,22 +137,21 @@ public class Prediccion implements java.io.Serializable {
 		this.estado = estado;
 	}
 
-	public String getCedulajugador() {
+	public final String getCedulajugador() {
 		return cedulajugador;
 	}
 
-	public void setCedulajugador(String cedulajugador) {
+	public final void setCedulajugador(String cedulajugador) {
 		this.cedulajugador = cedulajugador;
 	}
 
-	public long getIdpartido() {
+	public final long getIdpartido() {
 		return idpartido;
 	}
 
-	public void setIdpartido(long idpartido) {
+	public final void setIdpartido(long idpartido) {
 		this.idpartido = idpartido;
 	}
-	
-	
+
 
 }

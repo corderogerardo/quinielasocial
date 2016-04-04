@@ -74,7 +74,8 @@ viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.VMUsuario')"
 			</grid>
 			<div>
 				<separator/><separator/><space /><space /><space />
-				<button  id="update" label="Guardar" sclass="btn btn-sm button-0" width="20%" onClick="@command('update')"/><space /><space />
+				<button  id="update" label="Guardar" sclass="btn btn-sm button-0" 
+				width="20%" onClick="@command('update')"/><space /><space />
 				<button  id="salir" label="Salir" sclass="btn btn-sm button-0" width="20%"/>	
 				
 				<separator/><separator/>

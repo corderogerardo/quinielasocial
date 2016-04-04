@@ -4,6 +4,7 @@ package quinielasocial.lab.domain.entity;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -35,9 +36,9 @@ public class Partido implements java.io.Serializable {
 
 	public Partido() {
 	}
-	
-	public Partido(long partidoId, long idtor, long idequiloc, long idequvis, String lugar, Date fecha, String estado,
-			long idResultado) {
+
+	public Partido(long partidoId, long idtor, long idequiloc, long idequvis,
+			String lugar, Date fecha, long idResultado, String estado) {
 		super();
 		this.partidoId = partidoId;
 		this.idtor = idtor;
@@ -45,12 +46,33 @@ public class Partido implements java.io.Serializable {
 		this.idequvis = idequvis;
 		this.lugar = lugar;
 		this.fecha = fecha;
-		this.estado = estado;
 		this.idResultado = idResultado;
+		this.estado = estado;
+
+	}
+	
+	public Partido(long partidoId, long idtor, long idequiloc, long idequvis, String lugar,
+			Date fecha) {
+		this.partidoId = partidoId;
+		this.idtor = idtor;
+		this.idequiloc = idequiloc;
+		this.idequvis = idequvis;
+		this.lugar = lugar;
+		this.fecha = fecha;
 	}
 
-
-
+	public Partido(long partidoId, Resultado resultado, long idtor, long idequiloc, long idequvis, String lugar,
+			Date fecha, String estado,  Set<Prediccion> prediccions) {
+		this.partidoId = partidoId;
+		this.resultado = resultado;
+		this.idtor = idtor;
+		this.idequiloc = idequiloc;
+		this.idequvis = idequvis;
+		this.lugar = lugar;
+		this.fecha = fecha;
+		this.estado = estado;
+		this.prediccions = prediccions;
+	}
 
 	@Id
 
@@ -63,15 +85,6 @@ public class Partido implements java.io.Serializable {
 		this.partidoId = partidoId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idresultado", nullable = false)
-	public Resultado getResultado() {
-		return this.resultado;
-	}
-
-	public void setResultado(Resultado resultado) {
-		this.resultado = resultado;
-	}
 
 	@Column(name = "idtor", nullable = false)
 	public long getIdtor() {
@@ -137,15 +150,15 @@ public class Partido implements java.io.Serializable {
 	public void setPrediccions(Set<Prediccion> prediccions) {
 		this.prediccions = prediccions;
 	}
-
-	public long getIdResultado() {
+	public final long getIdResultado() {
 		return idResultado;
 	}
 
-	public void setIdResultado(long idResultado) {
+	public final void setIdResultado(long idResultado) {
 		this.idResultado = idResultado;
 	}
-	
-	
+
+
+
 
 }

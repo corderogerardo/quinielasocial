@@ -1,50 +1,51 @@
 <zk>
-<window apply="quinielasocial.lab.controller.ControladorMensajes" id="mensajes">
+<window apply="org.zkoss.bind.BindComposer" id="mensajes" 
+viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.VMMensaje')"
+>
+
 <div sclass="margintabletittle borde sombra">
-    <grid id="grid" mold="paging" pageSize="3" >
-            <auxhead >
-            <auxheader colspan="4" label="Tus puntuación en las quinielas que estás participando" />
-        </auxhead>
-        <columns>
-            <column label="De:" width="150px"/>
-            <column label="Mensaje" width="480px"/>
-            <column label="Abrir" width="180px"/>
-        </columns>
-		<rows>
-            <row>
-                <label value="Juan Carlos Quintero" />
-				<label value="Ganeeee jajaajaj" />
-                <button id="leer" label="Leer" sclass="btn btn-sm button-0"/>
-
-            </row>
-            
-            <row>
-                <label value="Valentina Delgado" />
-				<label value="Perdi :( no te voy a pagar" />
-                <button id="leer1" label="Leer" sclass="btn btn-sm button-0"/>
-            </row>
-            
-            <row>
-                <label value="Francisco Reyes" />
-				<label value="La chama me respondioooo :D" />
-                <button id="leer2" label="Leer" sclass="btn btn-sm button-0"/>
-
-            </row>
-                        <row>
-                <label value="Carlos Martinez" />
-				<label value="Quien crees que gane el juego de hoy?" />
-                <button id="leer3" label="Leer" sclass="btn btn-sm button-0"/>
-            </row>
-            
-            <row>
-                <label value="Andreina Torres" />
-				<label value="Cuando será el proximo juego?" />
-                <button id="leer4" label="Leer" sclass="btn btn-sm button-0"/>
-            </row>
-            
-            
-		 </rows>
-    </grid>
+	<hbox align="center">
+		<label value="Seleccione usuario a enviar mensaje" />
+		<combobox id="cmbUsr" readonly="true"
+                    model="@load(vm.correousuarios)" selectedItem="@bind(vm.cadenaUsuarios)"  constraint="no empty:Debe seleccionar usuario a enviar mensaje">
+                    <template name="model">
+                        <comboitem label="@load(each)" />
+                    </template>
+                </combobox>
+	</hbox>
+	<hbox align="center">
+		<textbox id="sms" value="@bind(vm.mensaje)" rows="5" cols="90" />
+		<button id="btnEnviar" onClick="@command('enviar')" label="Enviar"/>
+	</hbox>
+	
+	 <hlayout spacing="3">
+        <listbox  mold="paging" pageSize="8"
+            model="@load(vm.mensajesUsuario)" selectedItem="@bind(vm.mensajem)">
+            <auxhead>
+                <auxheader colspan="5"></auxheader>
+            </auxhead>
+            <listhead>
+                <listheader label="De:" width="150px" align="center" />
+                <listheader label="Mensaje" width="480px" align="center" />
+                <listheader label="Abrir" width="280px" align="center" />
+              
+                
+            </listhead>
+            <template name="model" var="sms">
+                <listitem>
+                    <listcell label="@load(sms.mensajeId)" />
+                    <listcell label="@load(sms.contenido)" />
+                    <!-- Abrir mensaje? -->
+                    <listcell label="@load(sms.estadomsg)" />
+                  
+                </listitem>
+            </template>
+ 
+        </listbox>
+        
+    </hlayout>
+	
+   
 </div>
 </window>
 </zk>

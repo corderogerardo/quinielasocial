@@ -1,83 +1,52 @@
-<zk>
-<window title="Agregue Predicciones de los Partidos de los partidos" sclass="margenTabla sombra">
+<window id="agregarPrediccion" title="Realiza tus predicciones"
+    apply="org.zkoss.bind.BindComposer, quinielasocial.lab.controller.ControladorPrediccion, quinielasocial.lab.Modelo.Vista.PrediccionesDatabindComposer" sclass="margenTabla login"
+    viewModel="@id('vm') @init('quinielasocial.lab.Modelo.Vista.PrediccionesDatabindComposer')">
+    
+    
 
-	<div apply="org.zkoss.bind.BindComposer" sclass="margenTabla sombra" width="90%">
-	
-		<grid visible="true">
-			<columns>
-				<column width="130px" label="Equipo Local" />
-				<column width="100px" label="Marcador Eq.L." />
-				<column width="50px" label="Vs." />
-				<column width="130px" label="Equipo Visitante" />
-				<column width="100px" label="Marcador Eq.V." />
-				<column width="120px" label="Lugar" />
-				<column width="100px" label="Fecha" />
-				<column width="100px" label="Hora" />	
-			</columns>
-			
-		
-			 <rows>
-			 
-				<row>
-					<label value="Venezuela" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-				    <label>Vs.</label>
-					<label value="Chile" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-					<label value="Estadio Nacional" />
-					<label value="30/06/2015" />			
-					<label value="01:30" />			
-				</row>	
-				
-				<row>
-					<label value="Ecuador" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-				    <label>Vs.</label>
-					<label value="Bolivia" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-					<label value="Estadio Monumental" />
-					<label value="15/06/2015" />			
-					<label value="08:00" />			
-				</row>	
-				
-				<row>
-					<label value="Chile" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-				    <label>Vs.</label>
-					<label value="Mexico" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-					<label value="Estadio Ester Roa" />
-					<label value="16/06/2015" />			
-					<label value="08:00" />			
-				</row>	
-				
-				<row>
-					<label value="Colombia" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-				    <label>Vs.</label>
-					<label value="Venezuela" />
-					<hbox><textbox hflex="1" value="" /></hbox>
-					<label value="Estadio la Portada" />
-					<label value="14/06/2015" />			
-					<label value="05:00" />			
-				</row>	
-				<row>
-								<hbox align="center" width="100%">
-								<div >
-								<button label="Guardar" id="saveTimesheetDetails"/>
-								</div>
-								</hbox>	
-				</row>
-				
-			</rows>
-		</grid>
+    <hlayout spacing="0" height="250px">
+        <listbox hflex="1"
+            model="@load(vm.partidoList)" selectedItem="@bind(vm.selectedPartidos)" mold="paging" pageSize="5">
 
-	</div>
-	
-	<separator/><separator/>
-	
+            <listhead>
+                <listheader label="Equipo Local vs Visitante" width="200px" align="center" />
+                <listheader label="Fecha" width="150px" align="center" />
 
-		
+                
+            </listhead>
+            <template name="model" var="partido">
+                <listitem>
+                    <listcell label="@load(partido.lugar)" />
+                    <listcell label="@load(partido.fecha) @converter('formatedDate',format='dd/MM/yyyy')" />
+                </listitem>
+            </template>
+ 
+        </listbox>
+    </hlayout>
+    <grid emptyMessage="No hay partidos aun para este torneo.">
+        <auxhead>
+            <auxheader colspan="5" align="center">Agregue su Prediccion</auxheader>
+        </auxhead>
+        <columns>
+            <column label="Partido" align="center" width="20px" visible="false"/>
+            <column label="Marcador Local" align="center" width="365px"/>
+            <column label="Marcador Visitante" align="center" width="360px"/>
+            <column label="Opciones" align="center" width="200px"/>            
+        </columns>
+        <rows>
+            <row>
+            	<textbox id="idpar" value="@bind(vm.selectedPartidos.partidoId)"/>
+            	<intbox id="puntajeLoc"  constraint="no empty,no negative" />
+            	<intbox id="puntajeVis"  constraint="no empty,no negative" />
+            	         
+        <menubar autodrop="true">
+        <menu label="Opciones" >          
+        <menupopup >
+                <menuitem id="guardarPrediccion" label="Guardar"/>
+            </menupopup>
+        </menu>
+        </menubar>
+            </row>
+        </rows>
+    </grid>
 </window>
-
-</zk>

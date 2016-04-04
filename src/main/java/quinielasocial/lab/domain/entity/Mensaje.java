@@ -25,17 +25,12 @@ public class Mensaje implements java.io.Serializable {
 	public Mensaje() {
 	}
 
-	public Mensaje(long mensajeId, String contenido) {
-		this.mensajeId = mensajeId;
-		this.contenido = contenido;
-	}
-
-	public Mensaje(long mensajeId, String contenido, Character estadomsg, Set<Mensajejugador> mensajejugadors) {
+	public Mensaje(long mensajeId, String contenido,Character estadomsg) {
 		this.mensajeId = mensajeId;
 		this.contenido = contenido;
 		this.estadomsg = estadomsg;
-		this.mensajejugadors = mensajejugadors;
 	}
+
 
 	@Id
 
@@ -74,5 +69,6 @@ public class Mensaje implements java.io.Serializable {
 	public void setMensajejugadors(Set<Mensajejugador> mensajejugadors) {
 		this.mensajejugadors = mensajejugadors;
 	}
+	
 
 }

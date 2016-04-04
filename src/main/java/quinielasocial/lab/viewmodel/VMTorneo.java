@@ -17,21 +17,19 @@ import org.zkoss.zul.Window;
 
 import quinielasocial.lab.business.services.CRUDService;
 import quinielasocial.lab.controller.ControladorNavegacion;
-import quinielasocial.lab.controller.ControladorServicios;
-import quinielasocial.lab.domain.entity.Equipo;
+
 import quinielasocial.lab.domain.entity.Jugador;
 import quinielasocial.lab.domain.entity.Jugadortorneo;
-import quinielasocial.lab.domain.entity.Mensaje;
-import quinielasocial.lab.domain.entity.Mensajejugador;
-import quinielasocial.lab.domain.entity.Partido;
 import quinielasocial.lab.domain.entity.Persona;
-import quinielasocial.lab.domain.entity.Prediccion;
-import quinielasocial.lab.domain.entity.Resultado;
-import quinielasocial.lab.domain.entity.Rol;
 import quinielasocial.lab.domain.entity.Torneo;
 import quinielasocial.lab.domain.entity.Usuario;
 
-public class VMTorneo extends ControladorNavegacion {
+public class VMTorneo {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@WireVariable
 	protected CRUDService servicio = (CRUDService) SpringUtil.getBean("CRUDService");
 		
@@ -48,7 +46,8 @@ public class VMTorneo extends ControladorNavegacion {
 	private Torneo torneoselected;
 	
 	
-	private String nombretorneo, descripciontorneo,topeprediccion,puntoganado,puntomarcadorlocal,puntomarcadorvisitante;
+	private String nombretorneo, descripciontorneo,topeprediccion,puntoganado,puntomarcadorlocal,
+	puntomarcadorvisitante;
 	private Date fechainicio, fechafin;
 	
 	Session session = Sessions.getCurrent();
@@ -121,7 +120,7 @@ public class VMTorneo extends ControladorNavegacion {
 				Long.valueOf(puntomarcadorlocal), Long.valueOf(puntomarcadorvisitante), true);
 		servicio.Save(newone);
 		session.setAttribute("torneo",newone);
-		guardartorneopartido();
+		Executions.sendRedirect("sesionAgregarEquipos.zul");
 		
 	}
 

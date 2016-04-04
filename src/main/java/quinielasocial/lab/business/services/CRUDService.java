@@ -6,7 +6,7 @@ import java.util.List;
 public interface CRUDService {
 	<T> List<T> getAll(Class<T> klass);
 	
-	<T> List<T> getEquiposUnTorneo(Class<T> klass,long id );
+	
 
 	<T> void Save(T klass);
 
@@ -20,4 +20,13 @@ public interface CRUDService {
 	<T> List<T> GetListByNamedQuery(String query, Object... params);
 
 	<T> Long getQueryCount(String query, Object... params);
+	
+	<T> List<T> getEquiposUnTorneo(Class<T> klass,long id );
+	<T> List<T> getEquiposbyNombre(Class<T> klass,String id );
+	<T> List<T> getEquiposbyNombreyTorneo(Class<T> klass,String id, long id1 );
+	<T> List<T> getPartidosUnTorneo(Class<T> klass,long id );
+	<T> List<T> getUnTorneobyIdAdmin(Class<T> klass,String id );
+	<T> List<T> getJugadorTorneobyCedulaJugador(Class<T> klass,String id );
+	<T> List<T> getSolicitudesPendientes(Class<T> klass,String id );
+	<T> void Update(Class<T> klass,long id,String estado);
 }

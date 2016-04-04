@@ -108,4 +108,58 @@ public class CRUDDaoImpl implements CRUDDao {
 		count = (Long) q.uniqueResult();
 		return count;
 	}
+
+	
+	@SuppressWarnings("unchecked")
+	public<T> List<T> getEquiposbyNombre(Class<T> klass,String id ){
+		Query query = getCurrentSession().createQuery("from "+ klass.getName()+ " where nombre = :id");
+		query.setParameter("id", id);
+		return query.list();
+
+	}
+
+	
+	
+	@SuppressWarnings("unchecked")
+	public<T> List<T> getEquiposbyNombreyTorneo(Class<T> klass,String id, long id1 ){
+		Query query = getCurrentSession().createQuery("from "+ klass.getName()+ " where nombre = :id and torneoid = :id1");
+		query.setParameter("id", id);
+		query.setParameter("id1", id1);
+		return query.list();
+	}
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getPartidosUnTorneo(Class<T> klass,long id ){
+		Query query = getCurrentSession().createQuery("from "+ klass.getName()+ " where idtor = "+id);
+		return query.list();
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getUnTorneobyIdAdmin(Class<T> klass,String id ){
+		Query query = getCurrentSession().createQuery("from "+ klass.getName()+ " where cedula_administrador = :id");
+		query.setParameter("id", id);
+		return query.list();
+	}
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getJugadorTorneobyCedulaJugador(Class<T> klass,String id ){
+		Query query = getCurrentSession().createQuery("from "+ klass.getName()+ " where cedulajugador = :id");
+		query.setParameter("id", id);
+		return query.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getSolicitudesPendientes(Class<T> klass,String id ){
+		Query query = getCurrentSession().createQuery("from "+ klass.getName()+ " where estado = :id");
+		query.setParameter("id", "PENDIENTE");
+		return query.list();
+	}
+
+	public <T> void Update(Class<T> klass,long id,String estado) {
+		Query query = getCurrentSession().createQuery("update "+ klass.getName()+" set estado = :estado" +
+				" where jugadortorneo_id = :codigo");
+		query.setParameter("estado", estado);
+		query.setParameter("codigo", id);
+		query.executeUpdate();
+	}
+	
 }

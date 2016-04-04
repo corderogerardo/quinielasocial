@@ -60,6 +60,45 @@ public class CRUDServiceImpl implements CRUDService {
 	public <T> T findByEmail(Class<T> klass, String correo) {
 		 return CRUDDao.encontrarPorId(klass, correo);
 	}
+	
+	@Transactional(readOnly = true)
+	public <T> List<T> getEquiposbyNombre(Class<T> klass,String id) {
+		// TODO Auto-generated method stub
+		return CRUDDao.getEquiposbyNombre(klass,id);
+	}
+	@Transactional(readOnly = true)
+	public<T> List<T> getEquiposbyNombreyTorneo(Class<T> klass,String id, long id1 ) {
+		// TODO Auto-generated method stub
+		return CRUDDao.getEquiposbyNombreyTorneo(klass, id, id1);
+	}
+	@Transactional(readOnly = true)
+	public <T> List<T> getPartidosUnTorneo(Class<T> klass,long id) {
+		// TODO Auto-generated method stub
+		return CRUDDao.getPartidosUnTorneo(klass,id);
+	}
+	
+	@Transactional(readOnly = true)
+	public <T> List<T> getUnTorneobyIdAdmin(Class<T> klass,String id) {
+		// TODO Auto-generated method stub
+		return CRUDDao.getUnTorneobyIdAdmin(klass,id);
+	}
+	
+	@Transactional(readOnly = true)
+	public <T> List<T> getJugadorTorneobyCedulaJugador(Class<T> klass,String id ) {
+		// TODO Auto-generated method stub
+		return CRUDDao.getJugadorTorneobyCedulaJugador(klass,id);
+	}
+	
+	@Transactional(readOnly = true)
+	public <T> List<T> getSolicitudesPendientes(Class<T> klass,String id ) {
+		// TODO Auto-generated method stub
+		return CRUDDao.getSolicitudesPendientes(klass,id);
+	}
+
+	@Transactional
+	public <T> void Update(Class<T> klass,long id,String estado) throws DataAccessException {
+		CRUDDao.Update(klass,id,estado);
+	}
 
 	
 	

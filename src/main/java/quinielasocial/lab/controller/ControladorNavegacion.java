@@ -45,7 +45,7 @@ public class ControladorNavegacion extends GenericForwardComposer<Component> {
 	}
 	public void onClick$btnParticipando(){
 		System.out.println("Entro al metodo");
-		pagina = "./componentes/listaQuinielas.zul";
+		pagina = "./componentes/quinielasParticipando.zul";
 		contenidos.getChildren().clear();
 		contenedor = (Window) Executions.createComponents(pagina, null, null);
 		contenidos.appendChild(contenedor);
@@ -75,7 +75,7 @@ public class ControladorNavegacion extends GenericForwardComposer<Component> {
 	public void guardartorneopartido(){
 		System.out.println("Entro al metodo");
 		pagina = "./componentes/agregarEquipos.zul";
-		
+		contenidos.getChildren().clear();
 		contenedor = (Window) Executions.createComponents(pagina, null, null);
 		contenidos.appendChild(contenedor);
 	}

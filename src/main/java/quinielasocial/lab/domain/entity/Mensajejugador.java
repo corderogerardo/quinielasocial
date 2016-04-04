@@ -17,26 +17,23 @@ import javax.persistence.Table;
 public class Mensajejugador implements java.io.Serializable {
 
 	private long mensajejugadorId;
+	private long mensaje_id;
+	private String cedulades;
+	private String cedularem;
 	private Mensaje mensaje;
 	private Persona personaByCedulades;
 	private Persona personaByCedularem;
+	
 
 	public Mensajejugador() {
 	}
-
-	public Mensajejugador(long mensajejugadorId, Mensaje mensaje) {
+	public Mensajejugador(long mensajejugadorId, long mensaje_id, String cedulades, String cedularem) {
+		super();
 		this.mensajejugadorId = mensajejugadorId;
-		this.mensaje = mensaje;
+		this.mensaje_id = mensaje_id;
+		this.cedulades = cedulades;
+		this.cedularem = cedularem;
 	}
-
-	public Mensajejugador(long mensajejugadorId, Mensaje mensaje, Persona personaByCedulades,
-			Persona personaByCedularem) {
-		this.mensajejugadorId = mensajejugadorId;
-		this.mensaje = mensaje;
-		this.personaByCedulades = personaByCedulades;
-		this.personaByCedularem = personaByCedularem;
-	}
-
 	@Id
 
 	@Column(name = "mensajejugador_id", unique = true, nullable = false)
@@ -47,9 +44,30 @@ public class Mensajejugador implements java.io.Serializable {
 	public void setMensajejugadorId(long mensajejugadorId) {
 		this.mensajejugadorId = mensajejugadorId;
 	}
+	@Column(name = "cedulades")
+	public String getCedulades() {
+		return cedulades;
+	}
+	public void setCedulades(String cedulades) {
+		this.cedulades = cedulades;
+	}
+	@Column(name = "cedularem")
+	public String getCedularem() {
+		return cedularem;
+	}
+	public void setCedularem(String cedularem) {
+		this.cedularem = cedularem;
+	}
+	@Column(name = "idmensajejugador")
+	public long getIdmensaje() {
+		return mensaje_id;
+	}
+	public void setIdmensaje(long mensaje_id) {
+		this.mensaje_id = mensaje_id;
+	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idmensajejugador", nullable = false)
+	@JoinColumn(name = "idmensajejugador",insertable=false,updatable=false)
 	public Mensaje getMensaje() {
 		return this.mensaje;
 	}
@@ -59,7 +77,7 @@ public class Mensajejugador implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedulades")
+	@JoinColumn(name = "cedulades", insertable=false,updatable=false)
 	public Persona getPersonaByCedulades() {
 		return this.personaByCedulades;
 	}
@@ -69,13 +87,14 @@ public class Mensajejugador implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedularem")
+	@JoinColumn(name = "cedularem",insertable=false,updatable=false)
 	public Persona getPersonaByCedularem() {
 		return this.personaByCedularem;
 	}
-
 	public void setPersonaByCedularem(Persona personaByCedularem) {
 		this.personaByCedularem = personaByCedularem;
 	}
-
+	
+	
+	
 }

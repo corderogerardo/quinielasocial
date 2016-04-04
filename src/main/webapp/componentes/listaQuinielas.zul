@@ -1,39 +1,55 @@
-<window title="Todas Las Quinielas" height="500px" width="800px" border="normal"
-	apply="quinielasocial.lab.controller.ControladorListaQuinielas" sclass="margenTabla borde sombra" >
-	
-	<zscript><![CDATA[
-	     public void unirse(){
-	    	 Messagebox.show("Solicitud Enviada", "Información", Messagebox.OK, Messagebox.INFORMATION);}
 
-]]></zscript>
-	<hbox align="center">
+<window id="listadoDeQuinielas" sclass="margenTabla login"
+    apply="org.zkoss.bind.BindComposer, quinielasocial.lab.controller.ControladorTorneo"
+    viewModel="@id('vm') @init('quinielasocial.lab.controller.ControladorTorneo')" title="Haga Click sobre la quiniela a la que sea unirse">    
+    	<hbox align="center">
 		Palabra Clave:
 		<textbox id="txtPalabraClave" />
 		<button id="btnBuscar" label="Buscar"/>
 	</hbox>
-<div  apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('modelo') @init('quinielasocial.lab.controller.ControladorGridTorneos')">
-		<grid visible="true" id="datosTorneos" mold="paging" pageSize="5"  pagingPosition="top"
-			model="@load(modelo.obtenerTorneos)" >
-			<columns menupopup="auto">
-				<column width="150px" label="Nombre" />
-				<column width="110px" label="Administrador" />
-				<column width="150px" label="Fecha De Inicio" />
-			    <column width="150px" label="Fecha de Final" />
-			    <column width="100px" label="Participantes" />
-				<column width="120px" label="Solicitar Unirse" />
-				
-			</columns>	
-			<template name="model">
-				<row>
-					<label value="@load(each.nombre)" />
-					<a id="@load(each.cantParticipantes)" label="Jose Gabriel" onClick="cerrar()"/>
-					<label value="@load(each.fechaInicio)" />	
-					<label value="@load(each.fechaFin)" />		
-					<label value="@load(each.cantParticipantes)"/>
-					<button label="Unirse" onClick="unirse()"/>
-				</row>	
-			</template>
-		</grid>
-	</div>
+    <hlayout spacing="3">
+        <listbox  mold="paging" pageSize="8"
+            model="@load(vm.torneoList)" selectedItem="@bind(vm.selectedTorneo)">
+            <auxhead>
+                <auxheader colspan="5">Click sobre la quiniela para unirse</auxheader>
+            </auxhead>
+            <listhead>
+                <listheader label="Nombre del Equipo" width="200px" align="center" />
+                <listheader label="Descripcion" width="160px" align="center" />
+                <listheader label="Fecha Inicio" width="140px" align="center" />
+                <listheader label="Fecha Fin" width="140px" align="center" />
+                <listheader label="TorneoId" width="10px" align="center" visible="false" />
+                
+            </listhead>
+            <template name="model" var="torneo">
+                <listitem>
+                    <listcell label="@load(torneo.nombre)" />
+                    <listcell label="@load(torneo.descripcion)" />
+                    <listcell label="@load(torneo.fechainicio) @converter('formatedDate',format='dd/MM/yyyy')" />
+                    <listcell label="@load(torneo.fechafin)@converter('formatedDate',format='dd/MM/yyyy')" />
+                    <listcell label="@load(torneo.torneoId)" />
+
+                </listitem>
+            </template>
+ 
+        </listbox>
+        
+    </hlayout>
+    <hlayout>
+    <grid emptyMessage="No hay partidos aun para este torneo.">
+        <auxhead>
+            <auxheader colspan="5" align="center">Menu Torneo</auxheader>
+        </auxhead>
+        <columns>
+            <column label="Id" align="center" width="20px" visible="false"/>
+            
+        </columns>
+        <rows>
+            <row>
+            	<textbox id="idtor" value="@bind(vm.selectedTorneo.torneoId)"/>
+            </row>
+        </rows>
+    </grid>
+    
+    </hlayout>
 </window>

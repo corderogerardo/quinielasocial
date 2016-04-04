@@ -1,41 +1,79 @@
-
-<window id="participando" title="A continuacion las Quinielas En las Que Participas" sclass="margintabletittle borde sombra" 
-apply="quinielasocial.lab.controller.ControladorQuinielasParticipando">
-<zscript><![CDATA[
-	public void redireccionarRegistrarResultados() {
+<window id="quinielasParticipas" title="Quinielas en las que participas"
+    apply="org.zkoss.bind.BindComposer, quinielasocial.lab.controller.ControladorTorneo, 
+    quinielasocial.lab.controller.ControladorTorneoJugador" sclass="margenTabla login"
+    viewModel="@id('vm') @init('quinielasocial.lab.viewmodel.ParticipandoDatabindComposer')">
+    <hlayout spacing="0" height="250px">
+    
+        <zscript><![CDATA[
+	public void redireccionarAgregarPrediccion() {
 		Executions.sendRedirect("sesionAgregarPrediccion.zul");
 	}
-    public void cerrar() {
-        //create a window programmatically and use it as a modal dialog.
-        Window window = (Window)Executions.createComponents("/componentes/leerMensaje.zul", null, null);
-        window.doModal();
-    }
-
 
 ]]></zscript>
-<div  apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('modelo') @init('controlador.ControladorGridTorneos')">
-		<grid visible="true" id="datosTorneos" mold="paging" pageSize="5"  pagingPosition="top"
-			model="@load(modelo.obtenerTorneos)" >
-			<columns menupopup="auto">
-				<column width="150px" label="Nombre" />
-				<column width="110px" label="Administrador" />
-				<column width="150px" label="Fecha De Inicio" />
-			    <column width="150px" label="Fecha de Final" />
-			    <column width="100px" label="Participantes" />
-				<column width="120px" label="Editar" />
-				
-			</columns>	
-			<template name="model">
-				<row>
-					<label value="@load(each.nombre)" />
-					<a id="@load(each.cantParticipantes)" label="Jose Gabriel" onClick="cerrar()"/>
-					<label value="@load(each.fechaInicio)" />	
-					<label value="@load(each.fechaFin)" />		
-					<label value="@load(each.cantParticipantes)"/>
-					<button label="Ir" onClick="redireccionarRegistrarResultados()"/>
-				</row>	
-			</template>
-		</grid>
-	</div>
+
+        <listbox hflex="1"
+            model="@load(vm.torneoList)" selectedItem="@bind(vm.selectedTorneo)" mold="paging" pageSize="5">
+
+            <listhead>
+                <listheader label="Nombre" width="200px" align="center" />
+                <listheader label="Descripcion" width="220px" align="center" />
+                <listheader label="Fecha Inicio" width="150px" align="center" />
+                <listheader label="Fecha Fin" width="150px" align="center" />
+                <listheader label="Estado" width="200px" align="center" />
+                
+            </listhead>
+            <template name="model" var="torneo">
+                <listitem>
+
+                    <listcell label="@load(torneo.nombre)" />
+                    <listcell label="@load(torneo.descripcion)" />
+                    <listcell label="@load(torneo.fechainicio) @converter('formatedDate',format='dd/MM/yyyy')" />
+                    <listcell label="@load(torneo.fechafin) @converter('formatedDate',format='dd/MM/yyyy')" />
+                         <listcell if="${torneo.estadi==true}">
+                                  <label value="En curso" />
+                         </listcell>
+                    		<listcell unless="${torneo.estadi==true}">
+                             	<label value="Finalizó" />
+                   				</listcell>
+                  
+
+                </listitem>
+            </template>
+ 
+        </listbox>
+    </hlayout>
+    <grid emptyMessage="No hay partidos aun para este torneo.">
+        <auxhead>
+            <auxheader colspan="5" align="center">Menu Torneo</auxheader>
+        </auxhead>
+        <columns>
+            <column label="Id" align="center" width="20px" visible="false"/>
+            <column label="Nombre" align="center" width="365px"/>
+            <column label="Descripcion" align="center" width="360px"/>
+            <column label="Estado" align="center" width="10px" visible="false"/>
+            <column label="Opciones" align="center" width="200px"/>
+
+            
+            
+        </columns>
+        <rows>
+            <row>
+            	<textbox id="idtor" value="@bind(vm.selectedTorneo.torneoId)"/>
+                <textbox id="nombreTor" value="@bind(vm.selectedTorneo.nombre)" width="350px" />
+                <textbox id="desTor" value="@bind(vm.selectedTorneo.descripcion)"  width="350px"/>
+                <textbox id="estadoTor" value="@bind(vm.selectedTorneo.estadi)"/>
+         
+
+         
+        <menubar autodrop="true">
+        <menu label="Opciones" >          
+        <menupopup >
+                <menuitem id="agregarPred" label="Agregar Prediccion" onClick="redireccionarAgregarPrediccion()"/>
+                <menuitem id="rankin" label="Ver Clasificacion"/>
+            </menupopup>
+        </menu>
+        </menubar>
+            </row>
+        </rows>
+    </grid>
 </window>

@@ -16,23 +16,32 @@ import javax.persistence.Table;
 @Table(name = "jugadortorneo", schema = "public")
 public class Jugadortorneo implements java.io.Serializable {
 
+
+
 	private long jugadortorneoId;
 	private long idtorneo;
 	private String cedula;
-	private Long puntor;
+	private long puntor;
 	private String estado;
+
+
+
+	public Jugadortorneo(long jugadortorneoId, long idtorneo, String cedula, long puntor,
+			String estado) {
+		super();
+		this.jugadortorneoId = jugadortorneoId;
+		this.idtorneo = idtorneo;
+		this.puntor = puntor;
+		this.estado = estado;
+		this.cedula = cedula;
+	}
+
+
 
 	public Jugadortorneo() {
 	}
 
-	public Jugadortorneo(long jugadortorneoId, long idtorneo, String cedula, Long puntor, String estado) {
-		super();
-		this.jugadortorneoId = jugadortorneoId;
-		this.idtorneo = idtorneo;
-		this.cedula = cedula;
-		this.puntor = puntor;
-		this.estado = estado;
-	}
+
 
 	@Id
 	@Column(name = "jugadortorneo_id", unique = true, nullable = false)
@@ -43,40 +52,50 @@ public class Jugadortorneo implements java.io.Serializable {
 	public void setJugadortorneoId(long jugadortorneoId) {
 		this.jugadortorneoId = jugadortorneoId;
 	}
-	
-	@Column(name = "puntor")
-	public Long getPuntor() {
+	@Column(name = "puntor", nullable = true)
+	public long getPuntor() {
 		return this.puntor;
 	}
 
-	public void setPuntor(Long puntor) {
+	public void setPuntor(long puntor) {
 		this.puntor = puntor;
 	}
-	@Column(name="idtor", nullable = false)
+
+	@Column(name = "estado", nullable = true)
+	public String getEstado() {
+		return this.estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	@Column(name = "idtor", nullable = false)
 	public long getIdtorneo() {
 		return idtorneo;
 	}
 
+
+
 	public void setIdtorneo(long idtorneo) {
 		this.idtorneo = idtorneo;
 	}
-	@Column(name="cedulajugador", nullable = false)
-	public String getCedula() {
+	
+	@Column(name = "cedulajugador", nullable = true)
+	public final String getCedula() {
 		return cedula;
 	}
 
-	public void setCedula(String cedula) {
+
+
+	public final void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
 
-	public String getEstado() {
-		return estado;
-	}
-	@Column(name="estado", nullable = false)
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
 
-	
+
+
+
+
 
 }
