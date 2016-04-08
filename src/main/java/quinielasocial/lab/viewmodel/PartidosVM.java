@@ -43,7 +43,6 @@ import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
-import quinielasocial.lab.business.dao.EquipoDAO;
 import quinielasocial.lab.business.services.CRUDService;
 import quinielasocial.lab.domain.entity.Equipo;
 import quinielasocial.lab.domain.entity.Jugador;
