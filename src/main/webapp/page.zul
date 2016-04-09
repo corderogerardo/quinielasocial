@@ -6,6 +6,7 @@
   </hlayout>
   <separator bar="true"/>
   <hlayout spacing="24px">
-    <include src="content/registratelogin.zul" hflex="12"/>
+    <include src="users/login.zul" hflex="12" />
+     <include src="users/register.zul" hflex="12"/>
   </hlayout>
 </vlayout>

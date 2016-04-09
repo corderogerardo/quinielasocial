@@ -1,42 +1,5 @@
 <div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-		<span sclass="login-title">Inicia Sesión</span>
-		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-login" 
-			apply="quinielasocial.lab.controller.ControladorUsuario" 
-			id="loginWin">
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Correo (ej): player@gmail.com </span>
-			</div>
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="usuario" width="260px" 
-						sclass="input" 
-						constraint="no empty /.+@.+\.[a-z]+/: Por favor escribe tu correo"
-						/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>  
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Password : 1234</span>
-				
-			</div>
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="password" type="password" sclass="input"
-									width="260px" constraint="no empty: Por favor escribe tu Contraseña" 
-									/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>  
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<label id="message" sclass="warn" value="&#160;" />
-				<button id="login" label="Entrar" onClick="@command('login')"/>	
-				<span></span>
-			</div>  
-	       
-		</div> 		
-
-	</div> 	<!-- Fin iniciar sesion -->
-	
-	<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 		<span sclass="registrar-title">Registrarse</span>
 		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-registrar"
 			apply="quinielasocial.lab.controller.ControladorUsuario" 
@@ -124,14 +87,10 @@
 				<span></span>
 			</div>  
 		</div>	<!-- end inputs -->
+		
 		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 botones-registrar">
-				<button id="saved" label="Guardar" onClick="@command('saved')"/>
-				<span></span>
-		</div>  <!-- end botones -->
-		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 botones-registrar">
-				<button id="cancelar" label="Cancelar" onClick="@command('cancelar')"/>
+				<button id="saved" label="Registrar" onClick="@command('saved')"/>
 				<span></span>
 		</div>  <!-- end botones -->
 	</div> 	
-	
 </div>
