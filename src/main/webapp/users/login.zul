@@ -1,38 +1,32 @@
-<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-		<span sclass="login-title">Inicia Sesión</span>
-		<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-login" 
-			apply="quinielasocial.lab.controller.ControladorUsuario" 
+
+<div sclass="container">
+	<div sclass="row">
+		<div sclass="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div sclass="form-horizontal" apply="quinielasocial.lab.controller.ControladorUsuario" 
 			id="loginWin">
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Correo (ej): player@gmail.com </span>
-			</div>
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="usuario" width="260px" 
-						sclass="input" 
+					<div sclass="form-group">
+						<span >Iniciar Sesion</span>
+					</div>
+
+					<div sclass="form-group">
+						<span sclass="sr-only">Usuario</span>
+						<textbox id="usuario" width="260px" 
+						sclass="form-control" placeholder="Usuario" 
 						constraint="no empty /.+@.+\.[a-z]+/: Por favor escribe tu correo"
 						/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>  
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Password : 1234</span>
-				
-			</div>
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="password" type="password" sclass="input"
+					</div>
+					<div class="form-group">
+						<span sclass="sr-only"> Contraseña</span>
+						<textbox id="password" type="password" sclass="form-control" placeholder="Contraseña"
 									width="260px" constraint="no empty: Por favor escribe tu Contraseña" 
 									/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>  
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<label id="message" sclass="warn" value="&#160;" />
-				<button id="login" label="Entrar" onClick="@command('login')"/>	
-				<span></span>
-			</div>  
-	       
-		</div> 		
-
-	</div> 	<!-- Fin iniciar sesion -->
-</div>
+					</div>
+				<div sclass="form-group">
+						<div sclass="col-sm-10 col-sm-offset-2">
+							<button  id="login"  sclass="btn btn-primary" label="Entrar" onClick="@command('login')" />
+						</div>
+					</div>
+			</div>
+		</div><!-- Columna Principal -->
+	</div> <!-- Row -->
+</div><!-- Container -->
