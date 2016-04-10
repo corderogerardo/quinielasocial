@@ -1,96 +1,64 @@
-<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-		<span sclass="registrar-title">Registrarse</span>
-		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-registrar"
-			apply="quinielasocial.lab.controller.ControladorUsuario" 
+<div sclass="container">
+	<div sclass="row">
+		<div sclass="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div sclass="form-horizontal" apply="quinielasocial.lab.controller.ControladorUsuario" 
 			id="registerWin">
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Cedula:</span>
-			</div>
-			
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Nombre:</span>
-			</div>
-			
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Apellido:</span>
-			</div>
-			
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Correo :</span>
-			</div>
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Fecha de Nacimiento :</span>
-			</div>	
-			
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Contraseña :</span>
-			</div>
-			
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Confirmar Contraseña :</span>
-			</div>
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<span>Foto:</span>
-			</div>
-		</div> 	<!-- End labels -->
-		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 form-registrar">
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="cedula" sclass="input"
-				constraint="no empty: Por favor escribe tu cedula" 
+				<div sclass="form-group" xmlns:h="xhtml">
+					<h:h2 >Registrate</h:h2>
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Cedula</span>
+						<textbox id="cedula" sclass="form-control"
+				constraint="no empty: Por favor escribe tu cedula"  placeholder="Cedula"
 				width="260px"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div> 
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="nombre" sclass="input"
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Nombre</span>
+						<textbox id="nombre" sclass="form-control" placeholder="Nombre"
 				constraint="no empty: Por favor escribe tu nombre" width="260px"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="apellido" sclass="input" 
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Apellido</span>
+						<textbox id="apellido" sclass="form-control"  placeholder="Apellido"
 				constraint="no empty: Por favor escribe tu apellido" 
 				width="260px"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div> 
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="correo" sclass="input"
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Correo</span>
+						<textbox id="correo" sclass="form-control" placeholder="Correo"
 				constraint="/.+@.+\.[a-z]+/: Por favor escribe tu correo" 
 				width="260px"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div> 
-			 <div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<datebox id="fechanacimiento" sclass="input" width="260px" height="40px" constraint="no future"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div> 
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="clave" sclass="input" 
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Fecha Nacimiento</span>
+						<datebox id="fechanacimiento" placeholder="mm dd, yyyy" width="260px" height="50px" constraint="no future"/>
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Contraseña</span>
+						<textbox id="clave" sclass="form-control"  placeholder="Contraseña"
 				constraint="no empty: Por favor escribe tu contraseña " 
 				type="password" width="260px"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>  
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<textbox id="confcontrasena" sclass="input" 
+						
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Repetir Contraseña</span>
+						<textbox id="confcontrasena" sclass="form-control"  placeholder="Confirmar Contraseña"
 						constraint="no empty: Por favor repite tu contraseña " 
 						type="password" width="260px"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>  
-			<div sclass="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<button id="urlfoto" upload="true" sclass="input" label="Seleccionar Foto" width="260px"/>
-				<div sclass="borders"></div>
-				<span></span>
-			</div>  
-		</div>	<!-- end inputs -->
+						
+				</div>
+				<div sclass="form-group">
+						<span sclass="sr-only">Foto</span>
+						<button id="urlfoto" upload="true" sclass="btn btn-info" label="Seleccionar Foto" width="260px"/>
+						
+				</div>
+				<div sclass="form-group">
+					<div sclass="col-sm-10 col-sm-offset-2">
+						<button id="saved" sclass="btn btn-primary" label="Registrar" onClick="@command('saved')"/>
+						</div>
+				</div>
+			</div>
+		</div>
 		
-		<div sclass="col-xs-12 col-sm-12 col-md-6 col-lg-6 botones-registrar">
-				<button id="saved" label="Registrar" onClick="@command('saved')"/>
-				<span></span>
-		</div>  <!-- end botones -->
-	</div> 	
+	</div>
 </div>

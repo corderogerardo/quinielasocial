@@ -4,8 +4,8 @@
 		<div sclass="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 			<div sclass="form-horizontal" apply="quinielasocial.lab.controller.ControladorUsuario" 
 			id="loginWin">
-					<div sclass="form-group">
-						<span >Iniciar Sesion</span>
+					<div sclass="form-group" xmlns:h="xhtml">
+						<h:h2 >Iniciar Sesion</h:h2>
 					</div>
 
 					<div sclass="form-group">
